@@ -66,6 +66,37 @@ route is usually an answer.
 
 ---
 
+## Reach: targets and formats
+
+**Who.** `data/targets.yaml` records a recipient per prospect in one of three
+states - `named` (verified person, every fact with a source URL), `role` (the
+function, writer forbidden from inventing a person), `unknown`. Unsourced facts
+are dropped before the writer sees them and the writer is told they were
+dropped. The critic carries `invented_recipient` for any phrasing implying
+knowledge the record does not hold.
+
+Sourcing is public only: leadership pages, conference speaker lists, published
+interviews. No LinkedIn scraping - it breaches their terms, and demoing a
+ToS-violating scraper to a company selling into regulated BFSI argues against
+its own compliance story.
+
+**How.** `agent/formats.py` defines five formats across three channels:
+
+| Format | Channel | Note |
+|---|---|---|
+| Cold email | digital | the default, and the most competitive inbox they have |
+| LinkedIn note | digital | shorter leash; an email pasted here is ignored faster |
+| **Printed signal card** | **phygital** | A6, posted, carrying one number from their own reviews |
+| Personal micro-page | digital | gives the email somewhere to point |
+| 90-second walkthrough | creative | their own numbers, read aloud |
+
+`agent/card.py` renders the card print-ready at true A6 (148x105mm). The critic
+carries `format_violated`, which caught a card written like an email on its
+first run and passed it on revision.
+
+The experiment log keys on **angle x format x guidance**, so "which format moves
+senior leaders" is a measured question rather than an assertion.
+
 ## Running it
 
 ```bash
@@ -83,8 +114,18 @@ python -m src.score
 # 4. Run the agent eval harness
 python -m src.run_evals
 
-# 5. Generate outreach sequences
+# 5. Generate outreach sequences (template-based, superseded by the agent)
 python -m src.generate_messages --top 5
+
+# 6. Run the agent: formats x angles x prospects
+export ANTHROPIC_API_KEY=sk-ant-...
+python run_agent.py --top 2 --formats email,signal_card --angles evidence_audit \
+  --sender "Your Name" --url "your.github.io/nugget-signal-engine"
+
+# 7. Let it rewrite its own instructions from the failure log
+python -m agent.evolve            # propose
+python -m agent.evolve --apply    # apply
+python -m agent.evolve --history  # what changed and why
 ```
 
 If the Play Store is unreachable, step 1 marks every record `unreachable` and

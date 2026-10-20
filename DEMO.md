@@ -154,7 +154,78 @@ rm data/angle_evolution.yaml      # revert everything
 
 ---
 
+## Reach: who it writes to, and how it arrives
+
+Two dimensions were added after the first build, because prospecting a company
+and reaching a leader are not the same thing, and because every message being
+an email is not an experiment.
+
+**The target layer.** Each prospect carries a record in one of three states:
+`named` (a verified person, every fact carrying a source URL), `role` (the
+function, with the writer explicitly forbidden from inventing a person), or
+`unknown`. The critic enforces it with a hard fail called
+`invented_recipient` - any phrasing implying knowledge the record does not
+hold.
+
+> "Ask any model to write personally to the Head of CX at a company and it
+> produces something warm about their career and current priorities. All
+> invented, all fluent, and the recipient is the one person who knows it is
+> invented. So a role with no person attached is treated as a constraint, not
+> as a gap to fill."
+
+**Five formats, across three channels.** Email and LinkedIn (digital), a
+printed signal card (phygital), a personal micro-page (digital), and a
+90-second walkthrough script (creative). Each carries its own constraints,
+because a card cannot hold caveats in prose and a spoken script cannot lean on
+a table.
+
+**What happened on the card's first run:**
+
+```
+Printed signal card / Evidence audit
+  round 1: REJECT  score 3.0  hard fails: format_violated
+    "the back face is a cramped, jargon-heavy blob that likely breaks the
+     70-word limit, and the offer is garbled"
+  round 2: PASS  score 3.8
+```
+
+The critic caught a card written like an email. The card that shipped:
+
+```
+FRONT: 7.6%
+       of negative smallcase reviews cite the support channel, not the product
+BACK:  "...raised issue 45 days back, TKT-143999, still no resolution."
+       Directional only: one snapshot, no contact volumes, reviews skew angry.
+```
+
+**What to say:**
+
+> "The engine prospects companies, but the job is reaching leaders, so the
+> recipient is its own layer with its own hard fail. And every message being an
+> email is not an experiment, so format is a second dimension - the log keys on
+> angle times format, which makes 'what moves senior leaders' a measured
+> question. The card is the one I would actually bet on: it costs forty rupees,
+> it carries their own ticket number, and it is the only channel where nobody
+> else is competing for their attention."
+
+**Say the caveat:** one card generated so far. The machinery is real, the
+comparison is not yet.
+
+
+---
+
 ## Questions you will get
+
+**"Isn't the card a gimmick?"**
+> "It would be if it were a mug. It carries one number from their own public
+> reviews and their own ticket number, with the limitation printed on it. The
+> argument isn't novelty, it's that it is the one channel where the competition
+> is absent and the evidence still does the work."
+
+**"How would you get their address?"**
+> "Company registered office from the MCA filing or the website footer, marked
+> to the role. I would not use a home address, and the record only holds what a
+> public source states."
 
 **"Did the self-improvement actually work?"**
 > "On one angle, completely - target failure gone, ship rate 40 to 100%. On the
