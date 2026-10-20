@@ -201,8 +201,10 @@ rm data/angle_evolution.yaml      # revert everything
   thing that could lose you the room, because it's checkable in your own repo.
 - **Do not present the tax mechanics as settled law.** Say "as I understand it,
   and I'd verify before putting it in front of a client."
-- **Volunteer the Wint Wealth exclusion** before anyone asks. No employer data
-  is in this project; say so.
+- **Volunteer the employer exclusion** before anyone asks: your current
+  employer is left out of the prospect list on conflict-of-interest grounds,
+  and no employer data of any kind is in this project. Say it without naming
+  them unless they ask.
 - **Lead with the bugs, don't wait to be asked.** They are the most senior
   thing in the repo.
 - Don't oversell. It's a prototype built in an evening and saying so is

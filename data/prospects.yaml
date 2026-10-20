@@ -9,8 +9,8 @@
 # data/signals.json. If a collector cannot reach a source, the field stays null
 # and the confidence score degrades. We never guess.
 #
-# EXCLUSIONS: wint_wealth is deliberately absent. Author is currently employed
-# there; including an employer in a prospecting list built for a third party is
+# EXCLUSIONS: the author's current employer is deliberately absent from this
+# list. Including an employer in a prospecting list built for a third party is
 # a conflict of interest. See README "Conflicts & data hygiene".
 
 meta:

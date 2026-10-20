@@ -17,19 +17,33 @@ inbound and reputation, with customers spanning private banks, insurance,
 D2C and epharmacy. The thing it has never had to build is a repeatable outbound
 motion. That is what this is a prototype of.
 
-The wedge it prospects on comes from a finding the engine produces rather than
-asserts:
+## The hypothesis, and what happened to it
 
-> In Indian fixed-income wealth operations, a material share of support volume
-> sits in a query class where the correct automated behaviour is to refuse or
-> escalate. Vendors reporting **deflection rate** cannot see this class, because
-> a confidently wrong answer to a tax or settlement question scores as a
-> successfully deflected ticket.
+The project was built to argue this:
 
-Nugget's published Wealth page covers onboarding (CKYC, DigiLocker, eSign),
-product discovery, and investor support (portfolio summaries, ticket triage,
-human handoff). It does not address this class. That is an unworked wedge, not
-a contested one.
+> In Indian fixed-income operations, a material share of support volume sits in
+> a query class — TDS, Form 15G, maturity timing, XIRR reconciliation — where
+> the correct automated behaviour is to refuse or escalate. Vendors reporting
+> **deflection rate** cannot see this class, because a confidently wrong answer
+> to a tax question scores as a successfully deflected ticket.
+
+**The data did not support it.** Across 5,700 real Play Store reviews from 19
+BFSI apps collected 20 Oct 2026:
+
+- **Zero** TDS complaints
+- **17** hard-query mentions in total
+- The two bond platforms the thesis was built around ranked 10th and unscored
+
+Two readings fit and this data cannot separate them. App reviews may simply be
+the wrong instrument — nobody writes a store review about Form 15G, they raise
+a ticket — or the class is rarer than assumed. The honest position is that the
+hypothesis is **untested, not confirmed**. SEBI SCORES categorises complaints
+by type and is where it would be visible.
+
+What the data *does* support is the support-channel signal: among customers
+unhappy enough to write at length, what share are unhappy about the channel
+rather than the product. That varies 0–7.6% across the set, it is checkable by
+the recipient in ten minutes, and it is what the generated outreach hooks on.
 
 ## The finding
 
@@ -117,9 +131,9 @@ SEBI/RBI/IRDAI-regulated buyers would argue against its own compliance story.
 
 ## Conflicts and data hygiene
 
-Wint Wealth is **deliberately excluded** from the prospect universe. The author
-is currently employed there, and including an employer in a prospect list built
-for a third party is a conflict of interest.
+The author's current employer is **deliberately excluded** from the prospect
+universe. Including an employer in a prospect list built for a third party is a
+conflict of interest.
 
 **No employer data of any kind is used in this project** — no tickets, no
 volumes, no transcripts, no aggregate statistics. The query taxonomy in
@@ -129,7 +143,7 @@ contains nothing proprietary.
 
 ---
 
-## Three bugs found while building, kept in the history
+## Four bugs found while building, kept in the history
 
 **ICP fit returned 100 for all 31 prospects.** The vertical base was 100, the
 regulator and sub-vertical bonuses were added on top, and the total was clamped
@@ -149,16 +163,39 @@ generic FAQ both registered as `answered`. Those are opposite behaviours. The
 metric was measuring a proxy — *did it answer?* — instead of what matters: *did
 it answer from evidence about this user?* Fixed by judging on answer source.
 
-The third is the most instructive: a new agent configuration exposed that the
-measurement itself was wrong. That is most of what eval work actually is.
+**The pain scales were calibrated against data I invented.** The synthetic
+fixture assumed an 11–46% support-complaint share; real data came in at 1.7–7.3%
+on the original denominator. Every prospect landed in the bottom tenth of the
+scale, pain scores collapsed into a 24–32 band, and the factor carrying 45% of
+the weight stopped discriminating at all.
+
+The root cause was worse than the calibration: **the denominator was wrong.**
+Median review length in the real corpus is 13 characters and 63% are under 25 —
+"nice", "good app", an emoji. Dividing by all of them diluted every score about
+fivefold and made every prospect look healthy. Restricting to substantive
+reviews produced a real 3.7–24.8% spread.
+
+Two further corrections came out of the same run: the hard-query counter was
+matching topic words regardless of sentiment, scoring Grip Invest's five-star
+*"Easy dashboard shows upcoming repayment schedules"* as repayment pain; and the
+Hindi patterns initially included generic abuse terms (*ghatiya*, *bekar*),
+inflating the channel-failure metric with ordinary product dissatisfaction.
+
+The instructive ones are the third and fourth: a new agent configuration exposed
+that the measurement itself was wrong, and real data exposed that the scales
+were fitted to fiction. That is most of what this work actually is.
 
 ---
 
 ## Known limitations
 
-- Pain signals in the committed output are **synthetic**. Run the collector.
+- **Nine prospects have no data** — wrong Android package IDs returned 404,
+  including Jiraaf, the second bond platform. Absence is a collection failure,
+  not a clean bill of health.
 - Reachability is scored on size band alone; the two fields that matter are
   null across all 31 prospects, which is why confidence caps at 0.78.
+- **One snapshot, no trend.** A support surface degrading month over month is a
+  far stronger buying trigger than one that is merely bad.
 - App reviews are a biased sample — skewed toward angry and resolved-badly.
   Review share is directional evidence of support strain, not a measure of
   contact volume or real resolution rates.
