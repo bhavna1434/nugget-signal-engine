@@ -4,8 +4,7 @@ An AI-powered outbound engine for Nugget's BFSI pipeline, where the
 personalisation is driven by evidence of the prospect's actual support pain
 rather than by their LinkedIn headline.
 
-Built 20 October 2026 by Bhavna Sharma as a working prototype for the Growth
-Associate — Outreach and BD role.
+Built 20 October 2026 by Bhavna Sharma as a working prototype. 
 
 ---
 
