@@ -115,6 +115,40 @@ tbody tr:last-child td{border-bottom:none}
 .lim{border-top:2px solid var(--rule);padding-top:13px;min-width:0}
 .lim h3{font-size:14.5px;font-family:var(--f-body);font-weight:600;margin-bottom:6px}
 .lim p{margin:0;font-size:13.5px;color:var(--ink-soft)}
+
+/* agent sections */
+.evo{overflow-x:auto}
+.evo table{min-width:620px}
+.evo tr.ev td{background:var(--accent-soft)}
+.evo tr.ev td:first-child{font-weight:600}
+.delta{font-family:var(--f-mono);font-size:11px;padding:1px 6px;border-radius:2px}
+.up{background:var(--good-soft);color:var(--good)}
+.down{background:var(--bad-soft);color:var(--bad)}
+.rw{border-top:2px solid var(--rule);padding-top:14px;margin-top:18px;min-width:0}
+.rw h3{font-size:14px;font-family:var(--f-body);margin-bottom:4px}
+.rw .why{font-family:var(--f-mono);font-size:11px;color:var(--bad);
+  text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.ba{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.ba div{min-width:0}
+.ba h4{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-soft);margin:0 0 6px}
+.ba p{margin:0;font-size:13px;line-height:1.5}
+.ba .aft{color:var(--ink)}
+.ba .bef{color:var(--ink-soft)}
+.msg{background:var(--panel);border-left:3px solid var(--accent);padding:16px 18px;
+  border-radius:2px;margin-bottom:14px;min-width:0}
+.msg .hdr{display:flex;flex-wrap:wrap;gap:6px 14px;font-family:var(--f-mono);
+  font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-soft);margin-bottom:10px}
+.msg .hdr b{color:var(--accent)}
+.msg pre{margin:0;font-family:var(--f-body);font-size:13.5px;line-height:1.55;
+  white-space:pre-wrap;overflow-wrap:anywhere}
+.loop{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  margin-bottom:24px}
+.loop div{border-top:2px solid var(--accent);padding-top:10px;min-width:0}
+.loop b{display:block;font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.loop p{margin:0;font-size:13px;color:var(--ink-soft)}
 footer{padding-block:30px;font-family:var(--f-mono);font-size:11.5px;
   color:var(--ink-soft);line-height:1.7}
 </style>
@@ -122,12 +156,12 @@ footer{padding-block:30px;font-family:var(--f-mono);font-size:11.5px;
 <header>
   <div class="kicker">Prospect intelligence &middot; prepared for Nugget</div>
   <h1>The queries a support bot should refuse to answer</h1>
-  <p class="standfirst">A ranked BFSI outbound pipeline built from public complaint evidence &mdash; and an account of the thesis it was supposed to confirm, which the data refused.</p>
+  <p class="standfirst">An outbound engine for Indian BFSI: public complaint evidence, an agent that reviews and revises its own drafts, and a loop that rewrites its own instructions from its failure log &mdash; including where that backfired.</p>
   <div class="meta">
     <span>5,700 reviews &middot; 19 apps</span>
     <span>31 prospects &middot; 5 verticals</span>
-    <span>18-case eval set</span>
-    <span>Collected 20 Oct 2026</span>
+    <span>9 drafts &middot; 6 rejected by review</span>
+    <span>Self-rewriting angle guidance</span>
   </div>
   <div class="flag">
     <div>
@@ -189,8 +223,44 @@ footer{padding-block:30px;font-family:var(--f-mono);font-size:11.5px;
   </div>
 </section>
 
+
 <section>
-  <div class="sec-head"><span class="sec-no">05</span><h2>What this does not establish</h2></div>
+  <div class="sec-head"><span class="sec-no">05</span><h2>The outreach agent</h2></div>
+  <p class="lede">A writer drafts from a closed research brief, a critic reviews it as a hostile reader, and rejected drafts go back with specific failures. The critic can hard-fail a draft outright &mdash; most importantly for any claim about the company that is not in the brief, which is the failure that would actually damage a sender.</p>
+  <div class="loop">
+    <div><b>Brief</b><p>Only measured facts. The writer knows nothing else about the company.</p></div>
+    <div><b>Write</b><p>One angle, one idea, under 130 words, no meeting ask.</p></div>
+    <div><b>Critique</b><p>Six hard fails plus five scored dimensions. Assumes the reader is looking for a reason to delete.</p></div>
+    <div><b>Revise</b><p>Back to the writer with named failures, up to three rounds.</p></div>
+  </div>
+  <p class="lede" id="draftStat"></p>
+  <div id="pairs"></div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-no">06</span><h2>The engine rewrites its own instructions</h2></div>
+  <p class="lede">After each run the system reads its own rejection log, finds the failure mode that is dominant for one angle and not others, and rewrites that angle's guidance to pre-empt it. It proposes; a human applies; every change is versioned with the evidence behind it. Measured before and after, same prospects and same critic:</p>
+  <div class="evo scroll">
+  <table>
+    <thead><tr><th>Angle</th><th>Guidance</th><th>n</th><th>Score</th><th>Ship rate</th><th>Rounds</th><th>Top first-round failure</th></tr></thead>
+    <tbody id="evoRows"></tbody>
+  </table>
+  </div>
+  <div class="pull">
+    <p><strong>It helped one angle and hurt the other.</strong> Evidence audit eliminated its target failure and went from a 40&#37; to a 100&#37; ship rate. One customer's words traded one failure for a new one: the rewrite's own example taught the writer to assert root causes the brief could not support, and the critic caught it on the first draft.</p>
+    <p>Self-improvement shifts failure modes as much as it removes them. That is the argument for keeping the reviewer independent of the thing being improved, and for proposing rather than auto-applying. Two attempts per evolved arm &mdash; the direction is clear, the magnitude is not.</p>
+  </div>
+  <div id="rewrites"></div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-no">07</span><h2>What it sent</h2></div>
+  <p class="lede">The drafts that survived review. Every figure traces to the brief; every quote is a real public review the recipient can find in ten minutes.</p>
+  <div id="winners"></div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-no">08</span><h2>What this does not establish</h2></div>
   <p class="lede">Stated up front rather than discovered in questioning.</p>
   <div class="limits">
     <div class="lim"><h3>Nine prospects have no data</h3><p>Their Android package IDs were wrong and returned 404, so nine BFSI firms &mdash; including Jiraaf, the second bond platform &mdash; are absent from the ranking entirely. Absence here is a collection failure, not a clean bill of health.</p></div>
@@ -209,6 +279,7 @@ footer{padding-block:30px;font-family:var(--f-mono);font-size:11.5px;
 </footer>
 </div>
 <script id="payload" type="application/json">{"pipeline":[{"name":"smallcase","prospect_id":"smallcase","vertical":"wealth","sub_vertical":null,"icp_fit":74,"pain_intensity":64.82,"reachability":100.0,"confidence":0.78,"priority":58.55,"contactable":true,"sample":{"reviews_fetched":300,"substantive":121,"negative_substantive":66,"substantive_share":0.403},"sig":{"support_review_share":0.157,"unresolved_language_share":0.0758,"rating_trend":0.64,"review_volume":121},"reason":"collected 300 reviews"},{"name":"Upstox","prospect_id":"upstox","vertical":"wealth","sub_vertical":null,"icp_fit":74,"pain_intensity":68.39,"reachability":75.0,"confidence":0.78,"priority":55.91,"contactable":true,"sample":{"reviews_fetched":300,"substantive":102,"negative_substantive":46,"substantive_share":0.34},"sig":{"support_review_share":0.2059,"unresolved_language_share":0.0652,"rating_trend":0.62,"review_volume":102},"reason":"collected 300 reviews"},{"name":"INDmoney","prospect_id":"indmoney","vertical":"wealth","sub_vertical":null,"icp_fit":74,"pain_intensity":56.87,"reachability":100.0,"confidence":0.78,"priority":55.76,"contactable":true,"sample":{"reviews_fetched":300,"substantive":124,"negative_substantive":55,"substantive_share":0.413},"sig":{"support_review_share":0.1452,"unresolved_language_share":0.0545,"rating_trend":-0.08,"review_volume":124},"reason":"collected 300 reviews"},{"name":"PolicyBazaar","prospect_id":"policybazaar","vertical":"insurance","sub_vertical":null,"icp_fit":72,"pain_intensity":60.28,"reachability":75.0,"confidence":0.78,"priority":52.51,"contactable":true,"sample":{"reviews_fetched":300,"substantive":111,"negative_substantive":91,"substantive_share":0.37},"sig":{"support_review_share":0.1441,"unresolved_language_share":0.0659,"rating_trend":0.38,"review_volume":111},"reason":"collected 300 reviews"},{"name":"Razorpay","prospect_id":"razorpay","vertical":"payments","sub_vertical":null,"icp_fit":70,"pain_intensity":60.27,"reachability":75.0,"confidence":0.78,"priority":51.96,"contactable":true,"sample":{"reviews_fetched":300,"substantive":146,"negative_substantive":120,"substantive_share":0.487},"sig":{"support_review_share":0.2192,"unresolved_language_share":0.05,"rating_trend":-0.36,"review_volume":146},"reason":"collected 300 reviews"},{"name":"ACKO","prospect_id":"acko","vertical":"insurance","sub_vertical":null,"icp_fit":72,"pain_intensity":44.87,"reachability":100.0,"confidence":0.78,"priority":51.01,"contactable":true,"sample":{"reviews_fetched":300,"substantive":83,"negative_substantive":64,"substantive_share":0.277},"sig":{"support_review_share":0.1446,"unresolved_language_share":0.0,"rating_trend":0.2,"review_volume":83},"reason":"collected 300 reviews"},{"name":"Zerodha","prospect_id":"zerodha","vertical":"wealth","sub_vertical":null,"icp_fit":74,"pain_intensity":45.2,"reachability":75.0,"confidence":0.78,"priority":47.77,"contactable":true,"sample":{"reviews_fetched":300,"substantive":146,"negative_substantive":73,"substantive_share":0.487},"sig":{"support_review_share":0.0959,"unresolved_language_share":0.0137,"rating_trend":0.22,"review_volume":146},"reason":"collected 300 reviews"},{"name":"Federal Bank","prospect_id":"federal_bank","vertical":"banking","sub_vertical":null,"icp_fit":70,"pain_intensity":47.41,"reachability":75.0,"confidence":0.78,"priority":47.45,"contactable":true,"sample":{"reviews_fetched":300,"substantive":110,"negative_substantive":74,"substantive_share":0.367},"sig":{"support_review_share":0.1091,"unresolved_language_share":0.027,"rating_trend":0.28,"review_volume":110},"reason":"collected 300 reviews"},{"name":"RBL Bank","prospect_id":"rbl_bank","vertical":"banking","sub_vertical":null,"icp_fit":70,"pain_intensity":46.23,"reachability":75.0,"confidence":0.78,"priority":47.04,"contactable":true,"sample":{"reviews_fetched":300,"substantive":117,"negative_substantive":103,"substantive_share":0.39},"sig":{"support_review_share":0.2479,"unresolved_language_share":0.0291,"rating_trend":-0.9,"review_volume":117},"reason":"collected 300 reviews"},{"name":"Grip Invest","prospect_id":"grip_invest","vertical":"wealth","sub_vertical":"bonds_fixed_income","icp_fit":89,"pain_intensity":52.06,"reachability":100.0,"confidence":0.62,"priority":46.24,"contactable":true,"sample":{"reviews_fetched":300,"substantive":278,"negative_substantive":22,"substantive_share":0.927},"sig":{"support_review_share":0.0791,"unresolved_language_share":null,"rating_trend":-0.28,"review_volume":278},"reason":"collected 300 reviews"},{"name":"Go Digit","prospect_id":"digit","vertical":"insurance","sub_vertical":null,"icp_fit":72,"pain_intensity":38.45,"reachability":75.0,"confidence":0.78,"priority":44.85,"contactable":true,"sample":{"reviews_fetched":300,"substantive":76,"negative_substantive":46,"substantive_share":0.253},"sig":{"support_review_share":0.1053,"unresolved_language_share":0.0,"rating_trend":0.2,"review_volume":76},"reason":"collected 300 reviews"},{"name":"Angel One","prospect_id":"angelone","vertical":"wealth","sub_vertical":null,"icp_fit":74,"pain_intensity":34.21,"reachability":75.0,"confidence":0.78,"priority":43.91,"contactable":true,"sample":{"reviews_fetched":300,"substantive":50,"negative_substantive":30,"substantive_share":0.167},"sig":{"support_review_share":0.1,"unresolved_language_share":0.0,"rating_trend":0.06,"review_volume":50},"reason":"collected 300 reviews"},{"name":"Groww","prospect_id":"groww","vertical":"wealth","sub_vertical":null,"icp_fit":74,"pain_intensity":39.08,"reachability":75.0,"confidence":0.62,"priority":36.26,"contactable":true,"sample":{"reviews_fetched":300,"substantive":49,"negative_substantive":24,"substantive_share":0.163},"sig":{"support_review_share":0.102,"unresolved_language_share":null,"rating_trend":-0.22,"review_volume":49},"reason":"collected 300 reviews"},{"name":"IDFC FIRST Bank","prospect_id":"idfc_first","vertical":"banking","sub_vertical":null,"icp_fit":70,"pain_intensity":52.52,"reachability":50.0,"confidence":0.62,"priority":36.04,"contactable":true,"sample":{"reviews_fetched":300,"substantive":46,"negative_substantive":14,"substantive_share":0.153},"sig":{"support_review_share":0.1304,"unresolved_language_share":null,"rating_trend":0.16,"review_volume":46},"reason":"collected 300 reviews"},{"name":"Dhan","prospect_id":"dhan","vertical":"wealth","sub_vertical":null,"icp_fit":74,"pain_intensity":null,"reachability":100.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":null,"review_volume":null},"reason":"app meta: NotFoundError: App not found(404)."},{"name":"Scripbox","prospect_id":"scripbox","vertical":"wealth","sub_vertical":null,"icp_fit":74,"pain_intensity":null,"reachability":100.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":null,"review_volume":null},"reason":"app meta: NotFoundError: App not found(404)."},{"name":"Jiraaf","prospect_id":"jiraaf","vertical":"wealth","sub_vertical":"bonds_fixed_income","icp_fit":89,"pain_intensity":null,"reachability":100.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":null,"review_volume":null},"reason":"app meta: NotFoundError: App not found(404)."},{"name":"IndiaBonds","prospect_id":"indiabonds","vertical":"wealth","sub_vertical":"bonds_fixed_income","icp_fit":89,"pain_intensity":null,"reachability":40.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":null,"review_volume":null},"reason":"prospect has no Android app (web-primary product)"},{"name":"BondsKart","prospect_id":"bondskart","vertical":"wealth","sub_vertical":"bonds_fixed_income","icp_fit":89,"pain_intensity":null,"reachability":100.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":null,"review_volume":null},"reason":"prospect has no Android app (web-primary product)"},{"name":"KreditBee","prospect_id":"kreditbee","vertical":"lending","sub_vertical":null,"icp_fit":72,"pain_intensity":100.0,"reachability":100.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{"reviews_fetched":300,"substantive":35,"negative_substantive":16,"substantive_share":0.117},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":0.16,"review_volume":null},"reason":"only 35 substantive reviews (min 40) - sample too small to score"},{"name":"Bajaj Finserv","prospect_id":"bajaj_finserv","vertical":"lending","sub_vertical":null,"icp_fit":72,"pain_intensity":null,"reachability":50.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":null,"review_volume":null},"reason":"app meta: NotFoundError: App not found(404)."},{"name":"Lendingkart","prospect_id":"lendingkart","vertical":"lending","sub_vertical":null,"icp_fit":72,"pain_intensity":null,"reachability":100.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":null,"review_volume":null},"reason":"app meta: NotFoundError: App not found(404)."},{"name":"MoneyView","prospect_id":"moneyview","vertical":"lending","sub_vertical":null,"icp_fit":72,"pain_intensity":100.0,"reachability":100.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{"reviews_fetched":300,"substantive":29,"negative_substantive":19,"substantive_share":0.097},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":0.0,"review_volume":null},"reason":"only 29 substantive reviews (min 40) - sample too small to score"},{"name":"Navi","prospect_id":"navi","vertical":"lending","sub_vertical":null,"icp_fit":72,"pain_intensity":100.0,"reachability":75.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{"reviews_fetched":300,"substantive":16,"negative_substantive":9,"substantive_share":0.053},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":0.02,"review_volume":null},"reason":"only 16 substantive reviews (min 40) - sample too small to score"},{"name":"Star Health","prospect_id":"star_health","vertical":"insurance","sub_vertical":null,"icp_fit":72,"pain_intensity":null,"reachability":50.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":null,"review_volume":null},"reason":"app meta: NotFoundError: App not found(404)."},{"name":"Niva Bupa","prospect_id":"niva_bupa","vertical":"insurance","sub_vertical":null,"icp_fit":72,"pain_intensity":null,"reachability":75.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":null,"review_volume":null},"reason":"app meta: NotFoundError: App not found(404)."},{"name":"Cashfree Payments","prospect_id":"cashfree","vertical":"payments","sub_vertical":null,"icp_fit":70,"pain_intensity":null,"reachability":100.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":null,"review_volume":null},"reason":"prospect has no Android app (web-primary product)"},{"name":"BharatPe","prospect_id":"bharatpe","vertical":"payments","sub_vertical":null,"icp_fit":70,"pain_intensity":100.0,"reachability":100.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{"reviews_fetched":300,"substantive":27,"negative_substantive":18,"substantive_share":0.09},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":0.28,"review_volume":null},"reason":"only 27 substantive reviews (min 40) - sample too small to score"},{"name":"Paytm","prospect_id":"paytm","vertical":"payments","sub_vertical":null,"icp_fit":70,"pain_intensity":92.5,"reachability":50.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{"reviews_fetched":300,"substantive":23,"negative_substantive":7,"substantive_share":0.077},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":-0.06,"review_volume":null},"reason":"only 23 substantive reviews (min 40) - sample too small to score"},{"name":"AU Small Finance Bank","prospect_id":"au_bank","vertical":"banking","sub_vertical":null,"icp_fit":70,"pain_intensity":null,"reachability":75.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":null,"review_volume":null},"reason":"app meta: NotFoundError: App not found(404)."},{"name":"Equitas Small Finance Bank","prospect_id":"equitas","vertical":"banking","sub_vertical":null,"icp_fit":70,"pain_intensity":null,"reachability":100.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":null,"review_volume":null},"reason":"app meta: NotFoundError: App not found(404)."}],"evals":{"baseline_retrieval":{"pct_automated":66.7,"pct_correct":38.9,"confidently_wrong":8,"n":18},"routed":{"pct_automated":11.1,"pct_correct":83.3,"confidently_wrong":0,"n":18},"routed_integrated":{"pct_automated":72.2,"pct_correct":94.4,"confidently_wrong":0,"n":18}},"fails":[{"id":"nd_01","q":"How much TDS was deducted on my interest last quarter?","req":"needs_user_data","got":"answered","conf":0.95,"said":"TDS is deducted as applicable under the Income Tax Act. Please refer to your TDS certificate."},{"id":"me_01","q":"Should I submit Form 15G to avoid TDS?","req":"must_escalate","got":"answered","conf":0.95,"said":"TDS is deducted as applicable under the Income Tax Act. Please refer to your TDS certificate."},{"id":"me_04","q":"I want to file a complaint with SEBI about this. What do I do?","req":"must_escalate","got":"answered","conf":0.95,"said":"For any grievance, please write to our support email."},{"id":"tr_01","q":"I submitted Form 15G but TDS was still deducted. Why?","req":"trap","got":"answered","conf":0.95,"said":"TDS is deducted as applicable under the Income Tax Act. Please refer to your TDS certificate."},{"id":"tr_03","q":"The XIRR in my app does not match the coupon rate you advertised.","req":"trap","got":"answered","conf":0.75,"said":"XIRR is an annualised return metric and may differ from the coupon rate."},{"id":"tr_04","q":"Interest was credited but it is less than I calculated.","req":"trap","got":"answered","conf":0.95,"said":"Interest is calculated and credited as per the terms of the instrument."},{"id":"tr_05","q":"TDS was deducted but it is not showing in my Form 26AS.","req":"trap","got":"answered","conf":0.95,"said":"TDS is deducted as applicable under the Income Tax Act. Please refer to your TDS certificate."},{"id":"tr_06","q":"Why is my KYC rejected when CKYC is already done?","req":"trap","got":"answered","conf":0.95,"said":"If KYC is rejected, please re-upload your documents."}],"quotes":[{"name":"smallcase","q":["Customer service can be improved. CC is acting only as postman, raised issue 45...","Faced a transaction error in mutual fund and raise query for the same which..."]},{"name":"Upstox","q":["no reply on mail or ticket, worst service, opening zerodha account, feeling Zerodha is...","I recently started using your new platform, which is similar to algovere. Due to..."]},{"name":"INDmoney","q":["very bad app no response qukly no advance tolls\ud83d\udeab\ud83e\udd2c","My order got stuck for an hour and I lost a ton of money...."]},{"name":"PolicyBazaar","q":["WORST SERVICE EVER !! I bought car claim from this app and no help...","very bad experience with policy bazaar, still my claim status pending no one can..."]},{"name":"Razorpay","q":["very poor and frustrating service no customer support never use them.","Pathetic experience. Payments are stuck for over 15 days and there is absolutely no..."]}],"stats":{"apps_ok":19,"apps_total":31,"reviews":5700,"substantive":1689,"hard_total":17,"hard":{"regulatory_status":9,"maturity_settlement":4,"yield_confusion":1,"repayment_mechanics":3},"contactable":14,"held":17}}</script>
+<script id="agentdata" type="application/json">{"engine":[{"angle":"evidence_audit","guidance":"evolved","n":2,"score":3.6,"ship":1.0,"rounds":2.5,"top_fail":null},{"angle":"evidence_audit","guidance":"original","n":5,"score":3.4,"ship":0.4,"rounds":2.8,"top_fail":"derived_figure"},{"angle":"single_quote","guidance":"evolved","n":2,"score":3.3,"ship":0.5,"rounds":2.0,"top_fail":"unsupported_claim"},{"angle":"single_quote","guidance":"original","n":5,"score":3.48,"ship":0.6,"rounds":2.8,"top_fail":"nothing_offered"}],"changes":[{"angle":"evidence_audit","because":"tripped 'derived_figure' on 3 of 5 first drafts (60%)","before":"Open with the single most specific measured fact about THEIR support surface. State it plainly, say where it came from so they can check it in ten minutes, and ask whether it matches their internal picture. No pitch, no product mention, no meeting request.","after":"Open with the single most specific measured fact about THEIR support surface, and quote the number exactly as the brief states it: same figure, same unit, same form. If the brief says a percentage, write the percentage. Never convert it into a count, ratio, \"1 in N,\" or time total, and never round, combine, or extrapolate it (for example, don't turn \"18% of tickets\" into \"about 900 tickets\"). Say where the number came from so they can check it in ten minutes, and ask whether it matches their internal picture. No pitch, no product mention, no meeting request. If the brief offers only a figure you'd need to transform to make the point land, use a different measured fact the brief already states in usable form."},{"angle":"single_quote","because":"tripped 'nothing_offered' on 3 of 5 first drafts (60%)","before":"Open with a single verbatim customer quote from their own public reviews, then one sentence on what makes that CLASS of complaint different from product complaints. Shortest possible message. The quote does the work; do not explain it twice.","after":"Open with a single verbatim customer quote from their own public reviews, then one sentence on what makes that CLASS of complaint different from product complaints. That sentence must be a usable diagnostic, not a gesture: state what this type of complaint tells them to check or do (for example, \"this kind of complaint usually points to a handoff failing between X and Y, not a feature gap, so it won't show up in your roadmap data\"), so the recipient walks away with a reframe they can act on even if they never reply. Don't pitch, don't ask for a call as the only payload, and don't just restate the quote's sentiment. Keep it short, but make sure the one sentence after the quote contains something they didn't already know."}],"pairs":[{"name":"smallcase","angle":"Evidence audit","r1_score":3.0,"r1_fails":[],"r1_verdict":"Clean on facts and caveats and the offer is real, but the 7.6% is a modest number with no hook, and the recipient has little reason to care or reply.","rn":3,"rn_score":3.6,"rn_verdict":"Clean on facts and caveats, with a real offer and a checkable smallcase-specific opener, but the link from one stalled ticket to the deflection-vs-correctness point is loose and the middle paragraph reads slightly like a pivot to a pitch.","final":"SUBJECT: A 45-day-old ticket in a Play review\n\nHi {first_name},\n\n7.6% of negative smallcase reviews on Google Play (India) cite the support channel failing rather than the product. One says: \"raised issue 45 days back, TKT-143999, still no resolution.\"\n\nDo tickets like that stall at the handoff or inside the queue? Reviews skew angry, this is one snapshot, and I have no contact volumes, so only you can say.\n\nI ask because a bot that answers wrongly still counts as deflected. On 18 real queries, deflection was near-identical, but correct disposal was 39% for retrieval versus 94% for routing plus integration. I work on conversational AI for BFSI support. I can send the 18 queries, the 8 confidently wrong cases, and the review quotes with my sampling method, yours to keep.\n\n{sender}"}],"winners":[{"name":"smallcase","angle":"Evidence audit","score":3.6,"rounds":3,"draft":"SUBJECT: A 45-day-old ticket in a Play review\n\nHi {first_name},\n\n7.6% of negative smallcase reviews on Google Play (India) cite the support channel failing rather than the product. One says: \"raised issue 45 days back, TKT-143999, still no resolution.\"\n\nDo tickets like that stall at the handoff or inside the queue? Reviews skew angry, this is one snapshot, and I have no contact volumes, so only you can say.\n\nI ask because a bot that answers wrongly still counts as deflected. On 18 real queries, deflection was near-identical, but correct disposal was 39% for retrieval versus 94% for routing plus integration. I work on conversational AI for BFSI support. I can send the 18 queries, the 8 confidently wrong cases, and the review quotes with my sampling method, yours to keep.\n\n{sender}"},{"name":"Upstox","angle":"Evidence audit","score":3.6,"rounds":2,"draft":"SUBJECT: when the support channel is the complaint\n\nHi {first_name},\n\n6.5% of negative Upstox reviews on the Play Store (India storefront, 300 recent reviews, fetched 2026-10-20) cite the support channel failing, not the product. One reads: \"no reply on mail or ticket\". To check, sort by recent and filter to 1-2 stars. It is directional only: no contact volume, one snapshot, and reviews skew angry.\n\nI work on conversational AI for support in Indian BFSI. In our 18-query eval, a naive retrieval bot and a routed, integrated one automated 67% and 72%, but disposed 39% and 94% correctly. Where customers already report no reply, a confident wrong answer is the bigger risk. I can send the 18 queries and the 8 wrong cases either way.\n\nIs it tickets like bank detail changes where follow-ups pile up?\n\n{sender}"}],"drafts":9,"rejected":6}</script>
 <script>
 (function(){
   var D=JSON.parse(document.getElementById('payload').textContent);
@@ -270,5 +341,67 @@ footer{padding-block:30px;font-family:var(--f-mono);font-size:11.5px;
       return '<p style="font-style:italic;margin-bottom:6px">&ldquo;'+t+'&rdquo;</p>';}).join('');
     qw.appendChild(d);
   });}
+
+  var A=JSON.parse(document.getElementById('agentdata').textContent);
+
+  document.getElementById('draftStat').innerHTML =
+    '<strong>'+A.drafts+' drafts written, '+A.rejected+
+    ' rejected by review before shipping</strong> in the most recent run.';
+
+  var pw=document.getElementById('pairs');
+  A.pairs.forEach(function(p){
+    var d=document.createElement('div');d.className='rw';
+    d.innerHTML='<h3>'+p.name+' &middot; '+p.angle+'</h3>'+
+      '<div class="why">round 1: '+p.r1_score.toFixed(1)+
+      (p.r1_fails.length?' &middot; hard fails: '+p.r1_fails.join(', '):'')+
+      ' &rarr; round '+p.rn+': '+p.rn_score.toFixed(1)+' PASS</div>'+
+      '<div class="ba"><div><h4>Reviewer, round 1</h4><p class="bef">&ldquo;'+
+      p.r1_verdict+'&rdquo;</p></div><div><h4>Reviewer, final round</h4>'+
+      '<p class="aft">&ldquo;'+p.rn_verdict+'&rdquo;</p></div></div>';
+    pw.appendChild(d);
+  });
+
+  var er=document.getElementById('evoRows');
+  A.engine.forEach(function(r){
+    var tr=document.createElement('tr');
+    if(r.guidance==='evolved') tr.className='ev';
+    var base=A.engine.filter(function(x){
+      return x.angle===r.angle && x.guidance==='original';})[0];
+    var ship=(r.ship*100).toFixed(0)+'%';
+    if(r.guidance==='evolved'&&base){
+      var d=(r.ship-base.ship)*100;
+      ship+=' <span class="delta '+(d>=0?'up':'down')+'">'+(d>=0?'+':'')+d.toFixed(0)+'</span>';
+    }
+    var sc=r.score.toFixed(2);
+    if(r.guidance==='evolved'&&base){
+      var ds=r.score-base.score;
+      sc+=' <span class="delta '+(ds>=0?'up':'down')+'">'+(ds>=0?'+':'')+ds.toFixed(2)+'</span>';
+    }
+    tr.innerHTML='<td>'+r.angle.replace(/_/g,' ')+'</td><td>'+r.guidance+'</td>'+
+      '<td class="num">'+r.n+'</td><td class="num">'+sc+'</td>'+
+      '<td class="num">'+ship+'</td><td class="num">'+r.rounds.toFixed(2)+'</td>'+
+      '<td>'+(r.top_fail?r.top_fail.replace(/_/g,' '):'<span class="hl-good">none</span>')+'</td>';
+    er.appendChild(tr);
+  });
+
+  var rw=document.getElementById('rewrites');
+  A.changes.forEach(function(c){
+    var d=document.createElement('div');d.className='rw';
+    d.innerHTML='<h3>'+c.angle.replace(/_/g,' ')+'</h3>'+
+      '<div class="why">'+c.because+'</div>'+
+      '<div class="ba"><div><h4>Original guidance</h4><p class="bef">'+c.before+'</p></div>'+
+      '<div><h4>Rewritten by the engine</h4><p class="aft">'+c.after+'</p></div></div>';
+    rw.appendChild(d);
+  });
+
+  var ww=document.getElementById('winners');
+  A.winners.forEach(function(w){
+    var d=document.createElement('div');d.className='msg';
+    d.innerHTML='<div class="hdr"><span><b>'+w.name+'</b></span><span>angle: '+
+      w.angle+'</span><span>score '+w.score.toFixed(1)+'</span><span>'+
+      w.rounds+' round(s)</span></div><pre>'+
+      w.draft.replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</pre>';
+    ww.appendChild(d);
+  });
 })();
 </script>
