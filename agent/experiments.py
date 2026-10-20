@@ -29,6 +29,19 @@ LOG = ROOT / "out" / "experiments" / "log.jsonl"
 
 
 def record_run(result: dict) -> None:
+    """
+    Append one row per angle attempt.
+
+    Each row records WHICH GUIDANCE VERSION produced it. Without that, the
+    aggregate silently averages attempts written under different instructions
+    and reports them as one number - which is what happened on the first run
+    after evolve.py shipped: the table mixed 5 pre-evolution attempts with 2
+    post-evolution ones and still named a failure mode the new guidance had
+    eliminated. An experiment log that cannot distinguish its own conditions
+    is not an experiment log.
+    """
+    from agent.angles import EVOLVED
+
     LOG.parent.mkdir(parents=True, exist_ok=True)
     with LOG.open("a") as f:
         for a in result["angles"]:
@@ -40,6 +53,10 @@ def record_run(result: dict) -> None:
                         "name": result["name"],
                         "vertical": result["vertical"],
                         "angle": a["angle"],
+                        # "original" or "evolved": which instruction set wrote
+                        # this draft. Rows without the field predate evolve.py
+                        # and are treated as "original".
+                        "guidance": "evolved" if a["angle"] in EVOLVED else "original",
                         "final_score": a["final_score"],
                         "shipped": a["shipped"],
                         "rounds_used": a["rounds_used"],
@@ -80,12 +97,15 @@ def aggregate() -> dict:
         return {"runs": 0}
     rows = [json.loads(l) for l in LOG.read_text().splitlines() if l.strip()]
 
+    # Group by (angle, guidance version). Averaging across versions hides the
+    # very effect the evolution loop exists to produce.
     by_angle = defaultdict(list)
     fails_by_angle = defaultdict(lambda: defaultdict(int))
     for r in rows:
-        by_angle[r["angle"]].append(r)
+        key = (r["angle"], r.get("guidance", "original"))
+        by_angle[key].append(r)
         for hf in r.get("hard_fails_first_round") or []:
-            fails_by_angle[r["angle"]][hf] += 1
+            fails_by_angle[key][hf] += 1
 
     summary = {}
     for angle, rs in by_angle.items():
@@ -109,7 +129,7 @@ def aggregate() -> dict:
 
     return {
         "runs": len(rows),
-        "angles": dict(sorted(summary.items(), key=lambda kv: -kv[1]["mean_score"])),
+        "angles": dict(sorted(summary.items(), key=lambda kv: (kv[0][0], kv[0][1]))),
         "caveat": (
             "Ranked on critic-judged draft quality, not reply rate. "
             f"{sum(1 for r in rows if r['replied'] is not None)} real outcomes "
@@ -124,13 +144,16 @@ def print_aggregate() -> None:
         print("No experiments logged yet.")
         return
     print(f"\nANGLE PERFORMANCE  ({a['runs']} logged attempts)")
-    print("=" * 78)
-    print(f"{'angle':<20}{'n':>4}{'score':>8}{'ship':>8}{'rounds':>8}  top first-round failure")
-    print("-" * 78)
-    for angle, s in a["angles"].items():
-        top = next(iter(s["common_first_round_failures"]), "-")
+    print("=" * 84)
+    print(
+        f"{'angle':<18}{'guidance':<11}{'n':>4}{'score':>8}{'ship':>8}"
+        f"{'rounds':>8}  top first-round failure"
+    )
+    print("-" * 84)
+    for (angle, version), s in a["angles"].items():
+        top = next(iter(s["common_first_round_failures"]), "none")
         print(
-            f"{angle:<20}{s['n']:>4}{s['mean_score']:>8.2f}"
+            f"{angle:<18}{version:<11}{s['n']:>4}{s['mean_score']:>8.2f}"
             f"{s['ship_rate']:>8.0%}{s['mean_rounds']:>8.2f}  {top}"
         )
     print("-" * 78)

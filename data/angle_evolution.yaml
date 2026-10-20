@@ -1,0 +1,45 @@
+# Evolved angle guidance - WRITTEN BY agent/evolve.py, NOT BY HAND.
+#
+# angles.py holds the original guidance and is never modified. This file
+# overlays it. Delete it to revert every angle to its original wording.
+#
+# Every entry in the changelog carries the evidence that motivated it and
+# the guidance it replaced, so any change can be read, judged and undone.
+
+angles:
+  evidence_audit:
+    guidance: 'Open with the single most specific measured fact about THEIR support surface,
+      and quote the number exactly as the brief states it: same figure, same unit, same form.
+      If the brief says a percentage, write the percentage. Never convert it into a count,
+      ratio, "1 in N," or time total, and never round, combine, or extrapolate it (for example,
+      don''t turn "18% of tickets" into "about 900 tickets"). Say where the number came from
+      so they can check it in ten minutes, and ask whether it matches their internal picture.
+      No pitch, no product mention, no meeting request. If the brief offers only a figure
+      you''d need to transform to make the point land, use a different measured fact the brief
+      already states in usable form.'
+  single_quote:
+    guidance: 'Open with a single verbatim customer quote from their own public reviews, then
+      one sentence on what makes that CLASS of complaint different from product complaints.
+      That sentence must be a usable diagnostic, not a gesture: state what this type of complaint
+      tells them to check or do (for example, "this kind of complaint usually points to a
+      handoff failing between X and Y, not a feature gap, so it won''t show up in your roadmap
+      data"), so the recipient walks away with a reframe they can act on even if they never
+      reply. Don''t pitch, don''t ask for a call as the only payload, and don''t just restate
+      the quote''s sentiment. Keep it short, but make sure the one sentence after the quote
+      contains something they didn''t already know.'
+changelog:
+- angle: evidence_audit
+  applied_at: '2026-10-20T16:42:57.560021+00:00'
+  because: tripped 'derived_figure' on 3 of 5 first drafts (60%)
+  mean_score_before: 3.4
+  previous_guidance: Open with the single most specific measured fact about THEIR support
+    surface. State it plainly, say where it came from so they can check it in ten minutes,
+    and ask whether it matches their internal picture. No pitch, no product mention, no meeting
+    request.
+- angle: single_quote
+  applied_at: '2026-10-20T16:42:57.560498+00:00'
+  because: tripped 'nothing_offered' on 3 of 5 first drafts (60%)
+  mean_score_before: 3.48
+  previous_guidance: Open with a single verbatim customer quote from their own public reviews,
+    then one sentence on what makes that CLASS of complaint different from product complaints.
+    Shortest possible message. The quote does the work; do not explain it twice.

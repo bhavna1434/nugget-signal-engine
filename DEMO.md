@@ -103,7 +103,63 @@ And the honest half:
 
 ---
 
+## The self-improvement loop (lead with this)
+
+The engine reads its own critic's rejection log, finds the failure mode that is
+dominant for one angle and not others, and rewrites that angle's instructions.
+It proposes; a human applies; every change is versioned with the evidence that
+motivated it.
+
+Measured before and after, same prospects, same critic:
+
+| angle | guidance | n | score | ship | rounds | top first-round failure |
+|---|---|---|---|---|---|---|
+| evidence_audit | original | 5 | 3.40 | 40% | 2.80 | derived_figure |
+| evidence_audit | **evolved** | 2 | **3.60** | **100%** | 2.50 | **none** |
+| single_quote | original | 5 | 3.48 | 60% | 2.80 | nothing_offered |
+| single_quote | **evolved** | 2 | **3.30** | 50% | 2.00 | **unsupported_claim** |
+
+**It helped one angle and hurt the other.** evidence_audit eliminated its target
+failure and went to a 100% ship rate. single_quote traded one failure for a new
+one: the rewrite's own example ("this kind of complaint usually points to a
+handoff failing between X and Y") taught the writer to assert root causes the
+brief could not support, and the critic caught it on the first draft.
+
+**What to say:**
+
+> "The loop rewrote two angles. One went to a 100% ship rate with its target
+> failure eliminated. The other got worse, because the rewrite's own example
+> taught the writer to assert things it couldn't support. Self-improvement
+> shifts failure modes as much as it removes them. That's why the reviewer
+> stays independent of the thing being improved, and why the loop proposes
+> rather than auto-applies."
+
+**Say the caveat yourself:** n=2 per evolved arm. The direction is clear, the
+magnitude is not.
+
+**The measurement bug worth mentioning:** before the log recorded which guidance
+version wrote each draft, the aggregate showed 3.46 and 3.43 - two unremarkable
+numbers that hid both the 100% ship rate and the regression. Third time in this
+project that an aggregate averaged across a distinction that mattered.
+
+Commands:
+```bash
+python -m agent.evolve            # analyse and propose
+python -m agent.evolve --apply    # apply
+python -m agent.evolve --history  # what changed and why
+python run_agent.py --report      # the table above
+rm data/angle_evolution.yaml      # revert everything
+```
+
+
+---
+
 ## Questions you will get
+
+**"Did the self-improvement actually work?"**
+> "On one angle, completely - target failure gone, ship rate 40 to 100%. On the
+> other it backfired and introduced a new failure. Both are in the table. n is
+> 2 per evolved arm, so treat the magnitude as directional."
 
 **"So your project failed?"**
 > "The hypothesis didn't survive. The engine worked — it's what killed it. I'd

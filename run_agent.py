@@ -66,6 +66,20 @@ def main() -> int:
     print(f"Running {len(angle_keys)} angles x {len(targets)} prospects")
     print(f"Angles: {', '.join(ANGLES[a]['name'] for a in angle_keys)}")
 
+    # Say which version of the instructions produced this run. Without it, two
+    # runs with different scores are not comparable and you cannot tell whether
+    # a change helped.
+    from agent.angles import EVOLVED
+
+    evolved_here = [a for a in angle_keys if a in EVOLVED]
+    if evolved_here:
+        print(
+            f"Guidance: EVOLVED for {', '.join(evolved_here)} "
+            f"(see python -m agent.evolve --history)"
+        )
+    else:
+        print("Guidance: original")
+
     results = []
     for pid in targets:
         r = loop.run_prospect(llm, pid, angle_keys)
