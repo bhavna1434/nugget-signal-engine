@@ -127,7 +127,8 @@ tbody tr:last-child td{border-bottom:none}
   background:var(--paper);color:var(--ink);border:1px solid var(--rule);border-radius:2px}
 .ctrls button{font-family:var(--f-body);font-size:14px;font-weight:500;padding:8px 18px;
   background:var(--accent);color:var(--paper);border:none;border-radius:2px;cursor:pointer}
-.ctrls button:disabled{opacity:.45;cursor:default}
+.ctrls button:disabled{opacity:1;cursor:not-allowed;background:transparent;
+  color:var(--ink-soft);border:1px dashed var(--rule);font-weight:400}
 .ctrls button.alt{background:transparent;color:var(--ink-soft);
   border:1px solid var(--rule)}
 .steps{display:flex;flex-direction:column;gap:14px}
@@ -580,9 +581,13 @@ footer{padding-block:30px;font-family:var(--f-mono);font-size:11.5px;
     sampleFn=await (window.claude&&window.claude.use?claude.use('sample'):Promise.resolve(null));
     if(!sampleFn){
       elRun.disabled=true;
-      elNote.textContent='Live running is off in this copy of the page. Everything below '+
-        'is the recorded output of the Python agent: the drafts, the critic’s verdicts '+
-        'and the round-by-round revisions are all real runs, not mock-ups.';
+      elRun.textContent='Live run unavailable here';
+      elP.disabled=true; elA.disabled=true;
+      elNote.innerHTML='<strong>This copy of the page cannot run the loop live</strong> — '+
+        'the agent calls Claude through the viewer, which only exists inside a Claude '+
+        'artifact. Everything below is the recorded output of the Python agent: the drafts, '+
+        'the critic’s verdicts and the round-by-round revisions are all real runs, '+
+        'not mock-ups.';
     }
   })();
 })();
