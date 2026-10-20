@@ -28,7 +28,9 @@ from __future__ import annotations
 import json
 
 from agent.brief import brief_as_prompt
+from agent.formats import FORMATS
 from agent.llm import LLM
+from agent.targets import get_target, target_block
 
 PASS_THRESHOLD = 3.6   # mean of scored dimensions
 HARD_FAIL_KEYS = [
@@ -40,6 +42,8 @@ HARD_FAIL_KEYS = [
     "caveat_stripped",
     "derived_figure",
     "nothing_offered",
+    "invented_recipient",
+    "format_violated",
 ]
 
 SYSTEM = """You review cold outreach emails before they are sent to senior \
@@ -60,6 +64,13 @@ Score honestly. A competent, inoffensive, forgettable email is a 2, not a 4. \
 Most cold outreach deserves a 2."""
 
 RUBRIC = """{brief}
+
+---
+{target}
+
+---
+FORMAT THIS DRAFT MUST SATISFY: {format_name} ({format_channel})
+{format_constraints}
 
 ---
 DRAFT UNDER REVIEW (angle: {angle}):
@@ -89,6 +100,17 @@ against the brief, and in the first live run one shipped after being caught once
 reply. A message that reports a statistic and asks a question, with no concrete \
 offer of the methodology, the query set or the failure cases, is a stat report. \
 This was the single most common failure in the first live run.
+- invented_recipient: says or implies something about the PERSON that the \
+recipient record does not contain - a name where only a role is known, a career \
+detail, a recent talk, an opinion, a priority, or any phrasing that implies \
+familiarity ("I know you have been focused on...", "given your work on..."). \
+Writing to a role is fine; pretending to know who holds it is not. This is the \
+same failure as unsupported_claim, aimed at the human rather than the company, \
+and it is the one the recipient notices fastest.
+- format_violated: breaks this format's stated constraints - wrong shape, over \
+the word limit, a subject line on a format that has none, prose where the \
+format calls for marked fields, or caveats written as sentences where the \
+format requires small print.
 
 SCORED 1-5 (5 is rare):
 - specificity: contains something true only of THIS company
@@ -102,7 +124,8 @@ Return ONLY this JSON:
 {{
   "hard_fails": {{"unsupported_claim": false, "generic_opening": false, \
 "asks_for_meeting": false, "over_length": false, "manufactured_urgency": false, \
-"caveat_stripped": false, "derived_figure": false, "nothing_offered": false}},
+"caveat_stripped": false, "derived_figure": false, "nothing_offered": false, \
+"invented_recipient": false, "format_violated": false}},
   "unsupported_claims_found": ["quote the exact phrase, one per entry"],
   "scores": {{"specificity": 0, "verifiability": 0, "insight": 0, "brevity": 0, \
 "voice": 0}},
@@ -112,12 +135,21 @@ Return ONLY this JSON:
 }}"""
 
 
-def review(llm: LLM, brief: dict, angle_key: str, draft_text: str) -> dict:
+def review(
+    llm: LLM, brief: dict, angle_key: str, draft_text: str, fmt: str = "email"
+) -> dict:
+    f = FORMATS[fmt]
     user = RUBRIC.format(
-        brief=brief_as_prompt(brief), angle=angle_key, draft=draft_text
+        brief=brief_as_prompt(brief),
+        target=target_block(get_target(brief["prospect_id"])),
+        format_name=f["name"],
+        format_channel=f["channel"],
+        format_constraints=f["constraints"],
+        angle=angle_key,
+        draft=draft_text,
     )
     result = llm.json_complete(
-        f"critique:{angle_key}", SYSTEM, user, max_tokens=5000
+        f"critique:{fmt}:{angle_key}", SYSTEM, user, max_tokens=5000
     )
 
     hf = result.get("hard_fails", {}) or {}

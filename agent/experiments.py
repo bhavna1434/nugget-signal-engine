@@ -53,6 +53,9 @@ def record_run(result: dict) -> None:
                         "name": result["name"],
                         "vertical": result["vertical"],
                         "angle": a["angle"],
+                        "format": a.get("format", "email"),
+                        "channel": a.get("channel", "digital"),
+                        "target_mode": result.get("target_mode", "unknown"),
                         # "original" or "evolved": which instruction set wrote
                         # this draft. Rows without the field predate evolve.py
                         # and are treated as "original".
@@ -102,7 +105,7 @@ def aggregate() -> dict:
     by_angle = defaultdict(list)
     fails_by_angle = defaultdict(lambda: defaultdict(int))
     for r in rows:
-        key = (r["angle"], r.get("guidance", "original"))
+        key = (r["angle"], r.get("format", "email"), r.get("guidance", "original"))
         by_angle[key].append(r)
         for hf in r.get("hard_fails_first_round") or []:
             fails_by_angle[key][hf] += 1
@@ -144,17 +147,17 @@ def print_aggregate() -> None:
         print("No experiments logged yet.")
         return
     print(f"\nANGLE PERFORMANCE  ({a['runs']} logged attempts)")
-    print("=" * 84)
+    print("=" * 96)
     print(
-        f"{'angle':<18}{'guidance':<11}{'n':>4}{'score':>8}{'ship':>8}"
+        f"{'angle':<16}{'format':<14}{'guidance':<10}{'n':>4}{'score':>8}{'ship':>8}"
         f"{'rounds':>8}  top first-round failure"
     )
-    print("-" * 84)
-    for (angle, version), s in a["angles"].items():
+    print("-" * 96)
+    for (angle, fmt, version), s in a["angles"].items():
         top = next(iter(s["common_first_round_failures"]), "none")
         print(
-            f"{angle:<18}{version:<11}{s['n']:>4}{s['mean_score']:>8.2f}"
+            f"{angle:<16}{fmt:<14}{version:<10}{s['n']:>4}{s['mean_score']:>8.2f}"
             f"{s['ship_rate']:>8.0%}{s['mean_rounds']:>8.2f}  {top}"
         )
-    print("-" * 78)
+    print("-" * 96)
     print(a["caveat"])

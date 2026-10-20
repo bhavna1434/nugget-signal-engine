@@ -1,0 +1,98 @@
+# Target layer — WHO the outreach is addressed to.
+#
+# The engine prospects companies; this names the human inside one. Without it
+# every message opens "Hi {first_name}" into a placeholder that nothing fills,
+# which is prospecting a company and calling it reaching a leader.
+#
+# THREE STATES, AND THE ENGINE BEHAVES DIFFERENTLY IN EACH
+#
+#   named   a specific person, verified, every claim carrying its source URL.
+#           The message may open on something THEY said or published.
+#   role    the function is identified but the person is not. The message is
+#           written to the role's concerns and never implies knowing them.
+#   unknown nothing recorded. The message stays company-level and says so.
+#
+# The point of separating these is that an LLM writing to "the Head of CX at
+# <company>" will cheerfully invent a career history, a recent talk and a
+# strategic priority. The critic hard-fails any claim about the person that is
+# not in their record below — the same closed-world rule that governs company
+# facts. A role-only target therefore produces a message that is honest about
+# addressing a function rather than a person.
+#
+# SOURCING RULES — these are not optional
+#   - Public sources only: company leadership pages, conference speaker lists,
+#     published interviews, podcasts, bylined articles, regulatory filings.
+#   - NO LinkedIn scraping. It breaches their terms, and demoing a ToS-violating
+#     scraper to a company selling into regulated BFSI argues against its own
+#     compliance story.
+#   - Every `facts` entry carries the URL it came from. A fact without a source
+#     is not a fact and the brief will drop it.
+#   - `verified_on` is the date a human last confirmed the person still holds
+#     the role. People move; a stale name is worse than no name.
+#
+# Leave a target as `role` until you have actually checked. The engine ranks a
+# role-only target below a named one, which is the correct incentive.
+
+meta:
+  version: "0.1"
+  sourcing: "public sources only; every fact carries a URL; no LinkedIn scraping"
+
+targets:
+
+  # ---- NAMED (fill these in from public sources) -------------------------
+  # Template. Copy per prospect once you have verified a person.
+  #
+  # smallcase:
+  #   mode: named
+  #   first_name: ""
+  #   full_name: ""
+  #   role: ""
+  #   facts:
+  #     - claim: "spoke about support automation at <event>, <month year>"
+  #       source: "https://..."
+  #     - claim: "wrote that <quote or position>"
+  #       source: "https://..."
+  #   verified_on: "2026-10-21"
+  #   verified_by: "BS"
+
+  # ---- ROLE-ONLY (honest default until a person is verified) -------------
+  smallcase:
+    mode: role
+    role: "Head of Customer Experience"
+    rationale: >
+      Wealth platform where the complaint mix is ticket-resolution rather than
+      product. That is a CX operations problem before it is a product one.
+
+  upstox:
+    mode: role
+    role: "VP, Customer Support Operations"
+    rationale: >
+      Highest support-complaint share in the measured set. At this volume the
+      owner is operations rather than product.
+
+  indmoney:
+    mode: role
+    role: "Head of Customer Experience"
+    rationale: >
+      Complaint mix spans onboarding and portfolio queries, which sits with CX
+      rather than with a single product line.
+
+  policybazaar:
+    mode: role
+    role: "Head of Service Operations"
+    rationale: >
+      Insurance claims servicing. The complaints are about process latency, so
+      the owner is service operations.
+
+  razorpay:
+    mode: role
+    role: "Director, Merchant Support"
+    rationale: >
+      Merchant-side support, distinct from consumer CX. Complaints concern
+      settlement and account state.
+
+  acko:
+    mode: role
+    role: "Head of Customer Experience"
+    rationale: >
+      Direct-to-consumer insurer; support is the whole post-sale relationship.
