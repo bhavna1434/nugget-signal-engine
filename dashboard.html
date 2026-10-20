@@ -580,8 +580,9 @@ footer{padding-block:30px;font-family:var(--f-mono);font-size:11.5px;
     sampleFn=await (window.claude&&window.claude.use?claude.use('sample'):Promise.resolve(null));
     if(!sampleFn){
       elRun.disabled=true;
-      elNote.textContent='The live run needs Claude, which is not available in this view. '+
-        'Everything below was produced by the Python agent and is unaffected.';
+      elNote.textContent='Live running is off in this copy of the page. Everything below '+
+        'is the recorded output of the Python agent: the drafts, the critic’s verdicts '+
+        'and the round-by-round revisions are all real runs, not mock-ups.';
     }
   })();
 })();
