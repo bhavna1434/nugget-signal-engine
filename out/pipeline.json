@@ -1,0 +1,1297 @@
+{
+  "generated_at": "2026-10-20T12:50:13.422957+00:00",
+  "synthetic": false,
+  "source_reachable": true,
+  "pipeline": [
+    {
+      "prospect_id": "smallcase",
+      "name": "smallcase",
+      "vertical": "wealth",
+      "sub_vertical": null,
+      "icp_fit": 74,
+      "pain_intensity": 64.82,
+      "reachability": 100.0,
+      "raw_score": 75.07,
+      "signals_collected": 5,
+      "confidence": 0.78,
+      "priority": 58.55,
+      "contactable": true,
+      "hold_reason": null,
+      "hard_query_counts": {
+        "maturity_settlement": 1
+      },
+      "evidence": [
+        {
+          "score": 1,
+          "at": "2026-09-04T17:56:07",
+          "text": "Faced a transaction error in mutual fund and raise query for the same which is still not resolved after a month of follow up. after google play review. i recieved call from team after a month.",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-07-09T15:03:38",
+          "text": "Customer service can be improved. CC is acting only as postman, raised issue 45 days back, TKT-143999, still no resolution.",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-06-17T12:29:57",
+          "text": "worst experience.. invested 25k on subscribed plan and it's been 1 month, funds are not reflecting in my account, also raised a ticket against this, and they only say we are processing it.....now i feel i lost my money....",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-05-31T08:51:46",
+          "text": "I have taken loan against MF facility, 25000 balance is available to withdraw, but from last 4 days not able to withdraw money, I have raised ticket for that but no reply, worst service and problem solving.",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-04-09T14:04:00",
+          "text": "poor and incorrect messaging across their offerings. Do not fall into their traps. You will end up being \"escalated to relevant teams\" for days. Update : Nobody replies to this support email. i escalated copying their CEO and even then nothing happened. reached out multiple times on their support number for resolution and only then was I able to get an update.",
+          "hard_queries": []
+        }
+      ],
+      "why": {
+        "icp_fit": [
+          "vertical 'wealth' has a published Nugget page: 62",
+          "regulated by SEBI -> compliance posture is a differentiator not overhead: +12"
+        ],
+        "pain_intensity": [
+          "support_review_share=0.157 -> normalised 55.22 (weight 0.3)",
+          "unresolved_language_share=0.0758 -> normalised 54.14 (weight 0.25)",
+          "rating_trend=0.64 -> normalised 100.0 (weight 0.2)",
+          "review_volume=121 -> normalised 54.94 (weight 0.15)",
+          "renormalised over collected weight 0.90 -> 64.82"
+        ],
+        "reachability": [
+          "size band 'mid' -> 100"
+        ]
+      }
+    },
+    {
+      "prospect_id": "upstox",
+      "name": "Upstox",
+      "vertical": "wealth",
+      "sub_vertical": null,
+      "icp_fit": 74,
+      "pain_intensity": 68.39,
+      "reachability": 75.0,
+      "raw_score": 71.68,
+      "signals_collected": 5,
+      "confidence": 0.78,
+      "priority": 55.91,
+      "contactable": true,
+      "hold_reason": null,
+      "hard_query_counts": {
+        "maturity_settlement": 1,
+        "regulatory_status": 1
+      },
+      "evidence": [
+        {
+          "score": 1,
+          "at": "2026-10-17T08:57:04",
+          "text": "no reply on mail or ticket, worst service, opening zerodha account, feeling Zerodha is 100times better than u. no help to close account,",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-10-14T13:37:47",
+          "text": "I recently started using your new platform, which is similar to algovere. Due to some initial doubts, I contacted customer care, but the executive could not resolve my issue and directed me to email Upstox. I subsequently received a call stating that my issue was escalated to the relevant department. However, I have been left waiting for a week without any update. I am deeply disappointed by this ",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-10-08T14:16:29",
+          "text": "ekadam bakwas application hai mujhe Mera primary bank account change karna hai to kitne Mail upstox ko bhej chuka hun unhone Jo document mange voh bhi Main send kar chuka hun pata nahin fir bhi kyon Mera new bank account add nahin Ho Pa raha hai aur dusre bank account mein sirf name aur surname aage piche hai to name correction ke liye bhi kitne Mail kar chuka hun document De chuka hun sabhi docum",
+          "hard_queries": []
+        }
+      ],
+      "why": {
+        "icp_fit": [
+          "vertical 'wealth' has a published Nugget page: 62",
+          "regulated by SEBI -> compliance posture is a differentiator not overhead: +12"
+        ],
+        "pain_intensity": [
+          "support_review_share=0.2059 -> normalised 76.48 (weight 0.3)",
+          "unresolved_language_share=0.0652 -> normalised 46.57 (weight 0.25)",
+          "rating_trend=0.62 -> normalised 100.0 (weight 0.2)",
+          "review_volume=102 -> normalised 46.46 (weight 0.15)",
+          "renormalised over collected weight 0.90 -> 68.39"
+        ],
+        "reachability": [
+          "size band 'large' -> 75"
+        ]
+      }
+    },
+    {
+      "prospect_id": "indmoney",
+      "name": "INDmoney",
+      "vertical": "wealth",
+      "sub_vertical": null,
+      "icp_fit": 74,
+      "pain_intensity": 56.87,
+      "reachability": 100.0,
+      "raw_score": 71.49,
+      "signals_collected": 5,
+      "confidence": 0.78,
+      "priority": 55.76,
+      "contactable": true,
+      "hold_reason": null,
+      "hard_query_counts": {
+        "regulatory_status": 1,
+        "yield_confusion": 1
+      },
+      "evidence": [
+        {
+          "score": 1,
+          "at": "2026-10-13T01:25:31",
+          "text": "My order got stuck for an hour and I lost a ton of money. Worst part? Customer care couldn\u2019t even get me a P1 escalation. So frustrating",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-10-06T08:02:59",
+          "text": "They may be good just for viewing or for some small amount investment but their non-existent human support system is useless. Security breach happened and it has been 6 days and no response at all. Better to avoid them, very useless support system.",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-09-29T15:34:03",
+          "text": "very bad app no response qukly no advance tolls\ud83d\udeab\ud83e\udd2c",
+          "hard_queries": []
+        }
+      ],
+      "why": {
+        "icp_fit": [
+          "vertical 'wealth' has a published Nugget page: 62",
+          "regulated by SEBI -> compliance posture is a differentiator not overhead: +12"
+        ],
+        "pain_intensity": [
+          "support_review_share=0.1452 -> normalised 50.09 (weight 0.3)",
+          "unresolved_language_share=0.0545 -> normalised 38.93 (weight 0.25)",
+          "rating_trend=-0.08 -> normalised 90.0 (weight 0.2)",
+          "review_volume=124 -> normalised 56.15 (weight 0.15)",
+          "renormalised over collected weight 0.90 -> 56.87"
+        ],
+        "reachability": [
+          "size band 'mid' -> 100"
+        ]
+      }
+    },
+    {
+      "prospect_id": "policybazaar",
+      "name": "PolicyBazaar",
+      "vertical": "insurance",
+      "sub_vertical": null,
+      "icp_fit": 72,
+      "pain_intensity": 60.28,
+      "reachability": 75.0,
+      "raw_score": 67.33,
+      "signals_collected": 5,
+      "confidence": 0.78,
+      "priority": 52.51,
+      "contactable": true,
+      "hold_reason": null,
+      "hard_query_counts": {
+        "regulatory_status": 1
+      },
+      "evidence": [
+        {
+          "score": 1,
+          "at": "2026-10-19T11:07:19",
+          "text": "I am very disappointed with policy bazar team my post hospitalisation claim was allready due for last 5 and half months from 5th July 2026 and till today 20th October 2026 claim was not clear coustomer support team has no answer coustomer support team say like a tep-recorder only one thing they say sir wait fo 2 -3 days from last 3 months full team is a waste and they waste my time",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-10-12T13:16:33",
+          "text": "felt cheated, I used the app for the first time to get a insurance for my motorbike, paid them for booking and followed their instructions and submitted my KYC for that policy and got a confirmation on their WhatsApp chat that my KYC was submitted to insurer, and after 46 hours I had to raise a ticket for refund because they said they need 53 hours, and got a mail after that saying that they have ",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-10-11T01:19:35",
+          "text": "I am sharing bad experience with Policy Bazaar I have 2 claims experience with Aditya Birla Health Insurance. in 1 claim Aditya Birla deducted my my amount and the 2nd claim has been rejected with unjustified reason. As a broker Policybazaar has not helped me and support me even their senior escalation person has clearly said me you should go to the next level of legal cell and raise your concern ",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-10-09T10:38:14",
+          "text": "very bad experience with policy bazaar, still my claim status pending no one can contact me or replying my mail so long time till yesterday, i don't know why these type treated with customer I want solution other wise Raised complaint",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-10-08T11:36:27",
+          "text": "WORST SERVICE EVER !! I bought car claim from this app and no help from policybazaar team, took 15 days and still rejected the claim even after providing all evidences",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-10-06T11:52:40",
+          "text": "I did my insurance of my car on 2 oct and my policy is still pending as per today 6 oct. They took the insurance money and now I got to know there is no way you can talk to customer care. Only thing you can do is wait for a call back. I raised a request twice and now I am still waiting. My policy expired on 4th October and now as I am not insured and I use my car on daily commute I am forced to bu",
+          "hard_queries": []
+        }
+      ],
+      "why": {
+        "icp_fit": [
+          "vertical 'insurance' has a published Nugget page: 60",
+          "regulated by IRDAI -> compliance posture is a differentiator not overhead: +12"
+        ],
+        "pain_intensity": [
+          "support_review_share=0.1441 -> normalised 49.61 (weight 0.3)",
+          "unresolved_language_share=0.0659 -> normalised 47.07 (weight 0.25)",
+          "rating_trend=0.38 -> normalised 100.0 (weight 0.2)",
+          "review_volume=111 -> normalised 50.66 (weight 0.15)",
+          "renormalised over collected weight 0.90 -> 60.28"
+        ],
+        "reachability": [
+          "size band 'large' -> 75"
+        ]
+      }
+    },
+    {
+      "prospect_id": "razorpay",
+      "name": "Razorpay",
+      "vertical": "payments",
+      "sub_vertical": null,
+      "icp_fit": 70,
+      "pain_intensity": 60.27,
+      "reachability": 75.0,
+      "raw_score": 66.62,
+      "signals_collected": 5,
+      "confidence": 0.78,
+      "priority": 51.96,
+      "contactable": true,
+      "hold_reason": null,
+      "hard_query_counts": {
+        "regulatory_status": 2,
+        "maturity_settlement": 1
+      },
+      "evidence": [
+        {
+          "score": 1,
+          "at": "2026-06-10T21:02:15",
+          "text": "worst managment after 8+ years journey suddenly they disabled account with 25k+ transaction s and said parmanant disable not release the funds without propr reason and prior notices and 25k+ rupees blocked and not responding to release they said not possible to realease due to internal and our banking partner policies that are not revealed. so becare full before chose this platform just people awe",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-05-14T17:09:16",
+          "text": "Please Do not use this app, they are using your data and circulating to random people. happened to me and I have escalated to them but there is no active response, plus they hoard data. they even do not have a decent calling customer care and an even more difficult portal to share grievances. please be aware all unless u want to be scammed all thanks to them",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-04-06T09:32:31",
+          "text": "very poor and frustrating service no customer support never use them.",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-04-01T15:49:57",
+          "text": "Pathetic experience. Payments are stuck for over 15 days and there is absolutely no update from Razorpay. No replies on emails, tickets, or calls. Feels like there is no support team at all.",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-04-01T14:39:14",
+          "text": "Razorpay should rename itself to \u201cHoldYourMoneyPay\u201d. Payments get stuck, and support disappears. No replies on email, tickets, or calls. It feels like once your money is with them, you\u2019re on your own. Completely unreliable for any business that depends on timely settlements.",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-03-07T18:02:31",
+          "text": "For more than 45 days I have raised a support ticket ID 2077774 with shiprocket and with razorpay ticket ID 18235429. Its a simple integration issue between razorpay and shiprocket but no resolution has been achieved yet. Shiprocket and razorpay technical support team has been lingering this issue for more than 45 days but till then orders from 2 integration partners are not syncing. Poor support ",
+          "hard_queries": []
+        }
+      ],
+      "why": {
+        "icp_fit": [
+          "vertical 'payments' has a published Nugget page: 58",
+          "regulated by RBI -> compliance posture is a differentiator not overhead: +12"
+        ],
+        "pain_intensity": [
+          "support_review_share=0.2192 -> normalised 82.26 (weight 0.3)",
+          "unresolved_language_share=0.05 -> normalised 35.71 (weight 0.25)",
+          "rating_trend=-0.36 -> normalised 55.0 (weight 0.2)",
+          "review_volume=146 -> normalised 64.26 (weight 0.15)",
+          "renormalised over collected weight 0.90 -> 60.27"
+        ],
+        "reachability": [
+          "size band 'large' -> 75"
+        ]
+      }
+    },
+    {
+      "prospect_id": "acko",
+      "name": "ACKO",
+      "vertical": "insurance",
+      "sub_vertical": null,
+      "icp_fit": 72,
+      "pain_intensity": 44.87,
+      "reachability": 100.0,
+      "raw_score": 65.39,
+      "signals_collected": 5,
+      "confidence": 0.78,
+      "priority": 51.01,
+      "contactable": true,
+      "hold_reason": null,
+      "hard_query_counts": {},
+      "evidence": [],
+      "why": {
+        "icp_fit": [
+          "vertical 'insurance' has a published Nugget page: 60",
+          "regulated by IRDAI -> compliance posture is a differentiator not overhead: +12"
+        ],
+        "pain_intensity": [
+          "support_review_share=0.1446 -> normalised 49.83 (weight 0.3)",
+          "unresolved_language_share=0.0 -> normalised 0.0 (weight 0.25)",
+          "rating_trend=0.2 -> normalised 100.0 (weight 0.2)",
+          "review_volume=83 -> normalised 36.23 (weight 0.15)",
+          "renormalised over collected weight 0.90 -> 44.87"
+        ],
+        "reachability": [
+          "size band 'mid' -> 100"
+        ]
+      }
+    },
+    {
+      "prospect_id": "zerodha",
+      "name": "Zerodha",
+      "vertical": "wealth",
+      "sub_vertical": null,
+      "icp_fit": 74,
+      "pain_intensity": 45.2,
+      "reachability": 75.0,
+      "raw_score": 61.24,
+      "signals_collected": 5,
+      "confidence": 0.78,
+      "priority": 47.77,
+      "contactable": true,
+      "hold_reason": null,
+      "hard_query_counts": {},
+      "evidence": [
+        {
+          "score": 1,
+          "at": "2026-10-09T19:04:24",
+          "text": "app is good untill you raise any complaint. customer support is worst.",
+          "hard_queries": []
+        }
+      ],
+      "why": {
+        "icp_fit": [
+          "vertical 'wealth' has a published Nugget page: 62",
+          "regulated by SEBI -> compliance posture is a differentiator not overhead: +12"
+        ],
+        "pain_intensity": [
+          "support_review_share=0.0959 -> normalised 28.65 (weight 0.3)",
+          "unresolved_language_share=0.0137 -> normalised 9.79 (weight 0.25)",
+          "rating_trend=0.22 -> normalised 100.0 (weight 0.2)",
+          "review_volume=146 -> normalised 64.26 (weight 0.15)",
+          "renormalised over collected weight 0.90 -> 45.20"
+        ],
+        "reachability": [
+          "size band 'large' -> 75"
+        ]
+      }
+    },
+    {
+      "prospect_id": "federal_bank",
+      "name": "Federal Bank",
+      "vertical": "banking",
+      "sub_vertical": null,
+      "icp_fit": 70,
+      "pain_intensity": 47.41,
+      "reachability": 75.0,
+      "raw_score": 60.83,
+      "signals_collected": 5,
+      "confidence": 0.78,
+      "priority": 47.45,
+      "contactable": true,
+      "hold_reason": null,
+      "hard_query_counts": {
+        "regulatory_status": 1
+      },
+      "evidence": [
+        {
+          "score": 1,
+          "at": "2026-10-12T21:39:13",
+          "text": "I requested a replacement debit card after blocking my first card, which I never received. I received the replacement and am using it. Now Federal Bank is charging me for both cards, including the one I never received! Instead of investigating the issue, your team keeps repeating the fee policy.Resolve this issue and refund the disputed charges, or I will escalate the matter to the appropriate gri",
+          "hard_queries": [
+            "regulatory_status"
+          ]
+        },
+        {
+          "score": 1,
+          "at": "2026-10-07T01:46:30",
+          "text": "I am not able to login, it's asking FOR android 12, mine is android 11 my Samsung says software upto date, and no update available",
+          "hard_queries": []
+        }
+      ],
+      "why": {
+        "icp_fit": [
+          "vertical 'banking' has a published Nugget page: 58",
+          "regulated by RBI -> compliance posture is a differentiator not overhead: +12"
+        ],
+        "pain_intensity": [
+          "support_review_share=0.1091 -> normalised 34.39 (weight 0.3)",
+          "unresolved_language_share=0.027 -> normalised 19.29 (weight 0.25)",
+          "rating_trend=0.28 -> normalised 100.0 (weight 0.2)",
+          "review_volume=110 -> normalised 50.21 (weight 0.15)",
+          "renormalised over collected weight 0.90 -> 47.41"
+        ],
+        "reachability": [
+          "size band 'large' -> 75"
+        ]
+      }
+    },
+    {
+      "prospect_id": "rbl_bank",
+      "name": "RBL Bank",
+      "vertical": "banking",
+      "sub_vertical": null,
+      "icp_fit": 70,
+      "pain_intensity": 46.23,
+      "reachability": 75.0,
+      "raw_score": 60.3,
+      "signals_collected": 5,
+      "confidence": 0.78,
+      "priority": 47.04,
+      "contactable": true,
+      "hold_reason": null,
+      "hard_query_counts": {
+        "maturity_settlement": 1,
+        "regulatory_status": 1,
+        "repayment_mechanics": 1
+      },
+      "evidence": [
+        {
+          "score": 1,
+          "at": "2026-10-13T21:13:55",
+          "text": "worst application ,I have paid the bill this,but the payment was debited to my account,but card payment was not received,wrost application, I have mailed so many times no one response wrist service rbl team given",
+          "hard_queries": []
+        },
+        {
+          "score": 2,
+          "at": "2026-10-04T09:00:15",
+          "text": "no customer care executive available on the credit card helpline number. Also, no option available to in ivr to talk any executive verbally. It is an automated helpline. In the app we can't raise request or complaint because it is just loading and no executive connects to chat.",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-09-24T18:19:45",
+          "text": "BSF Personnel Disrespected & NOC Delayed 8432) I am an Indian Army personnel. I have cleared the full deposit/dues for my RBL credit card 8432 but the bank is continuously delaying my NOC. To make matters worse, their customer care executive used abusive language and misbehaved with me over the phone. There is absolutely no response to my emails, and they are only delaying the matter by asking for",
+          "hard_queries": []
+        }
+      ],
+      "why": {
+        "icp_fit": [
+          "vertical 'banking' has a published Nugget page: 58",
+          "regulated by RBI -> compliance posture is a differentiator not overhead: +12"
+        ],
+        "pain_intensity": [
+          "support_review_share=0.2479 -> normalised 94.74 (weight 0.3)",
+          "unresolved_language_share=0.0291 -> normalised 20.79 (weight 0.25)",
+          "rating_trend=-0.9 -> normalised 0.0 (weight 0.2)",
+          "review_volume=117 -> normalised 53.27 (weight 0.15)",
+          "renormalised over collected weight 0.90 -> 46.23"
+        ],
+        "reachability": [
+          "size band 'large' -> 75"
+        ]
+      }
+    },
+    {
+      "prospect_id": "grip_invest",
+      "name": "Grip Invest",
+      "vertical": "wealth",
+      "sub_vertical": "bonds_fixed_income",
+      "icp_fit": 89,
+      "pain_intensity": 52.06,
+      "reachability": 100.0,
+      "raw_score": 74.58,
+      "signals_collected": 4,
+      "confidence": 0.62,
+      "priority": 46.24,
+      "contactable": true,
+      "hold_reason": null,
+      "hard_query_counts": {
+        "repayment_mechanics": 1
+      },
+      "evidence": [
+        {
+          "score": 1,
+          "at": "2026-09-29T21:58:38",
+          "text": "I am writing to report that my amount was deducted and shares are not showing in my portfolio. Kindly refund the amount or credit the shares at the earliest. I am extremely disappointed with the service. I have been following up since last month, yet the issue remains unresolved",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-09-22T10:36:09",
+          "text": "update. after a month's pause the app suddenly started the sip on iys own. this is an unauthorised hit on my bank. avoid getting lured by infinity. grip couldn't technically take the idea to its logical conclusion. though the support system is in place, pretty ineffective. clarifying.. i chose to invest in sdi infinity. the infinity bit does not happen. i reached out to your team. no resolution.",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-09-18T17:35:05",
+          "text": "worst experience, don't use grip platform, customer care is worst and cheaters...no response from them. I just asking to fill DIS but no response...",
+          "hard_queries": []
+        }
+      ],
+      "why": {
+        "icp_fit": [
+          "vertical 'wealth' has a published Nugget page: 62",
+          "regulated by SEBI -> compliance posture is a differentiator not overhead: +12",
+          "sub-vertical 'bonds_fixed_income' carries the hard-query class Nugget's Wealth page does not yet address: +15"
+        ],
+        "pain_intensity": [
+          "support_review_share=0.0791 -> normalised 21.35 (weight 0.3)",
+          "unresolved_language_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "rating_trend=-0.28 -> normalised 65.0 (weight 0.2)",
+          "review_volume=278 -> normalised 96.22 (weight 0.15)",
+          "renormalised over collected weight 0.65 -> 52.06"
+        ],
+        "reachability": [
+          "size band 'mid' -> 100"
+        ]
+      }
+    },
+    {
+      "prospect_id": "digit",
+      "name": "Go Digit",
+      "vertical": "insurance",
+      "sub_vertical": null,
+      "icp_fit": 72,
+      "pain_intensity": 38.45,
+      "reachability": 75.0,
+      "raw_score": 57.5,
+      "signals_collected": 5,
+      "confidence": 0.78,
+      "priority": 44.85,
+      "contactable": true,
+      "hold_reason": null,
+      "hard_query_counts": {},
+      "evidence": [],
+      "why": {
+        "icp_fit": [
+          "vertical 'insurance' has a published Nugget page: 60",
+          "regulated by IRDAI -> compliance posture is a differentiator not overhead: +12"
+        ],
+        "pain_intensity": [
+          "support_review_share=0.1053 -> normalised 32.74 (weight 0.3)",
+          "unresolved_language_share=0.0 -> normalised 0.0 (weight 0.25)",
+          "rating_trend=0.2 -> normalised 100.0 (weight 0.2)",
+          "review_volume=76 -> normalised 31.86 (weight 0.15)",
+          "renormalised over collected weight 0.90 -> 38.45"
+        ],
+        "reachability": [
+          "size band 'large' -> 75"
+        ]
+      }
+    },
+    {
+      "prospect_id": "angelone",
+      "name": "Angel One",
+      "vertical": "wealth",
+      "sub_vertical": null,
+      "icp_fit": 74,
+      "pain_intensity": 34.21,
+      "reachability": 75.0,
+      "raw_score": 56.29,
+      "signals_collected": 5,
+      "confidence": 0.78,
+      "priority": 43.91,
+      "contactable": true,
+      "hold_reason": null,
+      "hard_query_counts": {},
+      "evidence": [],
+      "why": {
+        "icp_fit": [
+          "vertical 'wealth' has a published Nugget page: 62",
+          "regulated by SEBI -> compliance posture is a differentiator not overhead: +12"
+        ],
+        "pain_intensity": [
+          "support_review_share=0.1 -> normalised 30.43 (weight 0.3)",
+          "unresolved_language_share=0.0 -> normalised 0.0 (weight 0.25)",
+          "rating_trend=0.06 -> normalised 100.0 (weight 0.2)",
+          "review_volume=50 -> normalised 11.07 (weight 0.15)",
+          "renormalised over collected weight 0.90 -> 34.21"
+        ],
+        "reachability": [
+          "size band 'large' -> 75"
+        ]
+      }
+    },
+    {
+      "prospect_id": "groww",
+      "name": "Groww",
+      "vertical": "wealth",
+      "sub_vertical": null,
+      "icp_fit": 74,
+      "pain_intensity": 39.08,
+      "reachability": 75.0,
+      "raw_score": 58.49,
+      "signals_collected": 4,
+      "confidence": 0.62,
+      "priority": 36.26,
+      "contactable": true,
+      "hold_reason": null,
+      "hard_query_counts": {
+        "regulatory_status": 1
+      },
+      "evidence": [
+        {
+          "score": 1,
+          "at": "2026-10-19T12:28:50",
+          "text": "worst customer support and worst response don't go for groww app guys upstox or zerodha better please quit groww.... I tried for recover my 5000 unnecessary debited but still no response",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-10-18T21:02:51",
+          "text": "very bad experience I want to update my new mobile number with my pan in this app coz my old number is lost but no response",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-10-17T19:41:40",
+          "text": "Called their customer support team and waited more than 21 minutes even I was caller 1 in waiting list, but no response.",
+          "hard_queries": []
+        }
+      ],
+      "why": {
+        "icp_fit": [
+          "vertical 'wealth' has a published Nugget page: 62",
+          "regulated by SEBI -> compliance posture is a differentiator not overhead: +12"
+        ],
+        "pain_intensity": [
+          "support_review_share=0.102 -> normalised 31.3 (weight 0.3)",
+          "unresolved_language_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "rating_trend=-0.22 -> normalised 72.5 (weight 0.2)",
+          "review_volume=49 -> normalised 10.07 (weight 0.15)",
+          "renormalised over collected weight 0.65 -> 39.08"
+        ],
+        "reachability": [
+          "size band 'large' -> 75"
+        ]
+      }
+    },
+    {
+      "prospect_id": "idfc_first",
+      "name": "IDFC FIRST Bank",
+      "vertical": "banking",
+      "sub_vertical": null,
+      "icp_fit": 70,
+      "pain_intensity": 52.52,
+      "reachability": 50.0,
+      "raw_score": 58.13,
+      "signals_collected": 4,
+      "confidence": 0.62,
+      "priority": 36.04,
+      "contactable": true,
+      "hold_reason": null,
+      "hard_query_counts": {},
+      "evidence": [
+        {
+          "score": 1,
+          "at": "2026-10-17T18:24:01",
+          "text": "Worst Experience IDFC BANK I had a 3 Year Personal Loan with EMI \u20b924111 in IDFC FIRST Bank. Paid 36 out of 36 EMIs on time. they reject my loan . i Visited branch but staff had no answer. Customer care also useless. This is harassment of genuine customers. Do NOT take loan or EMI Card from IDFC FIRST Bank. There are so many hidden charges are in there idfc first bank dont trust",
+          "hard_queries": []
+        }
+      ],
+      "why": {
+        "icp_fit": [
+          "vertical 'banking' has a published Nugget page: 58",
+          "regulated by RBI -> compliance posture is a differentiator not overhead: +12"
+        ],
+        "pain_intensity": [
+          "support_review_share=0.1304 -> normalised 43.65 (weight 0.3)",
+          "unresolved_language_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "rating_trend=0.16 -> normalised 100.0 (weight 0.2)",
+          "review_volume=46 -> normalised 6.94 (weight 0.15)",
+          "renormalised over collected weight 0.65 -> 52.52"
+        ],
+        "reachability": [
+          "size band 'enterprise' -> 50"
+        ]
+      }
+    },
+    {
+      "prospect_id": "dhan",
+      "name": "Dhan",
+      "vertical": "wealth",
+      "sub_vertical": null,
+      "icp_fit": 74,
+      "pain_intensity": null,
+      "reachability": 100.0,
+      "raw_score": 83.45,
+      "signals_collected": 1,
+      "confidence": 0.0,
+      "priority": 0.0,
+      "contactable": false,
+      "hold_reason": "confidence 0.00 below threshold 0.6 (1 signals collected) - not enough evidence to justify a personalised claim about this company",
+      "hard_query_counts": {},
+      "evidence": [],
+      "why": {
+        "icp_fit": [
+          "vertical 'wealth' has a published Nugget page: 62",
+          "regulated by SEBI -> compliance posture is a differentiator not overhead: +12"
+        ],
+        "pain_intensity": [
+          "support_review_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "unresolved_language_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "rating_trend: NOT COLLECTED - excluded from score, confidence reduced",
+          "review_volume: NOT COLLECTED - excluded from score, confidence reduced",
+          "no pain signals collected - prospect cannot be scored"
+        ],
+        "reachability": [
+          "size band 'mid' -> 100"
+        ]
+      }
+    },
+    {
+      "prospect_id": "scripbox",
+      "name": "Scripbox",
+      "vertical": "wealth",
+      "sub_vertical": null,
+      "icp_fit": 74,
+      "pain_intensity": null,
+      "reachability": 100.0,
+      "raw_score": 83.45,
+      "signals_collected": 1,
+      "confidence": 0.0,
+      "priority": 0.0,
+      "contactable": false,
+      "hold_reason": "confidence 0.00 below threshold 0.6 (1 signals collected) - not enough evidence to justify a personalised claim about this company",
+      "hard_query_counts": {},
+      "evidence": [],
+      "why": {
+        "icp_fit": [
+          "vertical 'wealth' has a published Nugget page: 62",
+          "regulated by SEBI -> compliance posture is a differentiator not overhead: +12"
+        ],
+        "pain_intensity": [
+          "support_review_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "unresolved_language_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "rating_trend: NOT COLLECTED - excluded from score, confidence reduced",
+          "review_volume: NOT COLLECTED - excluded from score, confidence reduced",
+          "no pain signals collected - prospect cannot be scored"
+        ],
+        "reachability": [
+          "size band 'mid' -> 100"
+        ]
+      }
+    },
+    {
+      "prospect_id": "jiraaf",
+      "name": "Jiraaf",
+      "vertical": "wealth",
+      "sub_vertical": "bonds_fixed_income",
+      "icp_fit": 89,
+      "pain_intensity": null,
+      "reachability": 100.0,
+      "raw_score": 93.0,
+      "signals_collected": 1,
+      "confidence": 0.0,
+      "priority": 0.0,
+      "contactable": false,
+      "hold_reason": "confidence 0.00 below threshold 0.6 (1 signals collected) - not enough evidence to justify a personalised claim about this company",
+      "hard_query_counts": {},
+      "evidence": [],
+      "why": {
+        "icp_fit": [
+          "vertical 'wealth' has a published Nugget page: 62",
+          "regulated by SEBI -> compliance posture is a differentiator not overhead: +12",
+          "sub-vertical 'bonds_fixed_income' carries the hard-query class Nugget's Wealth page does not yet address: +15"
+        ],
+        "pain_intensity": [
+          "support_review_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "unresolved_language_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "rating_trend: NOT COLLECTED - excluded from score, confidence reduced",
+          "review_volume: NOT COLLECTED - excluded from score, confidence reduced",
+          "no pain signals collected - prospect cannot be scored"
+        ],
+        "reachability": [
+          "size band 'mid' -> 100"
+        ]
+      }
+    },
+    {
+      "prospect_id": "indiabonds",
+      "name": "IndiaBonds",
+      "vertical": "wealth",
+      "sub_vertical": "bonds_fixed_income",
+      "icp_fit": 89,
+      "pain_intensity": null,
+      "reachability": 40.0,
+      "raw_score": 71.18,
+      "signals_collected": 1,
+      "confidence": 0.0,
+      "priority": 0.0,
+      "contactable": false,
+      "hold_reason": "confidence 0.00 below threshold 0.6 (1 signals collected) - not enough evidence to justify a personalised claim about this company",
+      "hard_query_counts": {},
+      "evidence": [],
+      "why": {
+        "icp_fit": [
+          "vertical 'wealth' has a published Nugget page: 62",
+          "regulated by SEBI -> compliance posture is a differentiator not overhead: +12",
+          "sub-vertical 'bonds_fixed_income' carries the hard-query class Nugget's Wealth page does not yet address: +15"
+        ],
+        "pain_intensity": [
+          "support_review_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "unresolved_language_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "rating_trend: NOT COLLECTED - excluded from score, confidence reduced",
+          "review_volume: NOT COLLECTED - excluded from score, confidence reduced",
+          "no pain signals collected - prospect cannot be scored"
+        ],
+        "reachability": [
+          "size band 'startup' -> 40"
+        ]
+      }
+    },
+    {
+      "prospect_id": "bondskart",
+      "name": "BondsKart",
+      "vertical": "wealth",
+      "sub_vertical": "bonds_fixed_income",
+      "icp_fit": 89,
+      "pain_intensity": null,
+      "reachability": 100.0,
+      "raw_score": 93.0,
+      "signals_collected": 1,
+      "confidence": 0.0,
+      "priority": 0.0,
+      "contactable": false,
+      "hold_reason": "confidence 0.00 below threshold 0.6 (1 signals collected) - not enough evidence to justify a personalised claim about this company",
+      "hard_query_counts": {},
+      "evidence": [],
+      "why": {
+        "icp_fit": [
+          "vertical 'wealth' has a published Nugget page: 62",
+          "regulated by SEBI -> compliance posture is a differentiator not overhead: +12",
+          "sub-vertical 'bonds_fixed_income' carries the hard-query class Nugget's Wealth page does not yet address: +15"
+        ],
+        "pain_intensity": [
+          "support_review_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "unresolved_language_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "rating_trend: NOT COLLECTED - excluded from score, confidence reduced",
+          "review_volume: NOT COLLECTED - excluded from score, confidence reduced",
+          "no pain signals collected - prospect cannot be scored"
+        ],
+        "reachability": [
+          "size band 'mid' -> 100"
+        ]
+      }
+    },
+    {
+      "prospect_id": "kreditbee",
+      "name": "KreditBee",
+      "vertical": "lending",
+      "sub_vertical": null,
+      "icp_fit": 72,
+      "pain_intensity": 100.0,
+      "reachability": 100.0,
+      "raw_score": 90.2,
+      "signals_collected": 2,
+      "confidence": 0.0,
+      "priority": 0.0,
+      "contactable": false,
+      "hold_reason": "confidence 0.00 below threshold 0.6 (2 signals collected) - not enough evidence to justify a personalised claim about this company",
+      "hard_query_counts": {
+        "repayment_mechanics": 1
+      },
+      "evidence": [],
+      "why": {
+        "icp_fit": [
+          "vertical 'lending' has a published Nugget page: 60",
+          "regulated by RBI -> compliance posture is a differentiator not overhead: +12"
+        ],
+        "pain_intensity": [
+          "support_review_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "unresolved_language_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "rating_trend=0.16 -> normalised 100.0 (weight 0.2)",
+          "review_volume: NOT COLLECTED - excluded from score, confidence reduced",
+          "renormalised over collected weight 0.20 -> 100.00"
+        ],
+        "reachability": [
+          "size band 'mid' -> 100"
+        ]
+      }
+    },
+    {
+      "prospect_id": "bajaj_finserv",
+      "name": "Bajaj Finserv",
+      "vertical": "lending",
+      "sub_vertical": null,
+      "icp_fit": 72,
+      "pain_intensity": null,
+      "reachability": 50.0,
+      "raw_score": 64.0,
+      "signals_collected": 1,
+      "confidence": 0.0,
+      "priority": 0.0,
+      "contactable": false,
+      "hold_reason": "confidence 0.00 below threshold 0.6 (1 signals collected) - not enough evidence to justify a personalised claim about this company",
+      "hard_query_counts": {},
+      "evidence": [],
+      "why": {
+        "icp_fit": [
+          "vertical 'lending' has a published Nugget page: 60",
+          "regulated by RBI -> compliance posture is a differentiator not overhead: +12"
+        ],
+        "pain_intensity": [
+          "support_review_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "unresolved_language_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "rating_trend: NOT COLLECTED - excluded from score, confidence reduced",
+          "review_volume: NOT COLLECTED - excluded from score, confidence reduced",
+          "no pain signals collected - prospect cannot be scored"
+        ],
+        "reachability": [
+          "size band 'enterprise' -> 50"
+        ]
+      }
+    },
+    {
+      "prospect_id": "lendingkart",
+      "name": "Lendingkart",
+      "vertical": "lending",
+      "sub_vertical": null,
+      "icp_fit": 72,
+      "pain_intensity": null,
+      "reachability": 100.0,
+      "raw_score": 82.18,
+      "signals_collected": 1,
+      "confidence": 0.0,
+      "priority": 0.0,
+      "contactable": false,
+      "hold_reason": "confidence 0.00 below threshold 0.6 (1 signals collected) - not enough evidence to justify a personalised claim about this company",
+      "hard_query_counts": {},
+      "evidence": [],
+      "why": {
+        "icp_fit": [
+          "vertical 'lending' has a published Nugget page: 60",
+          "regulated by RBI -> compliance posture is a differentiator not overhead: +12"
+        ],
+        "pain_intensity": [
+          "support_review_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "unresolved_language_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "rating_trend: NOT COLLECTED - excluded from score, confidence reduced",
+          "review_volume: NOT COLLECTED - excluded from score, confidence reduced",
+          "no pain signals collected - prospect cannot be scored"
+        ],
+        "reachability": [
+          "size band 'mid' -> 100"
+        ]
+      }
+    },
+    {
+      "prospect_id": "moneyview",
+      "name": "MoneyView",
+      "vertical": "lending",
+      "sub_vertical": null,
+      "icp_fit": 72,
+      "pain_intensity": 100.0,
+      "reachability": 100.0,
+      "raw_score": 90.2,
+      "signals_collected": 2,
+      "confidence": 0.0,
+      "priority": 0.0,
+      "contactable": false,
+      "hold_reason": "confidence 0.00 below threshold 0.6 (2 signals collected) - not enough evidence to justify a personalised claim about this company",
+      "hard_query_counts": {
+        "regulatory_status": 1
+      },
+      "evidence": [
+        {
+          "score": 1,
+          "at": "2026-10-19T17:37:10",
+          "text": "No response from customer care help chat",
+          "hard_queries": []
+        }
+      ],
+      "why": {
+        "icp_fit": [
+          "vertical 'lending' has a published Nugget page: 60",
+          "regulated by RBI -> compliance posture is a differentiator not overhead: +12"
+        ],
+        "pain_intensity": [
+          "support_review_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "unresolved_language_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "rating_trend=0.0 -> normalised 100.0 (weight 0.2)",
+          "review_volume: NOT COLLECTED - excluded from score, confidence reduced",
+          "renormalised over collected weight 0.20 -> 100.00"
+        ],
+        "reachability": [
+          "size band 'mid' -> 100"
+        ]
+      }
+    },
+    {
+      "prospect_id": "navi",
+      "name": "Navi",
+      "vertical": "lending",
+      "sub_vertical": null,
+      "icp_fit": 72,
+      "pain_intensity": 100.0,
+      "reachability": 75.0,
+      "raw_score": 85.2,
+      "signals_collected": 2,
+      "confidence": 0.0,
+      "priority": 0.0,
+      "contactable": false,
+      "hold_reason": "confidence 0.00 below threshold 0.6 (2 signals collected) - not enough evidence to justify a personalised claim about this company",
+      "hard_query_counts": {},
+      "evidence": [],
+      "why": {
+        "icp_fit": [
+          "vertical 'lending' has a published Nugget page: 60",
+          "regulated by RBI -> compliance posture is a differentiator not overhead: +12"
+        ],
+        "pain_intensity": [
+          "support_review_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "unresolved_language_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "rating_trend=0.02 -> normalised 100.0 (weight 0.2)",
+          "review_volume: NOT COLLECTED - excluded from score, confidence reduced",
+          "renormalised over collected weight 0.20 -> 100.00"
+        ],
+        "reachability": [
+          "size band 'large' -> 75"
+        ]
+      }
+    },
+    {
+      "prospect_id": "star_health",
+      "name": "Star Health",
+      "vertical": "insurance",
+      "sub_vertical": null,
+      "icp_fit": 72,
+      "pain_intensity": null,
+      "reachability": 50.0,
+      "raw_score": 64.0,
+      "signals_collected": 1,
+      "confidence": 0.0,
+      "priority": 0.0,
+      "contactable": false,
+      "hold_reason": "confidence 0.00 below threshold 0.6 (1 signals collected) - not enough evidence to justify a personalised claim about this company",
+      "hard_query_counts": {},
+      "evidence": [],
+      "why": {
+        "icp_fit": [
+          "vertical 'insurance' has a published Nugget page: 60",
+          "regulated by IRDAI -> compliance posture is a differentiator not overhead: +12"
+        ],
+        "pain_intensity": [
+          "support_review_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "unresolved_language_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "rating_trend: NOT COLLECTED - excluded from score, confidence reduced",
+          "review_volume: NOT COLLECTED - excluded from score, confidence reduced",
+          "no pain signals collected - prospect cannot be scored"
+        ],
+        "reachability": [
+          "size band 'enterprise' -> 50"
+        ]
+      }
+    },
+    {
+      "prospect_id": "niva_bupa",
+      "name": "Niva Bupa",
+      "vertical": "insurance",
+      "sub_vertical": null,
+      "icp_fit": 72,
+      "pain_intensity": null,
+      "reachability": 75.0,
+      "raw_score": 73.09,
+      "signals_collected": 1,
+      "confidence": 0.0,
+      "priority": 0.0,
+      "contactable": false,
+      "hold_reason": "confidence 0.00 below threshold 0.6 (1 signals collected) - not enough evidence to justify a personalised claim about this company",
+      "hard_query_counts": {},
+      "evidence": [],
+      "why": {
+        "icp_fit": [
+          "vertical 'insurance' has a published Nugget page: 60",
+          "regulated by IRDAI -> compliance posture is a differentiator not overhead: +12"
+        ],
+        "pain_intensity": [
+          "support_review_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "unresolved_language_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "rating_trend: NOT COLLECTED - excluded from score, confidence reduced",
+          "review_volume: NOT COLLECTED - excluded from score, confidence reduced",
+          "no pain signals collected - prospect cannot be scored"
+        ],
+        "reachability": [
+          "size band 'large' -> 75"
+        ]
+      }
+    },
+    {
+      "prospect_id": "cashfree",
+      "name": "Cashfree Payments",
+      "vertical": "payments",
+      "sub_vertical": null,
+      "icp_fit": 70,
+      "pain_intensity": null,
+      "reachability": 100.0,
+      "raw_score": 80.91,
+      "signals_collected": 1,
+      "confidence": 0.0,
+      "priority": 0.0,
+      "contactable": false,
+      "hold_reason": "confidence 0.00 below threshold 0.6 (1 signals collected) - not enough evidence to justify a personalised claim about this company",
+      "hard_query_counts": {},
+      "evidence": [],
+      "why": {
+        "icp_fit": [
+          "vertical 'payments' has a published Nugget page: 58",
+          "regulated by RBI -> compliance posture is a differentiator not overhead: +12"
+        ],
+        "pain_intensity": [
+          "support_review_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "unresolved_language_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "rating_trend: NOT COLLECTED - excluded from score, confidence reduced",
+          "review_volume: NOT COLLECTED - excluded from score, confidence reduced",
+          "no pain signals collected - prospect cannot be scored"
+        ],
+        "reachability": [
+          "size band 'mid' -> 100"
+        ]
+      }
+    },
+    {
+      "prospect_id": "bharatpe",
+      "name": "BharatPe",
+      "vertical": "payments",
+      "sub_vertical": null,
+      "icp_fit": 70,
+      "pain_intensity": 100.0,
+      "reachability": 100.0,
+      "raw_score": 89.5,
+      "signals_collected": 2,
+      "confidence": 0.0,
+      "priority": 0.0,
+      "contactable": false,
+      "hold_reason": "confidence 0.00 below threshold 0.6 (2 signals collected) - not enough evidence to justify a personalised claim about this company",
+      "hard_query_counts": {},
+      "evidence": [],
+      "why": {
+        "icp_fit": [
+          "vertical 'payments' has a published Nugget page: 58",
+          "regulated by RBI -> compliance posture is a differentiator not overhead: +12"
+        ],
+        "pain_intensity": [
+          "support_review_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "unresolved_language_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "rating_trend=0.28 -> normalised 100.0 (weight 0.2)",
+          "review_volume: NOT COLLECTED - excluded from score, confidence reduced",
+          "renormalised over collected weight 0.20 -> 100.00"
+        ],
+        "reachability": [
+          "size band 'mid' -> 100"
+        ]
+      }
+    },
+    {
+      "prospect_id": "paytm",
+      "name": "Paytm",
+      "vertical": "payments",
+      "sub_vertical": null,
+      "icp_fit": 70,
+      "pain_intensity": 92.5,
+      "reachability": 50.0,
+      "raw_score": 76.12,
+      "signals_collected": 2,
+      "confidence": 0.0,
+      "priority": 0.0,
+      "contactable": false,
+      "hold_reason": "confidence 0.00 below threshold 0.6 (2 signals collected) - not enough evidence to justify a personalised claim about this company",
+      "hard_query_counts": {},
+      "evidence": [],
+      "why": {
+        "icp_fit": [
+          "vertical 'payments' has a published Nugget page: 58",
+          "regulated by RBI -> compliance posture is a differentiator not overhead: +12"
+        ],
+        "pain_intensity": [
+          "support_review_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "unresolved_language_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "rating_trend=-0.06 -> normalised 92.5 (weight 0.2)",
+          "review_volume: NOT COLLECTED - excluded from score, confidence reduced",
+          "renormalised over collected weight 0.20 -> 92.50"
+        ],
+        "reachability": [
+          "size band 'enterprise' -> 50"
+        ]
+      }
+    },
+    {
+      "prospect_id": "au_bank",
+      "name": "AU Small Finance Bank",
+      "vertical": "banking",
+      "sub_vertical": null,
+      "icp_fit": 70,
+      "pain_intensity": null,
+      "reachability": 75.0,
+      "raw_score": 71.82,
+      "signals_collected": 1,
+      "confidence": 0.0,
+      "priority": 0.0,
+      "contactable": false,
+      "hold_reason": "confidence 0.00 below threshold 0.6 (1 signals collected) - not enough evidence to justify a personalised claim about this company",
+      "hard_query_counts": {},
+      "evidence": [],
+      "why": {
+        "icp_fit": [
+          "vertical 'banking' has a published Nugget page: 58",
+          "regulated by RBI -> compliance posture is a differentiator not overhead: +12"
+        ],
+        "pain_intensity": [
+          "support_review_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "unresolved_language_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "rating_trend: NOT COLLECTED - excluded from score, confidence reduced",
+          "review_volume: NOT COLLECTED - excluded from score, confidence reduced",
+          "no pain signals collected - prospect cannot be scored"
+        ],
+        "reachability": [
+          "size band 'large' -> 75"
+        ]
+      }
+    },
+    {
+      "prospect_id": "equitas",
+      "name": "Equitas Small Finance Bank",
+      "vertical": "banking",
+      "sub_vertical": null,
+      "icp_fit": 70,
+      "pain_intensity": null,
+      "reachability": 100.0,
+      "raw_score": 80.91,
+      "signals_collected": 1,
+      "confidence": 0.0,
+      "priority": 0.0,
+      "contactable": false,
+      "hold_reason": "confidence 0.00 below threshold 0.6 (1 signals collected) - not enough evidence to justify a personalised claim about this company",
+      "hard_query_counts": {},
+      "evidence": [],
+      "why": {
+        "icp_fit": [
+          "vertical 'banking' has a published Nugget page: 58",
+          "regulated by RBI -> compliance posture is a differentiator not overhead: +12"
+        ],
+        "pain_intensity": [
+          "support_review_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "unresolved_language_share: NOT COLLECTED - excluded from score, confidence reduced",
+          "rating_trend: NOT COLLECTED - excluded from score, confidence reduced",
+          "review_volume: NOT COLLECTED - excluded from score, confidence reduced",
+          "no pain signals collected - prospect cannot be scored"
+        ],
+        "reachability": [
+          "size band 'mid' -> 100"
+        ]
+      }
+    }
+  ]
+}

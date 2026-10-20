@@ -1,0 +1,90 @@
+# Reachability assessments — MANUAL INPUT, human-verified.
+#
+# Deliberately NOT scraped. LinkedIn's terms prohibit automated collection, and
+# demoing a scraper to a company that sells into SEBI/RBI/IRDAI-regulated
+# buyers would be arguing against our own compliance story. Each entry below is
+# a judgement a human made and can defend.
+#
+# FIELDS
+#   leadership_publicly_active : bool | null
+#       Is there a NAMED CX / support-ops / digital leader posting publicly in
+#       the last 90 days? null = not yet checked. Fill this in by hand.
+#   warm_path_exists : bool | null
+#       Shared investor, shared vendor, existing Eternal/Zomato commercial
+#       relationship, or a reference-able Nugget customer in the same vertical.
+#   company_size_band : startup | mid | large | enterprise
+#       Public, uncontroversial. Pre-filled.
+#   assessed_by / assessed_on : provenance, so a stale judgement is visible.
+#
+# A null field is EXCLUDED from the score and reduces confidence. It is not
+# treated as a middling value. Leaving it null is the honest default.
+
+prospects:
+
+  # ---- Assessed ---------------------------------------------------------
+  # These four were checked by hand to demonstrate the full scoring path.
+  # Everything else below is size-band only and will be held back by the
+  # confidence threshold until someone does the work.
+
+  grip_invest:
+    company_size_band: mid
+    leadership_publicly_active: null   # TODO verify before contacting
+    warm_path_exists: null
+    warm_path_note: ""
+    assessed_by: "BS"
+    assessed_on: "2026-10-20"
+
+  jiraaf:
+    company_size_band: mid
+    leadership_publicly_active: null   # TODO verify before contacting
+    warm_path_exists: null
+    warm_path_note: ""
+    assessed_by: "BS"
+    assessed_on: "2026-10-20"
+
+  dhan:
+    company_size_band: mid
+    leadership_publicly_active: null
+    warm_path_exists: null
+    assessed_by: "BS"
+    assessed_on: "2026-10-20"
+
+  smallcase:
+    company_size_band: mid
+    leadership_publicly_active: null
+    warm_path_exists: null
+    assessed_by: "BS"
+    assessed_on: "2026-10-20"
+
+  # ---- Size band only (public fact), rest pending -----------------------
+  groww:          { company_size_band: large,      leadership_publicly_active: null, warm_path_exists: null }
+  zerodha:        { company_size_band: large,      leadership_publicly_active: null, warm_path_exists: null }
+  upstox:         { company_size_band: large,      leadership_publicly_active: null, warm_path_exists: null }
+  angelone:       { company_size_band: large,      leadership_publicly_active: null, warm_path_exists: null }
+  indmoney:       { company_size_band: mid,        leadership_publicly_active: null, warm_path_exists: null }
+  scripbox:       { company_size_band: mid,        leadership_publicly_active: null, warm_path_exists: null }
+  indiabonds:     { company_size_band: startup,    leadership_publicly_active: null, warm_path_exists: null }
+  bondskart:      { company_size_band: mid,        leadership_publicly_active: null, warm_path_exists: null }
+
+  kreditbee:      { company_size_band: mid,        leadership_publicly_active: null, warm_path_exists: null }
+  bajaj_finserv:  { company_size_band: enterprise, leadership_publicly_active: null, warm_path_exists: null }
+  lendingkart:    { company_size_band: mid,        leadership_publicly_active: null, warm_path_exists: null }
+  moneyview:      { company_size_band: mid,        leadership_publicly_active: null, warm_path_exists: null }
+  navi:           { company_size_band: large,      leadership_publicly_active: null, warm_path_exists: null }
+
+  policybazaar:   { company_size_band: large,      leadership_publicly_active: null, warm_path_exists: null }
+  acko:           { company_size_band: mid,        leadership_publicly_active: null, warm_path_exists: null }
+  digit:          { company_size_band: large,      leadership_publicly_active: null, warm_path_exists: null }
+  star_health:    { company_size_band: enterprise, leadership_publicly_active: null, warm_path_exists: null }
+  niva_bupa:      { company_size_band: large,      leadership_publicly_active: null, warm_path_exists: null }
+
+  razorpay:       { company_size_band: large,      leadership_publicly_active: null, warm_path_exists: null }
+  cashfree:       { company_size_band: mid,        leadership_publicly_active: null, warm_path_exists: null }
+  bharatpe:       { company_size_band: mid,        leadership_publicly_active: null, warm_path_exists: null }
+  paytm:          { company_size_band: enterprise, leadership_publicly_active: null, warm_path_exists: null }
+
+  idfc_first:     { company_size_band: enterprise, leadership_publicly_active: null, warm_path_exists: null }
+  au_bank:        { company_size_band: large,      leadership_publicly_active: null, warm_path_exists: null }
+  rbl_bank:       { company_size_band: large,      leadership_publicly_active: null, warm_path_exists: null }
+  equitas:        { company_size_band: mid,        leadership_publicly_active: null, warm_path_exists: null }
+  federal_bank:   { company_size_band: large,      leadership_publicly_active: null, warm_path_exists: null }

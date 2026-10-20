@@ -1,0 +1,316 @@
+# Nugget Signal Engine — Prospect Universe
+#
+# Indian BFSI companies mapped to Nugget's published industry verticals.
+# Vertical names match https://www.nugget.com/industries/* exactly.
+#
+# RULE: static fields below are identity/classification only (name, vertical,
+# android package, regulator). NO performance, complaint, or rating numbers are
+# hard-coded here. Those are populated by collectors at runtime into
+# data/signals.json. If a collector cannot reach a source, the field stays null
+# and the confidence score degrades. We never guess.
+#
+# EXCLUSIONS: wint_wealth is deliberately absent. Author is currently employed
+# there; including an employer in a prospecting list built for a third party is
+# a conflict of interest. See README "Conflicts & data hygiene".
+
+meta:
+  version: "0.1"
+  compiled: "2026-10-20"
+  universe_note: >
+    Selection criteria: (1) India-domiciled, (2) consumer-facing at scale, so
+    support volume is material, (3) operates in a vertical Nugget already
+    publishes a landing page for, (4) regulated by SEBI / RBI / IRDAI, so
+    compliance-grade conversation logging is a buying requirement rather than
+    a nice-to-have.
+
+prospects:
+
+  # ---- WEALTH -------------------------------------------------------------
+  - id: groww
+    name: Groww
+    legal_entity: Billionbrains Garage Ventures
+    vertical: wealth
+    regulator: [SEBI]
+    android_package: com.nextbillion.groww
+    domain: groww.in
+    help_centre: https://groww.in/help
+
+  - id: zerodha
+    name: Zerodha
+    legal_entity: Zerodha Broking Ltd
+    vertical: wealth
+    regulator: [SEBI]
+    android_package: com.zerodha.kite3
+    domain: zerodha.com
+    help_centre: https://support.zerodha.com
+
+  - id: upstox
+    name: Upstox
+    legal_entity: RKSV Securities India Pvt Ltd
+    vertical: wealth
+    regulator: [SEBI]
+    android_package: in.upstox.app
+    domain: upstox.com
+    help_centre: https://help.upstox.com
+
+  - id: angelone
+    name: Angel One
+    legal_entity: Angel One Ltd
+    vertical: wealth
+    regulator: [SEBI]
+    android_package: com.msf.angelmobile
+    domain: angelone.in
+    help_centre: https://www.angelone.in/support
+
+  - id: indmoney
+    name: INDmoney
+    legal_entity: Finzoom Investment Advisors Pvt Ltd
+    vertical: wealth
+    regulator: [SEBI]
+    android_package: in.indwealth
+    domain: indmoney.com
+    help_centre: https://www.indmoney.com/contact-us
+
+  - id: dhan
+    name: Dhan
+    legal_entity: Raise Securities Pvt Ltd
+    vertical: wealth
+    regulator: [SEBI]
+    android_package: co.dhan.invest
+    domain: dhan.co
+    help_centre: https://help.dhan.co
+
+  - id: smallcase
+    name: smallcase
+    legal_entity: Smallcase Technologies Pvt Ltd
+    vertical: wealth
+    regulator: [SEBI]
+    android_package: com.smallcase.android
+    domain: smallcase.com
+    help_centre: https://help.smallcase.com
+
+  - id: scripbox
+    name: Scripbox
+    legal_entity: Scripbox Advisors Pvt Ltd
+    vertical: wealth
+    regulator: [SEBI]
+    android_package: com.scripbox.app
+    domain: scripbox.com
+    help_centre: https://scripbox.com/contact-us
+
+  # Bond / fixed-income platforms — the sharpest wedge. These carry the
+  # TDS / repayment / maturity query class that generic support bots fail on.
+  - id: grip_invest
+    name: Grip Invest
+    legal_entity: Grip Broking Pvt Ltd
+    vertical: wealth
+    sub_vertical: bonds_fixed_income
+    regulator: [SEBI]
+    android_package: com.gripinvest.app
+    domain: gripinvest.in
+    help_centre: https://www.gripinvest.in/contact-us
+
+  - id: jiraaf
+    name: Jiraaf
+    legal_entity: Altiva Fintech Pvt Ltd
+    vertical: wealth
+    sub_vertical: bonds_fixed_income
+    regulator: [SEBI]
+    android_package: com.jiraaf.app
+    domain: jiraaf.com
+    help_centre: https://www.jiraaf.com/contact-us
+
+  - id: indiabonds
+    name: IndiaBonds
+    legal_entity: Launchpad Fintech Pvt Ltd
+    vertical: wealth
+    sub_vertical: bonds_fixed_income
+    regulator: [SEBI]
+    android_package: null   # web-primary; collector must handle absence
+    domain: indiabonds.com
+    help_centre: https://www.indiabonds.com/contact-us
+
+  - id: bondskart
+    name: BondsKart
+    legal_entity: JM Financial Services
+    vertical: wealth
+    sub_vertical: bonds_fixed_income
+    regulator: [SEBI]
+    android_package: null
+    domain: bondskart.com
+    help_centre: https://bondskart.com/contact
+
+  # ---- LENDING ------------------------------------------------------------
+  - id: kreditbee
+    name: KreditBee
+    legal_entity: Finnovation Tech Solutions Pvt Ltd
+    vertical: lending
+    regulator: [RBI]
+    android_package: com.kreditbee.android
+    domain: kreditbee.in
+    help_centre: https://www.kreditbee.in/contact-us
+
+  - id: bajaj_finserv
+    name: Bajaj Finserv
+    legal_entity: Bajaj Finance Ltd
+    vertical: lending
+    regulator: [RBI]
+    android_package: com.bajajfinservmarkets.app
+    domain: bajajfinserv.in
+    help_centre: https://www.bajajfinserv.in/contact-us
+
+  - id: lendingkart
+    name: Lendingkart
+    legal_entity: Lendingkart Technologies Pvt Ltd
+    vertical: lending
+    regulator: [RBI]
+    android_package: com.lendingkart.app
+    domain: lendingkart.com
+    help_centre: https://www.lendingkart.com/contact-us
+
+  - id: moneyview
+    name: MoneyView
+    legal_entity: Whizdm Innovations Pvt Ltd
+    vertical: lending
+    regulator: [RBI]
+    android_package: com.whizdm.moneyview.loans
+    domain: moneyview.in
+    help_centre: https://moneyview.in/contact-us
+
+  - id: navi
+    name: Navi
+    legal_entity: Navi Technologies Ltd
+    vertical: lending
+    regulator: [RBI]
+    android_package: com.naviapp
+    domain: navi.com
+    help_centre: https://navi.com/contact-us
+
+  # ---- INSURANCE ----------------------------------------------------------
+  - id: policybazaar
+    name: PolicyBazaar
+    legal_entity: PB Fintech Ltd
+    vertical: insurance
+    regulator: [IRDAI]
+    android_package: com.policybazaar
+    domain: policybazaar.com
+    help_centre: https://www.policybazaar.com/contact-us
+
+  - id: acko
+    name: ACKO
+    legal_entity: Acko General Insurance Ltd
+    vertical: insurance
+    regulator: [IRDAI]
+    android_package: com.acko.android
+    domain: acko.com
+    help_centre: https://www.acko.com/contact-us
+
+  - id: digit
+    name: Go Digit
+    legal_entity: Go Digit General Insurance Ltd
+    vertical: insurance
+    regulator: [IRDAI]
+    android_package: com.godigit.digit
+    domain: godigit.com
+    help_centre: https://www.godigit.com/contact-us
+
+  - id: star_health
+    name: Star Health
+    legal_entity: Star Health and Allied Insurance Co Ltd
+    vertical: insurance
+    regulator: [IRDAI]
+    android_package: com.sliic.starhealth
+    domain: starhealth.in
+    help_centre: https://www.starhealth.in/contact-us
+
+  - id: niva_bupa
+    name: Niva Bupa
+    legal_entity: Niva Bupa Health Insurance Co Ltd
+    vertical: insurance
+    regulator: [IRDAI]
+    android_package: com.nivabupa.app
+    domain: nivabupa.com
+    help_centre: https://www.nivabupa.com/contact-us
+
+  # ---- PAYMENTS -----------------------------------------------------------
+  - id: razorpay
+    name: Razorpay
+    legal_entity: Razorpay Software Pvt Ltd
+    vertical: payments
+    regulator: [RBI]
+    android_package: com.razorpay.payments.app
+    domain: razorpay.com
+    help_centre: https://razorpay.com/support
+
+  - id: cashfree
+    name: Cashfree Payments
+    legal_entity: Cashfree Payments India Pvt Ltd
+    vertical: payments
+    regulator: [RBI]
+    android_package: null
+    domain: cashfree.com
+    help_centre: https://www.cashfree.com/help-support
+
+  - id: bharatpe
+    name: BharatPe
+    legal_entity: Resilient Innovations Pvt Ltd
+    vertical: payments
+    regulator: [RBI]
+    android_package: com.bharatpe.app
+    domain: bharatpe.com
+    help_centre: https://bharatpe.com/contact-us
+
+  - id: paytm
+    name: Paytm
+    legal_entity: One97 Communications Ltd
+    vertical: payments
+    regulator: [RBI]
+    android_package: net.one97.paytm
+    domain: paytm.com
+    help_centre: https://paytm.com/care
+
+  # ---- BANKING ------------------------------------------------------------
+  - id: idfc_first
+    name: IDFC FIRST Bank
+    legal_entity: IDFC FIRST Bank Ltd
+    vertical: banking
+    regulator: [RBI]
+    android_package: com.idfcfirstbank.optimus
+    domain: idfcfirstbank.com
+    help_centre: https://www.idfcfirstbank.com/customer-service
+
+  - id: au_bank
+    name: AU Small Finance Bank
+    legal_entity: AU Small Finance Bank Ltd
+    vertical: banking
+    regulator: [RBI]
+    android_package: com.ausmallfinancebank.aubank
+    domain: aubank.in
+    help_centre: https://www.aubank.in/customer-care
+
+  - id: rbl_bank
+    name: RBL Bank
+    legal_entity: RBL Bank Ltd
+    vertical: banking
+    regulator: [RBI]
+    android_package: com.rblbank.mobank
+    domain: rblbank.com
+    help_centre: https://www.rblbank.com/contact-us
+
+  - id: equitas
+    name: Equitas Small Finance Bank
+    legal_entity: Equitas Small Finance Bank Ltd
+    vertical: banking
+    regulator: [RBI]
+    android_package: com.equitasbank.mobilebanking
+    domain: equitasbank.com
+    help_centre: https://www.equitasbank.com/contact-us
+
+  - id: federal_bank
+    name: Federal Bank
+    legal_entity: The Federal Bank Ltd
+    vertical: banking
+    regulator: [RBI]
+    android_package: com.fedmobile
+    domain: federalbank.co.in
+    help_centre: https://www.federalbank.co.in/contact-us

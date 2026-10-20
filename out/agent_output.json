@@ -1,0 +1,461 @@
+[
+  {
+    "prospect_id": "smallcase",
+    "name": "smallcase",
+    "vertical": "wealth",
+    "generated_at": "2026-10-20T14:13:09.669253+00:00",
+    "brief": {
+      "prospect_id": "smallcase",
+      "name": "smallcase",
+      "vertical": "wealth",
+      "regulators": [
+        "SEBI"
+      ],
+      "measured": {
+        "reviews_fetched": 300,
+        "substantive_reviews": 121,
+        "negative_substantive_reviews": 66,
+        "support_share_of_substantive": 0.157,
+        "channel_failure_share_of_negative": 0.0758,
+        "pain_rank": 7,
+        "pain_rank_of": 19,
+        "confidence": 0.78
+      },
+      "verbatim_quotes": [
+        {
+          "stars": 1,
+          "text": "Customer service can be improved. CC is acting only as postman, raised issue 45 days back, TKT-143999, still no resolution."
+        },
+        {
+          "stars": 1,
+          "text": "Faced a transaction error in mutual fund and raise query for the same which is still not resolved after a month of follow up. after google play review. i recieved call from team af"
+        },
+        {
+          "stars": 1,
+          "text": "I have taken loan against MF facility, 25000 balance is available to withdraw, but from last 4 days not able to withdraw money, I have raised ticket for that but no reply, worst se"
+        },
+        {
+          "stars": 1,
+          "text": "worst experience.. invested 25k on subscribed plan and it's been 1 month, funds are not reflecting in my account, also raised a ticket against this, and they only say we are proces"
+        }
+      ],
+      "our_own_eval": {
+        "cases": 18,
+        "naive_automated_pct": 66.7,
+        "naive_correct_pct": 38.9,
+        "naive_confidently_wrong": 8,
+        "integrated_automated_pct": 72.2,
+        "integrated_correct_pct": 94.4,
+        "integrated_confidently_wrong": 0
+      },
+      "collection_date": "2026-10-20",
+      "source": "public Google Play Store reviews, India storefront",
+      "known_gaps": [
+        "No contact volume data - review share is directional only",
+        "Single snapshot, no month-over-month trend",
+        "App reviews skew toward angry and resolved-badly customers"
+      ]
+    },
+    "angles": [
+      {
+        "angle": "evidence_audit",
+        "angle_name": "Evidence audit",
+        "rounds": [
+          {
+            "round": 1,
+            "draft": "SUBJECT: Support tickets in your play store reviews\n\nHi {first_name},\n\nI read 300 recent smallcase Play Store reviews (India storefront, pulled 20 October 2026). 121 had substantive text and 66 of those were 1-2 stars. Of those 66, 5 (7.6%) were about the support channel failing rather than the product, with tickets unanswered or repeated follow-ups. One reads: \"raised issue 45 days back, TKT-143999, still no resolution.\"\n\nCaveats: app reviews skew toward unhappy customers, I have no contact volumes, and this is a single snapshot with no trend.\n\nDoes that match what you see internally, or is the review sample misleading?\n\n{sender}",
+            "passed": false,
+            "mean_score": 3.4,
+            "hard_fails": [
+              "derived_figure",
+              "nothing_offered"
+            ],
+            "unsupported_claims": [
+              "5 (7.6%) were about the support channel failing"
+            ],
+            "verdict": "Honest and well-caveated, but it ships a derived count ('5') the brief never states and offers the recipient nothing to keep, so it is a stat report with a question and cannot go out.",
+            "failures": [
+              "Remove the '5'. The brief gives 7.6% of negative reviews, not a count. Converting it to 5 is a derived figure that cannot be checked against the brief. Write '7.6% of the negative reviews' and drop the count.",
+              "Add a concrete offer the recipient keeps regardless of reply, e.g. 'I can send the full set of support-channel reviews with ticket references so your team can check them' or the methodology for how reviews were classified. Currently it only reports a stat and asks a question.",
+              "Do not offer anything that isn't in the brief. The eval result (67% automated vs 94% correctly disposed, 8 confidently wrong) is available to reference and is the actual insight. Consider one sentence on how deflection rate and correctness diverge on 18 real support queries, with the query set offered.",
+              "Verifiability is weaker than it looks: the recipient can find the TKT-143999 review, but cannot reproduce the 7.6% without your classification. Offer the classified review list so the number can be checked in ten minutes.",
+              "Insight is thin. 'Tickets go unanswered' is what any ops head already assumes from reviews. Frame the distinction the brief supports: the complaints are about the channel failing (no reply, repeated follow-up), not the product. Say what that implies without overclaiming, given there is no contact volume data.",
+              "The closing question 'is the review sample misleading?' invites a one-word dismissal. Replace it with a question tied to the offer, such as whether they'd want the classified list."
+            ],
+            "scores": {
+              "specificity": 4,
+              "verifiability": 3,
+              "insight": 2,
+              "brevity": 4,
+              "voice": 4
+            }
+          },
+          {
+            "round": 2,
+            "draft": "SUBJECT: Ticket complaints in your play store reviews\n\nHi {first_name},\n\nI read 300 recent smallcase Play Store reviews (India storefront, pulled 20 October 2026). 121 had substantive text and 66 of those were 1-2 stars. 7.6% of those negative reviews were about the support channel failing (ticket unanswered, repeated follow-ups) rather than the product. One reads: \"raised issue 45 days back, TKT-143999, still no resolution.\"\n\nCaveats: reviews skew toward angry customers, I have no contact volumes, and this is one snapshot with no trend. The figure is directional only.\n\nI can send the classified reviews with their text, so your team can check the 7.6% in ten minutes. Would that be useful?\n\n{sender}",
+            "passed": true,
+            "mean_score": 3.6,
+            "hard_fails": [],
+            "unsupported_claims": [],
+            "verdict": "Clean, honest and shippable with no hard fails, but a hostile reader will shrug at a 7.6% figure with no stated implication, and the email never says why it matters or who is writing.",
+            "failures": [
+              "Insight is thin. The email separates support-channel failure from product complaints, but never says what that means for smallcase. One sentence on the pattern in the quotes (ticket raised, then silence or 'we are processing') would give the number a point.",
+              "A hostile reader will see 7.6% as small and delete. Frame the finding around the failure pattern in the reviews (tickets going unanswered for weeks) rather than leaving the bare percentage to carry it.",
+              "The sender is never identified and nobody says why they are looking at support reviews. Add one plain clause of context so the offer doesn't look like it came from nowhere.",
+              "The offer is fine but passive. State exactly what the file contains (review text, star rating, the label assigned to each) so the recipient knows what they would be getting.",
+              "The subject 'Ticket complaints in your play store reviews' is acceptable but vague. Naming smallcase, or the review count, would make it more specific."
+            ],
+            "scores": {
+              "specificity": 4,
+              "verifiability": 4,
+              "insight": 2,
+              "brevity": 4,
+              "voice": 4
+            }
+          }
+        ],
+        "final_draft": "SUBJECT: Ticket complaints in your play store reviews\n\nHi {first_name},\n\nI read 300 recent smallcase Play Store reviews (India storefront, pulled 20 October 2026). 121 had substantive text and 66 of those were 1-2 stars. 7.6% of those negative reviews were about the support channel failing (ticket unanswered, repeated follow-ups) rather than the product. One reads: \"raised issue 45 days back, TKT-143999, still no resolution.\"\n\nCaveats: reviews skew toward angry customers, I have no contact volumes, and this is one snapshot with no trend. The figure is directional only.\n\nI can send the classified reviews with their text, so your team can check the 7.6% in ten minutes. Would that be useful?\n\n{sender}",
+        "final_score": 3.6,
+        "shipped": true,
+        "rounds_used": 2
+      },
+      {
+        "angle": "single_quote",
+        "angle_name": "One customer's words",
+        "rounds": [
+          {
+            "round": 1,
+            "draft": "SUBJECT: A 45-day ticket quoted in a Play Store review\n\nHi {first_name},\n\n\"Customer service can be improved. CC is acting only as postman, raised issue 45 days back, TKT-143999, still no resolution.\" (1 star, Google Play, India)\n\nA complaint like this differs from a product complaint. The customer has already found the problem and reported it, so the review is about what happened afterwards.\n\nThis is the category, not a gotcha. Of 300 recent reviews, 121 had text and 66 of those were negative. 7.6% of the negative ones cite the support channel failing: no reply, an unanswered ticket, repeated follow-ups. This is one snapshot, and app reviews skew toward unhappy customers, so it says nothing reliable about your actual contact volume.\n\n{sender}",
+            "passed": false,
+            "mean_score": 3.0,
+            "hard_fails": [
+              "nothing_offered"
+            ],
+            "unsupported_claims": [],
+            "verdict": "Honest and fact-clean, but it is a stat report with one quote and no offer, so the recipient keeps nothing by replying or not, and it fails on nothing_offered.",
+            "failures": [
+              "Add a concrete offer the recipient keeps regardless of reply: e.g. the 18-query eval set, the method, or the failure cases where a naive retrieval bot was confidently wrong. The brief supports offering these, and the draft offers nothing.",
+              "The email never says what the sender does or why they are writing. It ends on a caveat and a signature. Add one sentence tying the quote to the eval finding (near-identical deflection rate, very different correctness) so the reader sees the relevance.",
+              "The second paragraph is a truism ('differs from a product complaint') and not much of an insight. Replace it with something they may not have framed: the customer already did the work of reporting, and the failure is in resolution or routing, not intake. Or use the eval finding directly.",
+              "Dropping the 121 and 66 figures would tighten it. They are accurate but add little beyond the 7.6%, and the 7.6% reads more clearly with its denominator stated as 'of negative reviews' alone. Keep only if they serve the caveat.",
+              "'This is the category, not a gotcha' is defensive and implies the reader suspects a gotcha. Cut it or restate it plainly.",
+              "The quote is the 45-day ticket, but 7.6% is the aggregate. State plainly that this is one of several similar reviews (three other 1-star quotes in the brief describe unanswered tickets over days to a month) so the reader knows it is not a cherry-picked outlier. Do not add counts the brief does not give."
+            ],
+            "scores": {
+              "specificity": 3,
+              "verifiability": 4,
+              "insight": 2,
+              "brevity": 3,
+              "voice": 3
+            }
+          },
+          {
+            "round": 2,
+            "draft": "SUBJECT: a 45-day ticket in a Play Store review\n\nHi {first_name},\n\n\"Customer service can be improved. CC is acting only as postman, raised issue 45 days back, TKT-143999, still no resolution.\" (1 star, Google Play, India)\n\nIt is one of several similar 1-star reviews. Others describe tickets raised and unanswered for 4 days, and for a month. The customer did the reporting, so the failure is in resolution and routing.\n\nWe build support automation. On 18 real wealth-support queries, a retrieval bot automated 67% and a routed, system-integrated one 72%. Correct disposal was 39% against 94%, and the retrieval bot was confidently wrong 8 times.\n\nEighteen queries is a small set, and app reviews skew toward unhappy customers. I'll send you the query set and the 8 failures, whether or not you reply.\n\n{sender}",
+            "passed": false,
+            "mean_score": 3.4,
+            "hard_fails": [
+              "unsupported_claim"
+            ],
+            "unsupported_claims": [
+              "The customer did the reporting, so the failure is in resolution and routing.",
+              "It is one of several similar 1-star reviews."
+            ],
+            "verdict": "Strong opening quote and a real offer, but the draft asserts a root cause (resolution and routing) the reviews never establish, so it cannot ship as written.",
+            "failures": [
+              "Remove or soften 'the failure is in resolution and routing'. The reviews show tickets unanswered or unresolved; they do not diagnose where inside smallcase's operation it breaks. Say what the reviews literally say: tickets raised, no reply or no resolution.",
+              "'The customer did the reporting' is filler that sets up the unsupported diagnosis. Cut it.",
+              "'Others describe tickets raised and unanswered for 4 days, and for a month' compresses the quotes loosely. The 4-day review is about a stuck MF-loan withdrawal with no reply; the month ones are a transaction error unresolved after follow-up and funds not reflecting after a month. State them accurately or just cite the one quote.",
+              "'On 18 real wealth-support queries' is accurate to the eval, but 'wealth-support queries' is not stated as the eval domain in the brief beyond 'this domain'. Say 'support queries from this domain' or confirm the set is wealth-specific.",
+              "Caveats are present but the review-skew caveat should tie to the central claim: say these are a handful of public reviews, not a measure of smallcase's ticket volume or resolution times.",
+              "Insight is thin: the deflection-vs-correctness point (near-identical automation rate, very different correctness) is the real insight. Lead the second paragraph with that rather than listing four numbers.",
+              "'We build support automation' is a generic sales line. Replace with something that says what was tested (retrieval-only vs routing plus system integration)."
+            ],
+            "scores": {
+              "specificity": 4,
+              "verifiability": 4,
+              "insight": 2,
+              "brevity": 4,
+              "voice": 3
+            }
+          },
+          {
+            "round": 3,
+            "draft": "SUBJECT: A 45-day ticket in a public review\n\nHi {first_name},\n\n\"Customer service can be improved. CC is acting only as postman, raised issue 45 days back, TKT-143999, still no resolution.\" (1 star, Google Play, India)\n\nNot a gotcha, just the category: a ticket was raised and there is still no resolution, which is a different problem from a product complaint. These are a few public reviews, not a measure of your ticket volumes or resolution times.\n\nWe tested two bots on 18 real support queries from this domain. They automated nearly the same share, 67% for retrieval-only and 72% for routing plus system integration. Correct disposal was 39% against 94%, and the retrieval bot was confidently wrong 8 times.\n\nIt is a small set, so I'll send the queries and the 8 failures if useful.\n\n{sender}",
+            "passed": true,
+            "mean_score": 3.8,
+            "hard_fails": [],
+            "unsupported_claims": [],
+            "verdict": "Clean on facts and caveats, with a real checkable quote and a concrete offer, but the link between the one review and the bot eval is asserted rather than earned, so it reads as a good 3 rather than a standout.",
+            "failures": [
+              "The pivot from the review to the bot test is abrupt. Nothing says why a retrieval bot would fail on a ticket like TKT-143999 (an issue that needs system access and routing, not an FAQ answer). Add one sentence tying the quote to the eval, without inventing facts about smallcase's current setup.",
+              "'Not a gotcha, just the category' is a defensive tic that signals a gotcha. Cut it or state the distinction directly: a ticket raised and unresolved is a support-channel failure, not a product complaint.",
+              "'These are a few public reviews' undersells the brief: 300 reviews were fetched and 121 had substantive text. The caveat is honest, but 'a few' is vaguer than the data. Consider 'public Play Store reviews, which skew angry'. This is the brief's own limitation and is more precise.",
+              "'A different problem from a product complaint' is defensible, but it is the draft's only insight and is stated flatly. The recipient likely already knows this. Sharpen it, or lead with what the eval implies for a team handling tickets like this.",
+              "The offer ('I'll send the queries and the 8 failures if useful') is good but the close is soft. Say what they get and that it is theirs to keep regardless of reply.",
+              "'This domain' is vague. Say 'wealth/investing support queries' if that matches the eval, so it does not read as generic."
+            ],
+            "scores": {
+              "specificity": 4,
+              "verifiability": 4,
+              "insight": 3,
+              "brevity": 4,
+              "voice": 4
+            }
+          }
+        ],
+        "final_draft": "SUBJECT: A 45-day ticket in a public review\n\nHi {first_name},\n\n\"Customer service can be improved. CC is acting only as postman, raised issue 45 days back, TKT-143999, still no resolution.\" (1 star, Google Play, India)\n\nNot a gotcha, just the category: a ticket was raised and there is still no resolution, which is a different problem from a product complaint. These are a few public reviews, not a measure of your ticket volumes or resolution times.\n\nWe tested two bots on 18 real support queries from this domain. They automated nearly the same share, 67% for retrieval-only and 72% for routing plus system integration. Correct disposal was 39% against 94%, and the retrieval bot was confidently wrong 8 times.\n\nIt is a small set, so I'll send the queries and the 8 failures if useful.\n\n{sender}",
+        "final_score": 3.8,
+        "shipped": true,
+        "rounds_used": 3
+      }
+    ],
+    "winning_angle": "single_quote",
+    "winning_score": 3.8,
+    "any_shipped": true
+  },
+  {
+    "prospect_id": "upstox",
+    "name": "Upstox",
+    "vertical": "wealth",
+    "generated_at": "2026-10-20T14:15:34.576178+00:00",
+    "brief": {
+      "prospect_id": "upstox",
+      "name": "Upstox",
+      "vertical": "wealth",
+      "regulators": [
+        "SEBI"
+      ],
+      "measured": {
+        "reviews_fetched": 300,
+        "substantive_reviews": 102,
+        "negative_substantive_reviews": 46,
+        "support_share_of_substantive": 0.2059,
+        "channel_failure_share_of_negative": 0.0652,
+        "pain_rank": 6,
+        "pain_rank_of": 19,
+        "confidence": 0.78
+      },
+      "verbatim_quotes": [
+        {
+          "stars": 1,
+          "text": "no reply on mail or ticket, worst service, opening zerodha account, feeling Zerodha is 100times better than u. no help to close account,"
+        },
+        {
+          "stars": 1,
+          "text": "I recently started using your new platform, which is similar to algovere. Due to some initial doubts, I contacted customer care, but the executive could not resolve my issue and di"
+        },
+        {
+          "stars": 1,
+          "text": "ekadam bakwas application hai mujhe Mera primary bank account change karna hai to kitne Mail upstox ko bhej chuka hun unhone Jo document mange voh bhi Main send kar chuka hun pata "
+        }
+      ],
+      "our_own_eval": {
+        "cases": 18,
+        "naive_automated_pct": 66.7,
+        "naive_correct_pct": 38.9,
+        "naive_confidently_wrong": 8,
+        "integrated_automated_pct": 72.2,
+        "integrated_correct_pct": 94.4,
+        "integrated_confidently_wrong": 0
+      },
+      "collection_date": "2026-10-20",
+      "source": "public Google Play Store reviews, India storefront",
+      "known_gaps": [
+        "No contact volume data - review share is directional only",
+        "Single snapshot, no month-over-month trend",
+        "App reviews skew toward angry and resolved-badly customers"
+      ]
+    },
+    "angles": [
+      {
+        "angle": "evidence_audit",
+        "angle_name": "Evidence audit",
+        "rounds": [
+          {
+            "round": 1,
+            "draft": "SUBJECT: a number from your Play Store reviews\n\nHi {first_name},\n\nI pulled 300 recent Google Play reviews for Upstox (India storefront, 20 October 2026). 102 had substantive text, and 20.6% of those are about support rather than the product.\n\nThree of the 46 negative reviews describe the support channel itself failing. One says there was no reply on mail or ticket. Another says they have emailed many times about changing a primary bank account and sent every document asked for.\n\nCaveats: I have no contact volume data, this is a single snapshot, and app reviews skew toward unhappy customers. Treat it as directional only.\n\nDoes this match what you see internally, or is the review sample misleading?\n\n{sender}",
+            "passed": false,
+            "mean_score": 3.0,
+            "hard_fails": [
+              "derived_figure",
+              "nothing_offered"
+            ],
+            "unsupported_claims": [
+              "Three of the 46 negative reviews describe the support channel itself failing"
+            ],
+            "verdict": "Honest and well-caveated, but it converts the brief's 6.5% into 'three of 46' (a derived count the brief never states) and offers the recipient nothing to keep, so it cannot ship.",
+            "failures": [
+              "Replace 'Three of the 46 negative reviews' with the brief's own figure: '6.5% of negative reviews cite the support channel failing'. Do not convert percentages to counts; the count is not in the brief and cannot be checked against it.",
+              "Add a concrete offer the recipient keeps regardless of reply: e.g. 'happy to send the review IDs and the classification rules so your team can re-run it', or offer the 18-query eval's failure cases. Currently it is a stat plus a question.",
+              "The closing question ('is the review sample misleading?') invites a dismissive 'yes, reviews are noisy' and ends the thread. Ask something that surfaces their operation, or lead with the offer.",
+              "Insight is thin. The brief's strongest non-obvious finding is that near-identical deflection rates (67% vs 72%) hid very different correctness (39% vs 94% correct, 8 confidently wrong answers vs 0). Even one sentence linking the reviews (unanswered tickets, repeated emails with documents sent) to that distinction would give the reader a new frame. Keep it within the brief's wording.",
+              "The second quoted review is paraphrased as 'emailed many times about changing a primary bank account and sent every document asked for'. The quote is truncated mid-sentence and says 'kitne Mail' and 'document mange voh bhi Main send kar chuka hun'. It is a fair paraphrase, but 'sent every document asked for' slightly overreads; soften to 'says they sent the documents requested'.",
+              "The subject line 'a number from your Play Store reviews' is acceptable but vague; naming the thing measured (support-channel failures in Play Store reviews) would be more checkable and more specific.",
+              "Voice: 'Treat it as directional only' is good and practitioner-like; keep it but cut the redundancy of listing three caveats followed by a summary caveat."
+            ],
+            "scores": {
+              "specificity": 3,
+              "verifiability": 3,
+              "insight": 2,
+              "brevity": 4,
+              "voice": 3
+            }
+          },
+          {
+            "round": 2,
+            "draft": "SUBJECT: support-channel failures in upstox play store reviews\n\nHi {first_name},\n\n6.5% of negative Upstox reviews on the Google Play India storefront describe the support channel failing, not the product. One reads \"no reply on mail or ticket\". Another, about changing a primary bank account, says they emailed repeatedly and sent the documents requested. Source: 300 recent reviews, pulled 20 October 2026.\n\nCaveats: no contact volume, one snapshot, and reviews skew angry. Directional only.\n\nIn our own test on 18 real support queries, two bots automated 67% and 72%, but only 39% and 94% were correctly disposed. Automation rate hid that gap.\n\nHow does your team tell a closed ticket from a resolved one? Either way, I can send the review IDs, the classification rules and the failure cases from the 18 queries.\n\n{sender}",
+            "passed": false,
+            "mean_score": 3.4,
+            "hard_fails": [],
+            "unsupported_claims": [],
+            "verdict": "Clean on facts and caveats, and it ships, but the review stat and the bot test are two separate stories stapled together, and the Upstox-specific half is thin.",
+            "failures": [
+              "The 6.5% rests on a small base, and the draft never says which base. Write 'of the 46 negative reviews' (the brief's own figure) so the recipient sees the denominator, rather than suspecting it later and discounting everything.",
+              "The link between the Upstox reviews and the bot test is implied, not stated. Add one sentence tying them together, e.g. a ticket can be closed or deflected without the customer's problem being solved. Otherwise the second paragraph reads as a pitch for your own work.",
+              "The bot test is 18 queries and the draft does not flag how small that is beyond stating 'n=18'. Add 'small set' to the caveats so the 94% is not read as a benchmark.",
+              "'two bots' blurs the difference between the two systems. Say 'a naive retrieval bot' and 'routing plus system integration' so the reader sees what actually changed.",
+              "The offer lists 'classification rules', which the brief never describes. Offer only what exists: the review IDs, the 18-query set and the failure cases, or confirm the rules exist before sending.",
+              "The subject line is descriptive but flat. Name the finding, not just the topic."
+            ],
+            "scores": {
+              "specificity": 3,
+              "verifiability": 4,
+              "insight": 3,
+              "brevity": 3,
+              "voice": 4
+            }
+          },
+          {
+            "round": 3,
+            "draft": "SUBJECT: 6.5% of negative reviews cite the support channel failing\n\nHi {first_name},\n\nOf 46 negative Google Play India reviews of Upstox (from 300 recent, pulled 20 October 2026), 6.5% describe the support channel failing rather than the product. One reads \"no reply on mail or ticket\".\n\nCaveats: no contact volume, one snapshot, and reviews skew angry.\n\nA ticket can be closed or deflected without the problem being solved. In our own small set of 18 real support queries, a naive retrieval bot automated 67% but disposed 39% correctly. Routing plus system integration automated 72% and disposed 94% correctly. Not a benchmark.\n\nDoes the review picture match your internal view? I can send the review IDs, the 18 queries and the failure cases.\n\n{sender}",
+            "passed": false,
+            "mean_score": 3.2,
+            "hard_fails": [],
+            "unsupported_claims": [],
+            "verdict": "Clean on facts and caveats and it ships, but it is a competent 2-to-3 email: a small Upstox stat bolted onto an eval from a different dataset, with a weak payoff for the recipient.",
+            "failures": [
+              "Denominator framing is loose: 'Of 46 negative ... (from 300 recent)' reads as if 46 is a subset of 300 by star rating. The brief says 46 of the 102 substantive-text reviews were negative. Say '102 reviews with text, 46 negative' so a reader who checks Play Store can reconcile it.",
+              "The 6.5% headline is small and the brief gives no count, which you can't state without a derived figure. The subject line leads with it as if it were alarming. Consider leading with the quote or the eval finding, and let the 6.5% sit as context rather than the hook.",
+              "The jump from 'support channel failing' reviews to 'naive bot vs routing+integration' is asserted, not argued. The 18 queries are not Upstox's, and the draft never says what domain they came from. Add one clause saying they're from wealth/broking support, so it doesn't read as being about Upstox.",
+              "The offer is gated behind a reply ('I can send'). Attach the review IDs or a link to the query set directly if possible, so the recipient keeps something regardless.",
+              "The subject line doesn't name Upstox, so it is less specific than it could be, and it reads like a stat report.",
+              "'Does the review picture match your internal view?' is a soft, easy-to-ignore close. Ask something only they can answer, such as whether their closure metric counts reopened tickets."
+            ],
+            "scores": {
+              "specificity": 3,
+              "verifiability": 4,
+              "insight": 2,
+              "brevity": 4,
+              "voice": 3
+            }
+          }
+        ],
+        "final_draft": "SUBJECT: 6.5% of negative reviews cite the support channel failing\n\nHi {first_name},\n\nOf 46 negative Google Play India reviews of Upstox (from 300 recent, pulled 20 October 2026), 6.5% describe the support channel failing rather than the product. One reads \"no reply on mail or ticket\".\n\nCaveats: no contact volume, one snapshot, and reviews skew angry.\n\nA ticket can be closed or deflected without the problem being solved. In our own small set of 18 real support queries, a naive retrieval bot automated 67% but disposed 39% correctly. Routing plus system integration automated 72% and disposed 94% correctly. Not a benchmark.\n\nDoes the review picture match your internal view? I can send the review IDs, the 18 queries and the failure cases.\n\n{sender}",
+        "final_score": 3.2,
+        "shipped": false,
+        "rounds_used": 3
+      },
+      {
+        "angle": "single_quote",
+        "angle_name": "One customer's words",
+        "rounds": [
+          {
+            "round": 1,
+            "draft": "SUBJECT: A one-star review about the ticket, not the app\n\nHi {first_name},\n\n\"no reply on mail or ticket, worst service.\" That is a one-star Upstox review on the India Play Store.\n\nA complaint like this differs from a product complaint. The customer is not saying the app failed. They are saying the route to a person failed, so the problem stays open until someone answers.\n\nIn the 300 recent reviews I pulled, 102 had text and 46 of those were negative. About 6.5% of the negative ones describe the support channel failing this way. App reviews skew angry and I have no contact volume, so treat that as directional only.\n\nI am raising it as a category, not a gotcha. Anyone can check the review on the Play Store.\n\n{sender}",
+            "passed": false,
+            "mean_score": 3.2,
+            "hard_fails": [
+              "nothing_offered"
+            ],
+            "unsupported_claims": [],
+            "verdict": "Factually clean and honest about caveats, but it reports a stat and stops: no offer of the review set, method or anything else the recipient keeps, so it fails nothing_offered and gives no reason to reply.",
+            "failures": [
+              "nothing_offered: the email ends on 'Anyone can check the review' with no concrete offer. Add something the recipient keeps regardless of reply, e.g. 'I can send the full set of support-channel reviews I tagged and how I classified them', or the 18-query eval failure cases. The brief supports offering the eval, but do not state its numbers unless used verbatim.",
+              "The email never says who the sender is or why they are looking at support. One clause of context (e.g. that you test support automation on SEBI-domain queries) would explain the motivation without a pitch. Keep it factual and within the brief.",
+              "Insight is thin: the product-vs-route distinction is sound but familiar to any support head. Sharpen it with something from the eval: a bot that deflects a ticket without resolving it can look like success while the customer's problem stays open. The brief supports this (near-identical deflection rate, very different correctness). Offer this as the thing you can show them.",
+              "'The problem stays open until someone answers' is a reasonable inference but is presented as a general claim. It is fine, but tie it to the quote about account closure so it is anchored in the data rather than assertion.",
+              "Opening fragment 'That is a one-star Upstox review' is ok, but the quote is truncated mid-thought and a single quote is a weak base for a category claim. Consider adding the second or third verbatim quote (bank account change, repeated mails) to show the pattern is not one angry user.",
+              "The closing 'I am raising it as a category, not a gotcha' is defensive and reads like a pre-emptive apology. Cut it and replace it with the offer.",
+              "6.5% is stated with the right caveats, but the denominator is ambiguous to a skimming reader (6.5% of 46 negatives). Say 'of the 46 negative reviews' next to the figure so it is checkable. Do not convert it to a count."
+            ],
+            "scores": {
+              "specificity": 3,
+              "verifiability": 4,
+              "insight": 2,
+              "brevity": 4,
+              "voice": 3
+            }
+          },
+          {
+            "round": 2,
+            "draft": "SUBJECT: two reviews where the ticket was the problem\n\nHi {first_name},\n\n\"kitne Mail upstox ko bhej chuka hun unhone Jo document mange voh bhi Main send kar chuka hun.\" Another, on the India Play Store: \"no reply on mail or ticket\", \"no help to close account.\"\n\nNeither is a bug report. The request stays open because nobody closes it, and a bot that deflects it leaves it open too.\n\n6.5% of the 46 negative reviews in the 300 recent ones I pulled describe the support channel failing this way. App reviews skew angry and I have no contact volumes, so it is directional.\n\nWe test support automation on real wealth queries. I can send the tagged reviews and the cases where a bot deflected wrongly.\n\n{sender}",
+            "passed": false,
+            "mean_score": 3.4,
+            "hard_fails": [
+              "unsupported_claim"
+            ],
+            "unsupported_claims": [
+              "The request stays open because nobody closes it, and a bot that deflects it leaves it open too.",
+              "Neither is a bug report.",
+              "We test support automation on real wealth queries.",
+              "the cases where a bot deflected wrongly"
+            ],
+            "verdict": "Honest numbers and real quotes, but the central causal claim (nobody closes the request, and a bot would leave it open too) is asserted as fact, which the brief cannot support, so it cannot ship as written.",
+            "failures": [
+              "'The request stays open because nobody closes it' is a causal diagnosis the reviews do not establish. The quotes show customers saying they got no reply; they do not show why. Reframe as what reviewers describe: 'reviewers describe sending mail and documents and getting no reply.'",
+              "'a bot that deflects it leaves it open too' is an assertion about Upstox's situation and about bots generally that is not in the brief. The eval shows deflection rate and correctness diverge (67% automated / 39% correct vs 72% / 94%), but not that deflected tickets stay open. Either cite the eval result directly or cut the sentence.",
+              "The first quote is Hinglish and truncated mid-sentence with a period added, which implies it ends there. The original reads 'unhone Jo document mange voh bhi Main send kar chuka hun pata...'. Mark the truncation with an ellipsis, or use a complete clause.",
+              "The two quotes are stitched into one block, and 'Another' reads as a second review. 'no reply on mail or ticket' and 'no help to close account' are from the same review. Saying 'two reviews' in the subject while the body quotes three fragments from two reviews is misleading, so attribute them clearly.",
+              "'We test support automation on real wealth queries' is a capability claim, not in the brief as phrased. The brief supports 'we ran an eval on 18 real support queries from this domain'. Use that, and state the n=18 so the sample size is not hidden.",
+              "'the cases where a bot deflected wrongly' is a reasonable offer, since the eval had 8 confidently wrong cases, but say what it is precisely: the 8 confidently wrong cases from an 18-query eval. Right now the offer is vague.",
+              "The 6.5% sentence is ambiguous: 'in the 300 recent ones I pulled' misstates the base. The 46 negatives come from the 102 substantive reviews out of 300. Say 'of 46 negative reviews among 300 recent'.",
+              "The insight is thin. The distinctive finding is that near-identical deflection rates hide very different correctness (67% vs 72% automated, 39% vs 94% correct). That is the part an Upstox support lead has probably not framed this way, and it is only gestured at here. Lead with it or add it as one sentence."
+            ],
+            "scores": {
+              "specificity": 4,
+              "verifiability": 4,
+              "insight": 2,
+              "brevity": 4,
+              "voice": 3
+            }
+          },
+          {
+            "round": 3,
+            "draft": "SUBJECT: a 1-star review about the support channel\n\nHi {first_name},\n\n\"no reply on mail or ticket, worst service...\" That is from a 1-star review on the India Play Store.\n\nThis class of complaint differs from a product complaint because the reviewer is describing the support channel, not the app. Of 46 negative reviews among 300 recent ones, 6.5% (3 reviews) describe it. App reviews skew angry and I have no contact volumes, so treat that as directional.\n\nIn our eval of 18 real support queries from this domain, a retrieval-only bot automated 67% and handled 39% correctly, with 8 confidently wrong answers. Routing plus system integration automated 72% and handled 94% correctly, with none. I can send those 8 cases.\n\n{sender}",
+            "passed": false,
+            "mean_score": 3.0,
+            "hard_fails": [
+              "derived_figure"
+            ],
+            "unsupported_claims": [],
+            "verdict": "Facts are mostly clean and the offer is real, but '(3 reviews)' is a count the brief never states, which is a hard fail on derived_figure, and the email never ties the review data to the eval, so the two halves read as unrelated.",
+            "failures": [
+              "Remove '(3 reviews)'. The brief gives 6.5% of 46 negative reviews and no count; converting it is a derived figure, even if the arithmetic checks out. Use '6.5% of negative reviews' only.",
+              "The 'This class of complaint differs...' sentence is explanation the recipient does not need and reads stiff. Cut or compress it to a plain statement.",
+              "No bridge between the review finding and the eval. A reader sees a Play Store stat and then an unrelated bot benchmark. Add one sentence linking them, e.g. that a bot deflecting without resolving is how a customer ends up writing 'no reply on mail or ticket'. Frame it as a hypothesis, not a claim about Upstox.",
+              "'handled 39% correctly' and 'handled 94% correctly' drift from the brief's wording 'disposed ... correctly'. Use 'disposed' or define it so the recipient can map it to their own metrics.",
+              "The offer ('I can send those 8 cases') is good but passive. State what they get: the 8 confidently wrong cases and the 18-query set, so they can run it against their own bot.",
+              "The eval is on 'this domain' with no statement that it is not Upstox's data. Say explicitly that the 18 queries are not Upstox tickets so the reader doesn't infer otherwise.",
+              "The 1-star quote is truncated mid-thought ('worst service...'). It is checkable, but also consider naming the 6.5% as 'support channel failing' in the reviewer's terms rather than abstractly."
+            ],
+            "scores": {
+              "specificity": 3,
+              "verifiability": 4,
+              "insight": 2,
+              "brevity": 3,
+              "voice": 3
+            }
+          }
+        ],
+        "final_draft": "SUBJECT: a 1-star review about the support channel\n\nHi {first_name},\n\n\"no reply on mail or ticket, worst service...\" That is from a 1-star review on the India Play Store.\n\nThis class of complaint differs from a product complaint because the reviewer is describing the support channel, not the app. Of 46 negative reviews among 300 recent ones, 6.5% (3 reviews) describe it. App reviews skew angry and I have no contact volumes, so treat that as directional.\n\nIn our eval of 18 real support queries from this domain, a retrieval-only bot automated 67% and handled 39% correctly, with 8 confidently wrong answers. Routing plus system integration automated 72% and handled 94% correctly, with none. I can send those 8 cases.\n\n{sender}",
+        "final_score": 3.0,
+        "shipped": false,
+        "rounds_used": 3
+      }
+    ],
+    "winning_angle": "evidence_audit",
+    "winning_score": 3.2,
+    "any_shipped": false
+  }
+]

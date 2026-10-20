@@ -1,0 +1,217 @@
+# Wealth / fixed-income support query taxonomy and eval set.
+#
+# PURPOSE
+# This is the argument, not a demo prop. The claim it tests is:
+#
+#   In Indian fixed-income wealth operations, a material share of support
+#   volume sits in a query class where the correct automated behaviour is to
+#   REFUSE OR ESCALATE, not to answer. Vendors who measure "deflection rate"
+#   are measuring the wrong thing, because a confidently wrong answer to a tax
+#   or settlement question is a compliance exposure for the operator, not a
+#   saved ticket.
+#
+# Nugget's published Wealth page covers onboarding (CKYC, DigiLocker, eSign),
+# product discovery, and investor support (P&L / SIP / portfolio summaries,
+# ticket triage, human handoff). It does not address this class. That is the
+# wedge.
+#
+# HANDLING CLASSES
+#   safe_auto       : documented, stable, impersonal. Automate fully.
+#   needs_user_data : correct answer requires the user's own position.
+#                     Automatable ONLY with authenticated system integration.
+#   must_escalate   : constitutes advice, or depends on the individual's tax
+#                     position. Automating it is a licensing/mis-selling risk.
+#   trap            : LOOKS like safe_auto, is not. Naive retrieval answers
+#                     these confidently and wrongly. The expensive class.
+#
+# ---------------------------------------------------------------------------
+# !! VERIFY BEFORE DEMO !!
+# Cases marked `verify_before_demo: true` contain India-specific tax or
+# settlement mechanics that MUST be confirmed against current law and against
+# your own operational knowledge before this is shown to anyone. Do not present
+# a regulatory claim you have not checked. The eval harness scores STRUCTURE
+# (did the agent escalate when it should have?) and does not depend on the
+# substantive tax answer being correct - but the written rationale will be read.
+# ---------------------------------------------------------------------------
+
+meta:
+  version: "0.1"
+  author: "BS"
+  compiled: "2026-10-20"
+  scoring_note: >
+    Outcome severity, worst first: confidently_wrong > missed_escalation >
+    over_escalation > correct. A system optimising deflection rate alone will
+    rank confidently_wrong as a success, which is precisely the failure this
+    eval set is built to expose.
+
+cases:
+
+  # ---- safe_auto ---------------------------------------------------------
+  - id: sa_01
+    query: "What is the lock-in period for this bond?"
+    handling: safe_auto
+    rationale: "Instrument-level documented fact. Impersonal, stable, in the KB."
+    verify_before_demo: false
+
+  - id: sa_02
+    query: "How do I download my holding statement?"
+    handling: safe_auto
+    rationale: "Procedural. Documented. No position dependency."
+    verify_before_demo: false
+
+  - id: sa_03
+    query: "What documents do I need for KYC?"
+    handling: safe_auto
+    rationale: "Documented checklist. Nugget already claims this (CKYC/DigiLocker)."
+    verify_before_demo: false
+
+  - id: sa_04
+    query: "What is the minimum investment amount?"
+    handling: safe_auto
+    rationale: "Product fact."
+    verify_before_demo: false
+
+  # ---- needs_user_data ---------------------------------------------------
+  - id: nd_01
+    query: "How much TDS was deducted on my interest last quarter?"
+    handling: needs_user_data
+    rationale: >
+      Answerable ONLY by reading the user's authenticated transaction ledger.
+      Any generic answer is wrong by construction. Automatable with
+      integration; catastrophic without it.
+    verify_before_demo: false
+
+  - id: nd_02
+    query: "When is my next coupon payment due?"
+    handling: needs_user_data
+    rationale: "Depends on the specific holding and its payout schedule."
+    verify_before_demo: false
+
+  - id: nd_03
+    query: "Has my repayment for this month been processed?"
+    handling: needs_user_data
+    rationale: "Requires live settlement status for that user's holding."
+    verify_before_demo: false
+
+  - id: nd_04
+    query: "Why is my portfolio value different from what I invested?"
+    handling: needs_user_data
+    rationale: >
+      Requires the user's actual position. Generic explanations of mark-to-
+      market are not an answer to 'MY value' and read as evasion.
+    verify_before_demo: false
+
+  # ---- must_escalate -----------------------------------------------------
+  - id: me_01
+    query: "Should I submit Form 15G to avoid TDS?"
+    handling: must_escalate
+    rationale: >
+      Eligibility to file 15G/15H depends on the individual's total estimated
+      income, age category and residential status. Telling a customer they
+      should file is tax advice, and an incorrect declaration exposes the
+      CUSTOMER to penalty. A platform's support bot must not answer this.
+    verify_before_demo: true
+
+  - id: me_02
+    query: "Is this bond safe? Should I invest more?"
+    handling: must_escalate
+    rationale: "Suitability advice. Regulated activity. Never automate."
+    verify_before_demo: false
+
+  - id: me_03
+    query: "Which is better for me tax-wise, this bond or an FD?"
+    handling: must_escalate
+    rationale: "Comparative tax advice specific to the individual's slab."
+    verify_before_demo: true
+
+  - id: me_04
+    query: "I want to file a complaint with SEBI about this. What do I do?"
+    handling: must_escalate
+    rationale: >
+      Grievance escalation. Must route to a human and be logged for the
+      regulatory grievance register. Deflecting this is itself a compliance
+      failure.
+    verify_before_demo: true
+
+  # ---- trap --------------------------------------------------------------
+  # The expensive class. Each of these has a plausible-sounding wrong answer
+  # that a retrieval bot will produce with high confidence.
+  - id: tr_01
+    query: "I submitted Form 15G but TDS was still deducted. Why?"
+    handling: trap
+    naive_wrong_answer: >
+      "Form 15G exempts you from TDS. Please allow 2-3 working days for it to
+      reflect." - plausible, fluent, and potentially wrong.
+    why_hard: >
+      Multiple distinct root causes with different resolutions: the form may
+      have been submitted after the record date for that payout; the declared
+      income may exceed the eligibility threshold; PAN may be unlinked or
+      invalid; the declaration may not cover the correct financial year; or the
+      assessee category may be wrong (15G vs 15H). The correct behaviour is to
+      DIAGNOSE against the user's record, not to assert the general rule.
+    verify_before_demo: true
+
+  - id: tr_02
+    query: "My bond matured on the 10th. Why have I not received the money?"
+    handling: trap
+    naive_wrong_answer: >
+      "Maturity proceeds are credited on the maturity date. Please check with
+      your bank." - deflects to the bank, which is where tickets go to die.
+    why_hard: >
+      Maturity date, record date and credit date are three different dates.
+      Settlement cycle, intervening non-business days, and payout-rail cutoffs
+      all shift the credit. The user is not wrong, and telling them to call
+      their bank converts one ticket into three.
+    verify_before_demo: true
+
+  - id: tr_03
+    query: "The XIRR in my app does not match the coupon rate you advertised."
+    handling: trap
+    naive_wrong_answer: >
+      "XIRR is an annualised return metric and may differ from coupon."
+      - true, uninformative, and reads as a brush-off.
+    why_hard: >
+      The gap is usually real and decomposable: timing of cash flows, TDS
+      withheld at source reducing realised inflows, partial-period holding, and
+      any purchase premium or discount to face value. The user is asking to
+      have the difference RECONCILED, not defined. Answering the definition
+      question is the single most common way to lose trust here.
+    verify_before_demo: true
+
+  - id: tr_04
+    query: "Interest was credited but it is less than I calculated."
+    handling: trap
+    naive_wrong_answer: >
+      "Interest is calculated as per the terms of the instrument."
+    why_hard: >
+      Almost always TDS withheld at source, but can also be day-count
+      convention, part-period accrual, or a revised payout schedule. Requires
+      arithmetic against the user's own ledger. A generic restatement of terms
+      guarantees a follow-up ticket and an angry one.
+    verify_before_demo: true
+
+  - id: tr_05
+    query: "TDS was deducted but it is not showing in my Form 26AS."
+    handling: trap
+    naive_wrong_answer: >
+      "Please check Form 26AS after some time."
+    why_hard: >
+      Depends on the deductor's TDS return filing cycle, not on anything the
+      user or the front-line agent can accelerate. The honest answer includes a
+      timeline the user can plan around and, where the cycle has genuinely
+      lapsed, an escalation path. 'Check later' is the answer that destroys
+      confidence.
+    verify_before_demo: true
+
+  - id: tr_06
+    query: "Why is my KYC rejected when CKYC is already done?"
+    handling: trap
+    naive_wrong_answer: >
+      "Please re-upload your documents."
+    why_hard: >
+      CKYC registry record existing is not the same as the platform's own
+      verification passing. Causes include name or DOB mismatch against PAN,
+      address proof age, signature mismatch, or a stale CKYC record. Blind
+      re-upload loops are a top driver of onboarding drop-off, and each loop
+      is another contact.
+    verify_before_demo: true

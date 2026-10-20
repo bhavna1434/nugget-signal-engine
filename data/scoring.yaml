@@ -1,0 +1,182 @@
+# Nugget Signal Engine — Scoring Configuration
+#
+# Three-factor model. Kept in config, not code, so weights can be challenged
+# and changed live without touching the engine.
+#
+#   PRIORITY = (icp_fit * w1) + (pain_intensity * w2) + (reachability * w3)
+#
+# Each factor is 0-100. The weighted total is then multiplied by a CONFIDENCE
+# multiplier derived from how many signals were actually collected vs null.
+# A prospect with a huge apparent pain score built on one collected signal
+# ranks below a prospect with a moderate score built on five. This is the
+# single most important design decision in the engine: it makes the model
+# honest about thin evidence instead of rewarding it.
+
+weights:
+  icp_fit: 0.35
+  pain_intensity: 0.45
+  reachability: 0.20
+
+# ---------------------------------------------------------------------------
+# FACTOR 1 — ICP FIT
+# How closely the prospect matches who Nugget already sells to and has
+# published proof for. Derived from static classification, so always available.
+# ---------------------------------------------------------------------------
+icp_fit:
+  # Nugget publishes a dedicated landing page per vertical. A named vertical
+  # means the positioning, proof points and objection handling already exist —
+  # materially shorter sales cycle than inventing a category.
+  # Base is 60, not 100, so the bonuses below actually discriminate. An
+  # earlier version used 100 and then clamped the total at 100, which silently
+  # discarded every bonus and returned an identical ICP score for all 31
+  # prospects. A factor that returns the same value for every row is not a
+  # factor, it is a constant.
+  vertical_has_nugget_page:
+    wealth: 62      # published page + two named case studies in adjacent verticals
+    lending: 60
+    insurance: 60
+    payments: 58
+    banking: 58
+    other: 25
+
+  # Regulated entities must retain auditable interaction records. Nugget
+  # publishes SOC 2 / ISO 27001 / ISO 27701 / ISO 42001 and per-tenant
+  # isolation. Against an unregulated buyer that compliance posture is
+  # overhead; against a regulated one it is the differentiator that
+  # disqualifies lighter competitors.
+  regulator_bonus:
+    SEBI: 12
+    RBI: 12
+    IRDAI: 12
+  regulator_bonus_cap: 18
+
+  # The bond / fixed-income sub-vertical carries a query class (TDS on
+  # interest, Form 15G/15H, repayment schedules, maturity mechanics) that
+  # generic retrieval bots fail on. See evals/wealth_taxonomy.yaml.
+  # Nugget's published Wealth page does not currently address this class,
+  # so it is an unworked wedge rather than a contested one.
+  sub_vertical_bonus:
+    bonds_fixed_income: 15
+
+# ---------------------------------------------------------------------------
+# FACTOR 2 — PAIN INTENSITY
+# Evidence the prospect's support surface is actually under strain.
+# Every input here is COLLECTED, never assumed. Null inputs reduce confidence.
+# ---------------------------------------------------------------------------
+pain_intensity:
+  inputs:
+
+    support_review_share:
+      # Share of SUBSTANTIVE reviews (>=40 chars) that are support-related.
+      #
+      # SCALE CALIBRATED TO OBSERVED DATA, 2026-10-20, n=19 apps, 5,700 reviews.
+      # Observed range 3.7% - 24.8%, median 12.5%.
+      #
+      # The first version used 0 - 45%, a range invented alongside the
+      # synthetic fixture. Against real data every prospect landed in the
+      # bottom tenth of the scale, pain scores collapsed into a 24-32 band,
+      # and the factor carrying 45% of the weight stopped discriminating
+      # between prospects at all. Calibrate against measurements, not guesses.
+      weight: 0.30
+      source: play_store_collector
+      scale: { min: 0.03, max: 0.26 }
+
+    rating_trend:
+      # Drop in rolling rating over the review window. Falling rating with
+      # rising review volume is the classic signature of a support surface
+      # that stopped scaling with the business.
+      weight: 0.20
+      source: play_store_collector
+      scale: { min: -0.8, max: 0.0 }
+
+    review_volume:
+      # Count of SUBSTANTIVE reviews — proxy for the volume of customers with
+      # enough to say that they wrote a paragraph. Observed 16 - 278 in the
+      # first real run. Log-scaled.
+      weight: 0.15
+      source: play_store_collector
+      scale: { min: 40, max: 300 }
+      transform: log10
+
+    unresolved_language_share:
+      # Share of NEGATIVE substantive reviews citing explicit escalation
+      # failure ("no response", "raised ticket", "calling for days"), now
+      # including Hindi and romanised Hinglish.
+      #
+      # The denominator is deliberately negative reviews only, so the metric
+      # answers: among customers unhappy enough to write at length, how many
+      # are unhappy about the SUPPORT CHANNEL rather than the product? That
+      # distinction is the whole qualification question for Nugget.
+      #
+      # CALIBRATED TO OBSERVED DATA, 2026-10-20: range 0% - 13.6%, median 2.9%.
+      weight: 0.25
+      source: play_store_collector
+      scale: { min: 0.0, max: 0.14 }
+
+    self_serve_gap:
+      # Does the prospect have a functioning automated support surface at all?
+      # Scored by help-centre prober: 0 = mature bot + deep help centre,
+      # 100 = contact form and a phone number.
+      weight: 0.10
+      source: helpdesk_prober
+
+# ---------------------------------------------------------------------------
+# FACTOR 3 — REACHABILITY
+# Can a Growth Associate actually get to a decision-maker? High pain at an
+# unreachable account is not pipeline, it is a wish.
+# ---------------------------------------------------------------------------
+reachability:
+  inputs:
+    leadership_publicly_active:
+      # Named CX / ops / digital leader posting publicly in last 90 days.
+      # MANUAL INPUT — see data/reachability_overrides.yaml. Not scraped:
+      # scraping LinkedIn violates their ToS and would be an irresponsible
+      # thing to demo to a company that sells into regulated industries.
+      weight: 0.45
+      source: manual
+
+    warm_path_exists:
+      # Shared investor, shared vendor, Eternal/Zomato commercial relationship,
+      # or an existing Nugget customer in the same vertical usable as reference.
+      weight: 0.35
+      source: manual
+
+    company_size_band:
+      # Mid-size moves fastest. Very large = procurement quagmire.
+      # Very small = cannot afford enterprise conversational AI.
+      weight: 0.20
+      source: manual
+      bands:
+        startup: 40
+        mid: 100
+        large: 75
+        enterprise: 50
+
+# ---------------------------------------------------------------------------
+# CONFIDENCE — the honesty layer
+# ---------------------------------------------------------------------------
+confidence:
+  # Multiplier applied to the final priority score, keyed on the RATIO of
+  # signals actually collected to signals possible (7: four pain inputs,
+  # three reachability inputs).
+  #
+  # An earlier version counted reachability as one signal if ANY of its three
+  # sub-fields was present. Because company_size_band is pre-filled for every
+  # prospect, every prospect scored confidence 1.00 while
+  # leadership_publicly_active and warm_path_exists were null across the board.
+  # The layer built to be honest about thin evidence reported total confidence
+  # in evidence that did not exist, and the output looked completely normal.
+  # Count sub-signals individually.
+  total_possible_signals: 7
+  ratio_multiplier:
+    0.00: 0.00    # no evidence = no score. Not "assume average".
+    0.30: 0.45
+    0.45: 0.62
+    0.60: 0.78
+    0.75: 0.90
+    0.90: 1.00
+
+  # Below this, the prospect is reported but held out of the outreach queue.
+  # We do not send a "personalised" message built on weak evidence - that is
+  # how outbound gets a reputation for being noise.
+  min_confidence_to_contact: 0.60

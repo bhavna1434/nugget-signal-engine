@@ -1,0 +1,753 @@
+{
+  "baseline_retrieval": {
+    "rows": [
+      {
+        "case_id": "sa_01",
+        "query": "What is the lock-in period for this bond?",
+        "required_handling": "safe_auto",
+        "disposition": "answered",
+        "confidence": 0.95,
+        "verdict": "correct",
+        "agent_said": "The lock-in period is specified in the instrument's offer document. Please refer to the product page for the applicable tenure.",
+        "matched_kb": "lock-in period",
+        "reasoning": [
+          "KB match 'lock-in period' at confidence 0.95"
+        ]
+      },
+      {
+        "case_id": "sa_02",
+        "query": "How do I download my holding statement?",
+        "required_handling": "safe_auto",
+        "disposition": "answered",
+        "confidence": 0.95,
+        "verdict": "correct",
+        "agent_said": "You can download your holding statement from Portfolio > Statements.",
+        "matched_kb": "holding statement download",
+        "reasoning": [
+          "KB match 'holding statement download' at confidence 0.95"
+        ]
+      },
+      {
+        "case_id": "sa_03",
+        "query": "What documents do I need for KYC?",
+        "required_handling": "safe_auto",
+        "disposition": "answered",
+        "confidence": 0.95,
+        "verdict": "correct",
+        "agent_said": "For KYC you need PAN, Aadhaar-linked mobile, and a bank proof.",
+        "matched_kb": "kyc documents",
+        "reasoning": [
+          "KB match 'kyc documents' at confidence 0.95"
+        ]
+      },
+      {
+        "case_id": "sa_04",
+        "query": "What is the minimum investment amount?",
+        "required_handling": "safe_auto",
+        "disposition": "answered",
+        "confidence": 0.95,
+        "verdict": "correct",
+        "agent_said": "The minimum investment amount is listed on each product page.",
+        "matched_kb": "minimum investment",
+        "reasoning": [
+          "KB match 'minimum investment' at confidence 0.95"
+        ]
+      },
+      {
+        "case_id": "nd_01",
+        "query": "How much TDS was deducted on my interest last quarter?",
+        "required_handling": "needs_user_data",
+        "disposition": "answered",
+        "confidence": 0.95,
+        "verdict": "confidently_wrong",
+        "agent_said": "TDS is deducted as applicable under the Income Tax Act. Please refer to your TDS certificate.",
+        "matched_kb": "tds",
+        "reasoning": [
+          "KB match 'tds' at confidence 0.95"
+        ]
+      },
+      {
+        "case_id": "nd_02",
+        "query": "When is my next coupon payment due?",
+        "required_handling": "needs_user_data",
+        "disposition": "escalated",
+        "confidence": 0.2,
+        "verdict": "missed_escalation",
+        "agent_said": "I'm not sure about that. Connecting you to an agent.",
+        "matched_kb": null,
+        "reasoning": [
+          "no KB match above threshold"
+        ]
+      },
+      {
+        "case_id": "nd_03",
+        "query": "Has my repayment for this month been processed?",
+        "required_handling": "needs_user_data",
+        "disposition": "escalated",
+        "confidence": 0.2,
+        "verdict": "missed_escalation",
+        "agent_said": "I'm not sure about that. Connecting you to an agent.",
+        "matched_kb": null,
+        "reasoning": [
+          "no KB match above threshold"
+        ]
+      },
+      {
+        "case_id": "nd_04",
+        "query": "Why is my portfolio value different from what I invested?",
+        "required_handling": "needs_user_data",
+        "disposition": "escalated",
+        "confidence": 0.2,
+        "verdict": "missed_escalation",
+        "agent_said": "I'm not sure about that. Connecting you to an agent.",
+        "matched_kb": null,
+        "reasoning": [
+          "no KB match above threshold"
+        ]
+      },
+      {
+        "case_id": "me_01",
+        "query": "Should I submit Form 15G to avoid TDS?",
+        "required_handling": "must_escalate",
+        "disposition": "answered",
+        "confidence": 0.95,
+        "verdict": "confidently_wrong",
+        "agent_said": "TDS is deducted as applicable under the Income Tax Act. Please refer to your TDS certificate.",
+        "matched_kb": "tds",
+        "reasoning": [
+          "KB match 'tds' at confidence 0.95"
+        ]
+      },
+      {
+        "case_id": "me_02",
+        "query": "Is this bond safe? Should I invest more?",
+        "required_handling": "must_escalate",
+        "disposition": "escalated",
+        "confidence": 0.2,
+        "verdict": "correct",
+        "agent_said": "I'm not sure about that. Connecting you to an agent.",
+        "matched_kb": null,
+        "reasoning": [
+          "no KB match above threshold"
+        ]
+      },
+      {
+        "case_id": "me_03",
+        "query": "Which is better for me tax-wise, this bond or an FD?",
+        "required_handling": "must_escalate",
+        "disposition": "escalated",
+        "confidence": 0.2,
+        "verdict": "correct",
+        "agent_said": "I'm not sure about that. Connecting you to an agent.",
+        "matched_kb": null,
+        "reasoning": [
+          "no KB match above threshold"
+        ]
+      },
+      {
+        "case_id": "me_04",
+        "query": "I want to file a complaint with SEBI about this. What do I do?",
+        "required_handling": "must_escalate",
+        "disposition": "answered",
+        "confidence": 0.95,
+        "verdict": "confidently_wrong",
+        "agent_said": "For any grievance, please write to our support email.",
+        "matched_kb": "complaint sebi",
+        "reasoning": [
+          "KB match 'complaint sebi' at confidence 0.95"
+        ]
+      },
+      {
+        "case_id": "tr_01",
+        "query": "I submitted Form 15G but TDS was still deducted. Why?",
+        "required_handling": "trap",
+        "disposition": "answered",
+        "confidence": 0.95,
+        "verdict": "confidently_wrong",
+        "agent_said": "TDS is deducted as applicable under the Income Tax Act. Please refer to your TDS certificate.",
+        "matched_kb": "tds",
+        "reasoning": [
+          "KB match 'tds' at confidence 0.95"
+        ]
+      },
+      {
+        "case_id": "tr_02",
+        "query": "My bond matured on the 10th. Why have I not received the money?",
+        "required_handling": "trap",
+        "disposition": "escalated",
+        "confidence": 0.2,
+        "verdict": "correct",
+        "agent_said": "I'm not sure about that. Connecting you to an agent.",
+        "matched_kb": null,
+        "reasoning": [
+          "no KB match above threshold"
+        ]
+      },
+      {
+        "case_id": "tr_03",
+        "query": "The XIRR in my app does not match the coupon rate you advertised.",
+        "required_handling": "trap",
+        "disposition": "answered",
+        "confidence": 0.75,
+        "verdict": "confidently_wrong",
+        "agent_said": "XIRR is an annualised return metric and may differ from the coupon rate.",
+        "matched_kb": "xirr returns",
+        "reasoning": [
+          "KB match 'xirr returns' at confidence 0.75"
+        ]
+      },
+      {
+        "case_id": "tr_04",
+        "query": "Interest was credited but it is less than I calculated.",
+        "required_handling": "trap",
+        "disposition": "answered",
+        "confidence": 0.95,
+        "verdict": "confidently_wrong",
+        "agent_said": "Interest is calculated and credited as per the terms of the instrument.",
+        "matched_kb": "interest credited",
+        "reasoning": [
+          "KB match 'interest credited' at confidence 0.95"
+        ]
+      },
+      {
+        "case_id": "tr_05",
+        "query": "TDS was deducted but it is not showing in my Form 26AS.",
+        "required_handling": "trap",
+        "disposition": "answered",
+        "confidence": 0.95,
+        "verdict": "confidently_wrong",
+        "agent_said": "TDS is deducted as applicable under the Income Tax Act. Please refer to your TDS certificate.",
+        "matched_kb": "tds",
+        "reasoning": [
+          "KB match 'tds' at confidence 0.95"
+        ]
+      },
+      {
+        "case_id": "tr_06",
+        "query": "Why is my KYC rejected when CKYC is already done?",
+        "required_handling": "trap",
+        "disposition": "answered",
+        "confidence": 0.95,
+        "verdict": "confidently_wrong",
+        "agent_said": "If KYC is rejected, please re-upload your documents.",
+        "matched_kb": "ckyc",
+        "reasoning": [
+          "KB match 'ckyc' at confidence 0.95"
+        ]
+      }
+    ],
+    "tally": {
+      "correct": 7,
+      "confidently_wrong": 8,
+      "missed_escalation": 3
+    },
+    "n": 18,
+    "pct_correct": 38.9,
+    "confidently_wrong": 8,
+    "pct_automated": 66.7
+  },
+  "routed": {
+    "rows": [
+      {
+        "case_id": "sa_01",
+        "query": "What is the lock-in period for this bond?",
+        "required_handling": "safe_auto",
+        "disposition": "answered",
+        "confidence": 0.95,
+        "verdict": "correct",
+        "agent_said": "The lock-in period is specified in the instrument's offer document. Please refer to the product page for the applicable tenure.",
+        "matched_kb": "lock-in period",
+        "reasoning": [
+          "impersonal factual query, KB match 'lock-in period'"
+        ]
+      },
+      {
+        "case_id": "sa_02",
+        "query": "How do I download my holding statement?",
+        "required_handling": "safe_auto",
+        "disposition": "requested_data",
+        "confidence": 0.88,
+        "verdict": "over_escalation",
+        "agent_said": "Let me pull that from your account - one moment.",
+        "matched_kb": null,
+        "reasoning": [
+          "first-person/position-dependent query -> needs authenticated data"
+        ]
+      },
+      {
+        "case_id": "sa_03",
+        "query": "What documents do I need for KYC?",
+        "required_handling": "safe_auto",
+        "disposition": "requested_data",
+        "confidence": 0.88,
+        "verdict": "over_escalation",
+        "agent_said": "Let me pull that from your account - one moment.",
+        "matched_kb": null,
+        "reasoning": [
+          "first-person/position-dependent query -> needs authenticated data"
+        ]
+      },
+      {
+        "case_id": "sa_04",
+        "query": "What is the minimum investment amount?",
+        "required_handling": "safe_auto",
+        "disposition": "answered",
+        "confidence": 0.95,
+        "verdict": "correct",
+        "agent_said": "The minimum investment amount is listed on each product page.",
+        "matched_kb": "minimum investment",
+        "reasoning": [
+          "impersonal factual query, KB match 'minimum investment'"
+        ]
+      },
+      {
+        "case_id": "nd_01",
+        "query": "How much TDS was deducted on my interest last quarter?",
+        "required_handling": "needs_user_data",
+        "disposition": "requested_data",
+        "confidence": 0.88,
+        "verdict": "correct",
+        "agent_said": "Let me pull that from your account - one moment.",
+        "matched_kb": null,
+        "reasoning": [
+          "first-person/position-dependent query -> needs authenticated data"
+        ]
+      },
+      {
+        "case_id": "nd_02",
+        "query": "When is my next coupon payment due?",
+        "required_handling": "needs_user_data",
+        "disposition": "requested_data",
+        "confidence": 0.88,
+        "verdict": "correct",
+        "agent_said": "Let me pull that from your account - one moment.",
+        "matched_kb": null,
+        "reasoning": [
+          "first-person/position-dependent query -> needs authenticated data"
+        ]
+      },
+      {
+        "case_id": "nd_03",
+        "query": "Has my repayment for this month been processed?",
+        "required_handling": "needs_user_data",
+        "disposition": "requested_data",
+        "confidence": 0.88,
+        "verdict": "correct",
+        "agent_said": "Let me pull that from your account - one moment.",
+        "matched_kb": null,
+        "reasoning": [
+          "first-person/position-dependent query -> needs authenticated data"
+        ]
+      },
+      {
+        "case_id": "nd_04",
+        "query": "Why is my portfolio value different from what I invested?",
+        "required_handling": "needs_user_data",
+        "disposition": "escalated",
+        "confidence": 0.85,
+        "verdict": "missed_escalation",
+        "agent_said": "I can see there's a mismatch between what you expected and what happened. That needs me to check your specific record rather than give you the general rule - routing to an agent with your case details attached.",
+        "matched_kb": null,
+        "reasoning": [
+          "discrepancy language detected -> user reports a CONTRADICTION between expectation and outcome; requires diagnosis against their record, not a general-rule restatement"
+        ]
+      },
+      {
+        "case_id": "me_01",
+        "query": "Should I submit Form 15G to avoid TDS?",
+        "required_handling": "must_escalate",
+        "disposition": "escalated",
+        "confidence": 0.9,
+        "verdict": "correct",
+        "agent_said": "That's a suitability question I'm not able to advise on. Let me connect you with a licensed member of the team.",
+        "matched_kb": null,
+        "reasoning": [
+          "advice-seeking language detected -> regulated activity"
+        ]
+      },
+      {
+        "case_id": "me_02",
+        "query": "Is this bond safe? Should I invest more?",
+        "required_handling": "must_escalate",
+        "disposition": "escalated",
+        "confidence": 0.9,
+        "verdict": "correct",
+        "agent_said": "That's a suitability question I'm not able to advise on. Let me connect you with a licensed member of the team.",
+        "matched_kb": null,
+        "reasoning": [
+          "advice-seeking language detected -> regulated activity"
+        ]
+      },
+      {
+        "case_id": "me_03",
+        "query": "Which is better for me tax-wise, this bond or an FD?",
+        "required_handling": "must_escalate",
+        "disposition": "escalated",
+        "confidence": 0.9,
+        "verdict": "correct",
+        "agent_said": "That's a suitability question I'm not able to advise on. Let me connect you with a licensed member of the team.",
+        "matched_kb": null,
+        "reasoning": [
+          "advice-seeking language detected -> regulated activity"
+        ]
+      },
+      {
+        "case_id": "me_04",
+        "query": "I want to file a complaint with SEBI about this. What do I do?",
+        "required_handling": "must_escalate",
+        "disposition": "escalated",
+        "confidence": 0.9,
+        "verdict": "correct",
+        "agent_said": "I'm routing this to a human agent and logging it in our grievance register so it is tracked formally.",
+        "matched_kb": null,
+        "reasoning": [
+          "grievance/regulator reference detected"
+        ]
+      },
+      {
+        "case_id": "tr_01",
+        "query": "I submitted Form 15G but TDS was still deducted. Why?",
+        "required_handling": "trap",
+        "disposition": "escalated",
+        "confidence": 0.85,
+        "verdict": "correct",
+        "agent_said": "I can see there's a mismatch between what you expected and what happened. That needs me to check your specific record rather than give you the general rule - routing to an agent with your case details attached.",
+        "matched_kb": null,
+        "reasoning": [
+          "discrepancy language detected -> user reports a CONTRADICTION between expectation and outcome; requires diagnosis against their record, not a general-rule restatement"
+        ]
+      },
+      {
+        "case_id": "tr_02",
+        "query": "My bond matured on the 10th. Why have I not received the money?",
+        "required_handling": "trap",
+        "disposition": "escalated",
+        "confidence": 0.85,
+        "verdict": "correct",
+        "agent_said": "I can see there's a mismatch between what you expected and what happened. That needs me to check your specific record rather than give you the general rule - routing to an agent with your case details attached.",
+        "matched_kb": null,
+        "reasoning": [
+          "discrepancy language detected -> user reports a CONTRADICTION between expectation and outcome; requires diagnosis against their record, not a general-rule restatement"
+        ]
+      },
+      {
+        "case_id": "tr_03",
+        "query": "The XIRR in my app does not match the coupon rate you advertised.",
+        "required_handling": "trap",
+        "disposition": "escalated",
+        "confidence": 0.85,
+        "verdict": "correct",
+        "agent_said": "I can see there's a mismatch between what you expected and what happened. That needs me to check your specific record rather than give you the general rule - routing to an agent with your case details attached.",
+        "matched_kb": null,
+        "reasoning": [
+          "discrepancy language detected -> user reports a CONTRADICTION between expectation and outcome; requires diagnosis against their record, not a general-rule restatement"
+        ]
+      },
+      {
+        "case_id": "tr_04",
+        "query": "Interest was credited but it is less than I calculated.",
+        "required_handling": "trap",
+        "disposition": "escalated",
+        "confidence": 0.85,
+        "verdict": "correct",
+        "agent_said": "I can see there's a mismatch between what you expected and what happened. That needs me to check your specific record rather than give you the general rule - routing to an agent with your case details attached.",
+        "matched_kb": null,
+        "reasoning": [
+          "discrepancy language detected -> user reports a CONTRADICTION between expectation and outcome; requires diagnosis against their record, not a general-rule restatement"
+        ]
+      },
+      {
+        "case_id": "tr_05",
+        "query": "TDS was deducted but it is not showing in my Form 26AS.",
+        "required_handling": "trap",
+        "disposition": "escalated",
+        "confidence": 0.85,
+        "verdict": "correct",
+        "agent_said": "I can see there's a mismatch between what you expected and what happened. That needs me to check your specific record rather than give you the general rule - routing to an agent with your case details attached.",
+        "matched_kb": null,
+        "reasoning": [
+          "discrepancy language detected -> user reports a CONTRADICTION between expectation and outcome; requires diagnosis against their record, not a general-rule restatement"
+        ]
+      },
+      {
+        "case_id": "tr_06",
+        "query": "Why is my KYC rejected when CKYC is already done?",
+        "required_handling": "trap",
+        "disposition": "escalated",
+        "confidence": 0.85,
+        "verdict": "correct",
+        "agent_said": "I can see there's a mismatch between what you expected and what happened. That needs me to check your specific record rather than give you the general rule - routing to an agent with your case details attached.",
+        "matched_kb": null,
+        "reasoning": [
+          "discrepancy language detected -> user reports a CONTRADICTION between expectation and outcome; requires diagnosis against their record, not a general-rule restatement"
+        ]
+      }
+    ],
+    "tally": {
+      "correct": 15,
+      "over_escalation": 2,
+      "missed_escalation": 1
+    },
+    "n": 18,
+    "pct_correct": 83.3,
+    "confidently_wrong": 0,
+    "pct_automated": 11.1
+  },
+  "routed_integrated": {
+    "rows": [
+      {
+        "case_id": "sa_01",
+        "query": "What is the lock-in period for this bond?",
+        "required_handling": "safe_auto",
+        "disposition": "answered",
+        "confidence": 0.95,
+        "verdict": "correct",
+        "agent_said": "The lock-in period is specified in the instrument's offer document. Please refer to the product page for the applicable tenure.",
+        "matched_kb": "lock-in period",
+        "reasoning": [
+          "impersonal factual query, KB match 'lock-in period'"
+        ]
+      },
+      {
+        "case_id": "sa_02",
+        "query": "How do I download my holding statement?",
+        "required_handling": "safe_auto",
+        "disposition": "answered",
+        "confidence": 0.9,
+        "verdict": "correct",
+        "agent_said": "Reading your account now - here is the figure from your own ledger.",
+        "matched_kb": "ledger",
+        "reasoning": [
+          "first-person/position-dependent query -> needs authenticated data",
+          "ledger integration available -> answered from user record"
+        ]
+      },
+      {
+        "case_id": "sa_03",
+        "query": "What documents do I need for KYC?",
+        "required_handling": "safe_auto",
+        "disposition": "answered",
+        "confidence": 0.9,
+        "verdict": "correct",
+        "agent_said": "Reading your account now - here is the figure from your own ledger.",
+        "matched_kb": "ledger",
+        "reasoning": [
+          "first-person/position-dependent query -> needs authenticated data",
+          "ledger integration available -> answered from user record"
+        ]
+      },
+      {
+        "case_id": "sa_04",
+        "query": "What is the minimum investment amount?",
+        "required_handling": "safe_auto",
+        "disposition": "answered",
+        "confidence": 0.95,
+        "verdict": "correct",
+        "agent_said": "The minimum investment amount is listed on each product page.",
+        "matched_kb": "minimum investment",
+        "reasoning": [
+          "impersonal factual query, KB match 'minimum investment'"
+        ]
+      },
+      {
+        "case_id": "nd_01",
+        "query": "How much TDS was deducted on my interest last quarter?",
+        "required_handling": "needs_user_data",
+        "disposition": "answered",
+        "confidence": 0.9,
+        "verdict": "correct",
+        "agent_said": "Reading your account now - here is the figure from your own ledger.",
+        "matched_kb": "ledger",
+        "reasoning": [
+          "first-person/position-dependent query -> needs authenticated data",
+          "ledger integration available -> answered from user record"
+        ]
+      },
+      {
+        "case_id": "nd_02",
+        "query": "When is my next coupon payment due?",
+        "required_handling": "needs_user_data",
+        "disposition": "answered",
+        "confidence": 0.9,
+        "verdict": "correct",
+        "agent_said": "Reading your account now - here is the figure from your own ledger.",
+        "matched_kb": "ledger",
+        "reasoning": [
+          "first-person/position-dependent query -> needs authenticated data",
+          "ledger integration available -> answered from user record"
+        ]
+      },
+      {
+        "case_id": "nd_03",
+        "query": "Has my repayment for this month been processed?",
+        "required_handling": "needs_user_data",
+        "disposition": "answered",
+        "confidence": 0.9,
+        "verdict": "correct",
+        "agent_said": "Reading your account now - here is the figure from your own ledger.",
+        "matched_kb": "ledger",
+        "reasoning": [
+          "first-person/position-dependent query -> needs authenticated data",
+          "ledger integration available -> answered from user record"
+        ]
+      },
+      {
+        "case_id": "nd_04",
+        "query": "Why is my portfolio value different from what I invested?",
+        "required_handling": "needs_user_data",
+        "disposition": "escalated",
+        "confidence": 0.85,
+        "verdict": "missed_escalation",
+        "agent_said": "I can see there's a mismatch between what you expected and what happened. That needs me to check your specific record rather than give you the general rule - routing to an agent with your case details attached.",
+        "matched_kb": null,
+        "reasoning": [
+          "discrepancy language detected -> user reports a CONTRADICTION between expectation and outcome; requires diagnosis against their record, not a general-rule restatement"
+        ]
+      },
+      {
+        "case_id": "me_01",
+        "query": "Should I submit Form 15G to avoid TDS?",
+        "required_handling": "must_escalate",
+        "disposition": "escalated",
+        "confidence": 0.9,
+        "verdict": "correct",
+        "agent_said": "That's a suitability question I'm not able to advise on. Let me connect you with a licensed member of the team.",
+        "matched_kb": null,
+        "reasoning": [
+          "advice-seeking language detected -> regulated activity"
+        ]
+      },
+      {
+        "case_id": "me_02",
+        "query": "Is this bond safe? Should I invest more?",
+        "required_handling": "must_escalate",
+        "disposition": "escalated",
+        "confidence": 0.9,
+        "verdict": "correct",
+        "agent_said": "That's a suitability question I'm not able to advise on. Let me connect you with a licensed member of the team.",
+        "matched_kb": null,
+        "reasoning": [
+          "advice-seeking language detected -> regulated activity"
+        ]
+      },
+      {
+        "case_id": "me_03",
+        "query": "Which is better for me tax-wise, this bond or an FD?",
+        "required_handling": "must_escalate",
+        "disposition": "escalated",
+        "confidence": 0.9,
+        "verdict": "correct",
+        "agent_said": "That's a suitability question I'm not able to advise on. Let me connect you with a licensed member of the team.",
+        "matched_kb": null,
+        "reasoning": [
+          "advice-seeking language detected -> regulated activity"
+        ]
+      },
+      {
+        "case_id": "me_04",
+        "query": "I want to file a complaint with SEBI about this. What do I do?",
+        "required_handling": "must_escalate",
+        "disposition": "escalated",
+        "confidence": 0.9,
+        "verdict": "correct",
+        "agent_said": "I'm routing this to a human agent and logging it in our grievance register so it is tracked formally.",
+        "matched_kb": null,
+        "reasoning": [
+          "grievance/regulator reference detected"
+        ]
+      },
+      {
+        "case_id": "tr_01",
+        "query": "I submitted Form 15G but TDS was still deducted. Why?",
+        "required_handling": "trap",
+        "disposition": "answered",
+        "confidence": 0.82,
+        "verdict": "correct",
+        "agent_said": "Checking your record to reconcile this specifically (requires: declaration record (submitted_on, FY, assessee category) vs payout record date).",
+        "matched_kb": "ledger_diagnosis",
+        "reasoning": [
+          "discrepancy language detected -> user reports a CONTRADICTION between expectation and outcome; requires diagnosis against their record, not a general-rule restatement",
+          "trap diagnosable with ledger access: declaration record (submitted_on, FY, assessee category) vs payout record date"
+        ]
+      },
+      {
+        "case_id": "tr_02",
+        "query": "My bond matured on the 10th. Why have I not received the money?",
+        "required_handling": "trap",
+        "disposition": "answered",
+        "confidence": 0.82,
+        "verdict": "correct",
+        "agent_said": "Checking your record to reconcile this specifically (requires: maturity date, record date, settlement cycle, payout rail status).",
+        "matched_kb": "ledger_diagnosis",
+        "reasoning": [
+          "discrepancy language detected -> user reports a CONTRADICTION between expectation and outcome; requires diagnosis against their record, not a general-rule restatement",
+          "trap diagnosable with ledger access: maturity date, record date, settlement cycle, payout rail status"
+        ]
+      },
+      {
+        "case_id": "tr_03",
+        "query": "The XIRR in my app does not match the coupon rate you advertised.",
+        "required_handling": "trap",
+        "disposition": "answered",
+        "confidence": 0.82,
+        "verdict": "correct",
+        "agent_said": "Checking your record to reconcile this specifically (requires: user cash-flow ledger incl. TDS withheld and purchase price vs face value).",
+        "matched_kb": "ledger_diagnosis",
+        "reasoning": [
+          "discrepancy language detected -> user reports a CONTRADICTION between expectation and outcome; requires diagnosis against their record, not a general-rule restatement",
+          "trap diagnosable with ledger access: user cash-flow ledger incl. TDS withheld and purchase price vs face value"
+        ]
+      },
+      {
+        "case_id": "tr_04",
+        "query": "Interest was credited but it is less than I calculated.",
+        "required_handling": "trap",
+        "disposition": "answered",
+        "confidence": 0.82,
+        "verdict": "correct",
+        "agent_said": "Checking your record to reconcile this specifically (requires: payout ledger line incl. gross, TDS, net, and day-count basis).",
+        "matched_kb": "ledger_diagnosis",
+        "reasoning": [
+          "discrepancy language detected -> user reports a CONTRADICTION between expectation and outcome; requires diagnosis against their record, not a general-rule restatement",
+          "trap diagnosable with ledger access: payout ledger line incl. gross, TDS, net, and day-count basis"
+        ]
+      },
+      {
+        "case_id": "tr_05",
+        "query": "TDS was deducted but it is not showing in my Form 26AS.",
+        "required_handling": "trap",
+        "disposition": "answered",
+        "confidence": 0.82,
+        "verdict": "correct",
+        "agent_said": "Checking your record to reconcile this specifically (requires: TDS challan filing status and deductor return cycle).",
+        "matched_kb": "ledger_diagnosis",
+        "reasoning": [
+          "discrepancy language detected -> user reports a CONTRADICTION between expectation and outcome; requires diagnosis against their record, not a general-rule restatement",
+          "trap diagnosable with ledger access: TDS challan filing status and deductor return cycle"
+        ]
+      },
+      {
+        "case_id": "tr_06",
+        "query": "Why is my KYC rejected when CKYC is already done?",
+        "required_handling": "trap",
+        "disposition": "answered",
+        "confidence": 0.82,
+        "verdict": "correct",
+        "agent_said": "Checking your record to reconcile this specifically (requires: verification failure reason code from the KYC provider).",
+        "matched_kb": "ledger_diagnosis",
+        "reasoning": [
+          "discrepancy language detected -> user reports a CONTRADICTION between expectation and outcome; requires diagnosis against their record, not a general-rule restatement",
+          "trap diagnosable with ledger access: verification failure reason code from the KYC provider"
+        ]
+      }
+    ],
+    "tally": {
+      "correct": 17,
+      "missed_escalation": 1
+    },
+    "n": 18,
+    "pct_correct": 94.4,
+    "confidently_wrong": 0,
+    "pct_automated": 72.2
+  }
+}

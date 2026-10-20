@@ -1,0 +1,274 @@
+<title>BFSI Support Signal Desk</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a settlement ledger. Ruled horizontal bands, tabular figures,
+   measurements in the margin. Nothing floats; everything sits on a rule. */
+:root{
+  --paper:#f7f7f4; --ink:#16181c; --ink-soft:#5a6068; --rule:#d9d8d1;
+  --accent:#1f5147; --accent-soft:#e3ece9;
+  --bad:#9b2c23; --bad-soft:#f6e5e3;
+  --warn:#8a6214; --warn-soft:#f7eedb;
+  --good:#2b6040; --good-soft:#e4efe7;
+  --panel:#ffffff;
+  --f-display:"Spectral",Georgia,serif;
+  --f-body:"IBM Plex Sans",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#13151a; --ink:#e8e6e0; --ink-soft:#9aa0a8; --rule:#2c3038;
+  --accent:#6fbfae; --accent-soft:#17302c;
+  --bad:#e08b82; --bad-soft:#2e1d1b;
+  --warn:#d6ad5c; --warn-soft:#2b2417;
+  --good:#7fb894; --good-soft:#18271e;
+  --panel:#191c22; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --paper:#13151a; --ink:#e8e6e0; --ink-soft:#9aa0a8; --rule:#2c3038;
+  --accent:#6fbfae; --accent-soft:#17302c;
+  --bad:#e08b82; --bad-soft:#2e1d1b;
+  --warn:#d6ad5c; --warn-soft:#2b2417;
+  --good:#7fb894; --good-soft:#18271e;
+  --panel:#191c22; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);
+  margin:0;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:0 64px}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;text-wrap:balance;margin:0}
+.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+
+/* masthead */
+header{border-bottom:2px solid var(--ink);padding-block:34px 14px}
+.kicker{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-soft)}
+h1{font-size:clamp(28px,5vw,42px);line-height:1.08;margin-block:10px 8px}
+.standfirst{font-family:var(--f-display);font-size:clamp(15px,2.2vw,18px);
+  font-style:italic;color:var(--ink-soft);max-width:62ch}
+.meta{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:16px;
+  font-family:var(--f-mono);font-size:11px;color:var(--ink-soft)}
+
+/* synthetic banner */
+.flag{display:flex;gap:12px;align-items:flex-start;background:var(--warn-soft);
+  border-left:3px solid var(--warn);padding:13px 16px;margin-top:22px;border-radius:2px}
+.flag strong{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--warn);display:block;margin-bottom:3px}
+.flag p{margin:0;font-size:13.5px;color:var(--ink);max-width:76ch}
+
+section{padding-block:40px;border-bottom:1px solid var(--rule)}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px;flex-wrap:wrap}
+.sec-no{font-family:var(--f-mono);font-size:11px;color:var(--accent);letter-spacing:.1em}
+h2{font-size:clamp(20px,3vw,26px)}
+.lede{color:var(--ink-soft);max-width:68ch;margin:10px 0 26px;font-size:14.5px}
+
+/* finding table */
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14px}
+th{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-soft);text-align:right;
+  padding:0 0 8px;border-bottom:1px solid var(--ink);font-weight:500}
+th:first-child{text-align:left}
+td{padding:13px 0;border-bottom:1px solid var(--rule);text-align:right}
+td:first-child{text-align:left;font-weight:500}
+tbody tr:last-child td{border-bottom:none}
+.agent-note{display:block;font-size:12px;color:var(--ink-soft);font-weight:400;
+  margin-top:2px;max-width:30ch}
+.big{font-size:19px}
+.hl-bad{color:var(--bad);font-weight:600}
+.hl-good{color:var(--good);font-weight:600}
+
+.pull{background:var(--accent-soft);border-left:3px solid var(--accent);
+  padding:18px 20px;margin-top:28px;border-radius:2px}
+.pull p{margin:0;font-family:var(--f-display);font-size:16.5px;line-height:1.45;
+  max-width:68ch}
+.pull p + p{margin-top:10px}
+
+/* pipeline */
+.pipe td,.pipe th{padding-left:10px}
+.pipe td:first-child,.pipe th:first-child{padding-left:0}
+.tag{display:inline-block;font-family:var(--f-mono);font-size:10px;
+  letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:2px;
+  background:var(--rule);color:var(--ink-soft)}
+.tag.wedge{background:var(--accent-soft);color:var(--accent);font-weight:500}
+.bar{position:relative;height:5px;background:var(--rule);border-radius:3px;
+  width:72px;margin-left:auto;overflow:hidden}
+.bar i{position:absolute;inset:0 auto 0 0;background:var(--accent);border-radius:3px}
+.hold{color:var(--warn);font-family:var(--f-mono);font-size:11px}
+.go{color:var(--good);font-family:var(--f-mono);font-size:11px}
+
+/* failures */
+.fail{border-left:3px solid var(--bad);background:var(--panel);
+  padding:16px 18px;border-radius:2px;margin-bottom:12px}
+.fail-q{font-family:var(--f-display);font-size:16px;margin:0 0 10px;font-style:italic}
+.fail-said{font-family:var(--f-mono);font-size:12.5px;background:var(--bad-soft);
+  color:var(--ink);padding:10px 12px;border-radius:2px;margin:0 0 10px;
+  overflow-wrap:anywhere}
+.fail-meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--f-mono);
+  font-size:10.5px;color:var(--ink-soft);letter-spacing:.05em;text-transform:uppercase}
+.fail-meta b{color:var(--bad);font-weight:600}
+
+/* limits */
+.limits{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(248px,1fr))}
+.lim{border-top:2px solid var(--rule);padding-top:13px;min-width:0}
+.lim h3{font-size:14.5px;font-family:var(--f-body);font-weight:600;margin-bottom:6px}
+.lim p{margin:0;font-size:13.5px;color:var(--ink-soft)}
+footer{padding-block:30px;font-family:var(--f-mono);font-size:11.5px;
+  color:var(--ink-soft);line-height:1.7}
+</style>
+<div class="wrap">
+<header>
+  <div class="kicker">Prospect intelligence &middot; prepared for Nugget</div>
+  <h1>The queries a support bot should refuse to answer</h1>
+  <p class="standfirst">A ranked BFSI outbound pipeline built from public complaint evidence &mdash; and an account of the thesis it was supposed to confirm, which the data refused.</p>
+  <div class="meta">
+    <span>5,700 reviews &middot; 19 apps</span>
+    <span>31 prospects &middot; 5 verticals</span>
+    <span>18-case eval set</span>
+    <span>Collected 20 Oct 2026</span>
+  </div>
+  <div class="flag">
+    <div>
+      <strong>What this is built on</strong>
+      <p>5,700 public Play Store reviews collected 20 Oct 2026 from 19 of 31 prospects (9 failed on wrong package IDs, 3 have no Android app). Only the 1,689 reviews carrying real text are scored &mdash; median review length in the raw corpus was 13 characters. Nothing here is estimated or simulated.</p>
+    </div>
+  </div>
+</header>
+
+
+<section>
+  <div class="sec-head"><span class="sec-no">01</span><h2>The thesis the data refused</h2></div>
+  <p class="lede">This project was built to argue that Indian fixed-income platforms are drowning in tax and settlement queries that generic support bots answer wrongly. The engine was then pointed at real data to find the prospects where that was most visible. It did not find them.</p>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Query class</th><th>Mentions in 5,700 real reviews</th></tr></thead>
+    <tbody id="hardRows"></tbody>
+  </table>
+  </div>
+  <div class="pull">
+    <p><strong>Zero TDS complaints. Seventeen hard-query mentions in total.</strong> The bond platforms the thesis was built around rank 10th and unscored, not 1st and 2nd.</p>
+    <p>Two readings fit, and this data cannot separate them: app reviews may simply be the wrong instrument &mdash; nobody writes a Play Store review about Form 15G, they raise a ticket &mdash; or the class is rarer than assumed. The honest position is that the hypothesis is untested, not confirmed. SEBI SCORES categorises complaints by type and is where this would actually be visible.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-no">02</span><h2>The finding that held</h2></div>
+  <p class="lede">Three agent configurations against the same 18-case taxonomy of real fixed-income support queries. Read the first column, then the third.</p>
+  <div class="scroll">
+  <table>
+    <thead><tr>
+      <th>Configuration</th><th>Automated</th><th>Correctly disposed</th><th>Confidently wrong</th>
+    </tr></thead>
+    <tbody id="evalRows"></tbody>
+  </table>
+  </div>
+  <div class="pull">
+    <p>Naive retrieval and the integrated agent automate almost the same share of this query set. On a deflection-rate slide they are the same product.</p>
+    <p>One is correct 39&#37; of the time with eight confidently wrong tax and settlement answers. The other is correct 94&#37; with none. Routing alone is not the answer either &mdash; it is safe and automates 11&#37;, which is not a product. The value is routing first, then integrating so the correct route is usually an answer.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-no">03</span><h2>Where the naive agent breaks</h2></div>
+  <p class="lede">Every one of these is a tax, settlement or grievance answer delivered to an investor out of a generic help article, at high confidence. These are the ones that reach a grievance register, and not one of them appears on a deflection chart.</p>
+  <div id="fails"></div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-no">04</span><h2>Ranked pipeline</h2></div>
+  <p class="lede">Pain is measured as the share of <em>substantive</em> reviews that are support-related, and the share of <em>negative substantive</em> reviews citing channel failure rather than the product. Scales are calibrated to the observed distribution. Prospects with fewer than 40 substantive reviews score <span class="num">&mdash;</span> rather than a number: 14 contactable, 17 held back.</p>
+  <div class="scroll">
+  <table class="pipe">
+    <thead><tr>
+      <th>Prospect</th><th>Vertical</th><th>Substantive</th><th>Support share</th><th>Channel failure</th><th>Conf.</th><th>Priority</th><th>Queue</th>
+    </tr></thead>
+    <tbody id="pipeRows"></tbody>
+  </table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-no">05</span><h2>What this does not establish</h2></div>
+  <p class="lede">Stated up front rather than discovered in questioning.</p>
+  <div class="limits">
+    <div class="lim"><h3>Nine prospects have no data</h3><p>Their Android package IDs were wrong and returned 404, so nine BFSI firms &mdash; including Jiraaf, the second bond platform &mdash; are absent from the ranking entirely. Absence here is a collection failure, not a clean bill of health.</p></div>
+    <div class="lim"><h3>Reachability is barely assessed</h3><p>Only company size band is filled. A named active leader and a warm path are null across all 31, which caps every confidence score at 0.78 and is the single biggest available improvement.</p></div>
+    <div class="lim"><h3>App reviews are a biased sample</h3><p>Reviewers skew angry and resolved-badly, and only 30% of the raw corpus carried enough text to score at all. These shares are directional evidence of support strain, not a measure of contact volume or real resolution rates.</p></div>
+    <div class="lim"><h3>The eval scores structure, not tax law</h3><p>It measures whether the agent routed correctly, not whether any substantive tax answer is right. The India-specific mechanics in the taxonomy are flagged for verification against current law.</p></div>
+    <div class="lim"><h3>Classification is keyword-based</h3><p>Chosen for auditability: every verdict traces to a rule. Hindi and romanised Hinglish patterns were added after the first run found Devanagari complaints scored as neutral, then narrowed when generic abuse terms proved to inflate the channel-failure metric.</p></div>
+    <div class="lim"><h3>One run, no trend</h3><p>A single snapshot. A support surface degrading month over month is a far stronger buying trigger than one that is merely bad, and nothing here measures change over time.</p></div>
+  </div>
+</section>
+
+<footer>
+  Built 20 Oct 2026 &middot; nugget-signal-engine<br>
+  Wint Wealth is deliberately excluded from the prospect universe: author is currently employed there.<br>
+  No employer data of any kind is used in this project. All signals derive from public sources.
+</footer>
+</div>
+<script id="payload" type="application/json">{"pipeline":[{"name":"smallcase","prospect_id":"smallcase","vertical":"wealth","sub_vertical":null,"icp_fit":74,"pain_intensity":64.82,"reachability":100.0,"confidence":0.78,"priority":58.55,"contactable":true,"sample":{"reviews_fetched":300,"substantive":121,"negative_substantive":66,"substantive_share":0.403},"sig":{"support_review_share":0.157,"unresolved_language_share":0.0758,"rating_trend":0.64,"review_volume":121},"reason":"collected 300 reviews"},{"name":"Upstox","prospect_id":"upstox","vertical":"wealth","sub_vertical":null,"icp_fit":74,"pain_intensity":68.39,"reachability":75.0,"confidence":0.78,"priority":55.91,"contactable":true,"sample":{"reviews_fetched":300,"substantive":102,"negative_substantive":46,"substantive_share":0.34},"sig":{"support_review_share":0.2059,"unresolved_language_share":0.0652,"rating_trend":0.62,"review_volume":102},"reason":"collected 300 reviews"},{"name":"INDmoney","prospect_id":"indmoney","vertical":"wealth","sub_vertical":null,"icp_fit":74,"pain_intensity":56.87,"reachability":100.0,"confidence":0.78,"priority":55.76,"contactable":true,"sample":{"reviews_fetched":300,"substantive":124,"negative_substantive":55,"substantive_share":0.413},"sig":{"support_review_share":0.1452,"unresolved_language_share":0.0545,"rating_trend":-0.08,"review_volume":124},"reason":"collected 300 reviews"},{"name":"PolicyBazaar","prospect_id":"policybazaar","vertical":"insurance","sub_vertical":null,"icp_fit":72,"pain_intensity":60.28,"reachability":75.0,"confidence":0.78,"priority":52.51,"contactable":true,"sample":{"reviews_fetched":300,"substantive":111,"negative_substantive":91,"substantive_share":0.37},"sig":{"support_review_share":0.1441,"unresolved_language_share":0.0659,"rating_trend":0.38,"review_volume":111},"reason":"collected 300 reviews"},{"name":"Razorpay","prospect_id":"razorpay","vertical":"payments","sub_vertical":null,"icp_fit":70,"pain_intensity":60.27,"reachability":75.0,"confidence":0.78,"priority":51.96,"contactable":true,"sample":{"reviews_fetched":300,"substantive":146,"negative_substantive":120,"substantive_share":0.487},"sig":{"support_review_share":0.2192,"unresolved_language_share":0.05,"rating_trend":-0.36,"review_volume":146},"reason":"collected 300 reviews"},{"name":"ACKO","prospect_id":"acko","vertical":"insurance","sub_vertical":null,"icp_fit":72,"pain_intensity":44.87,"reachability":100.0,"confidence":0.78,"priority":51.01,"contactable":true,"sample":{"reviews_fetched":300,"substantive":83,"negative_substantive":64,"substantive_share":0.277},"sig":{"support_review_share":0.1446,"unresolved_language_share":0.0,"rating_trend":0.2,"review_volume":83},"reason":"collected 300 reviews"},{"name":"Zerodha","prospect_id":"zerodha","vertical":"wealth","sub_vertical":null,"icp_fit":74,"pain_intensity":45.2,"reachability":75.0,"confidence":0.78,"priority":47.77,"contactable":true,"sample":{"reviews_fetched":300,"substantive":146,"negative_substantive":73,"substantive_share":0.487},"sig":{"support_review_share":0.0959,"unresolved_language_share":0.0137,"rating_trend":0.22,"review_volume":146},"reason":"collected 300 reviews"},{"name":"Federal Bank","prospect_id":"federal_bank","vertical":"banking","sub_vertical":null,"icp_fit":70,"pain_intensity":47.41,"reachability":75.0,"confidence":0.78,"priority":47.45,"contactable":true,"sample":{"reviews_fetched":300,"substantive":110,"negative_substantive":74,"substantive_share":0.367},"sig":{"support_review_share":0.1091,"unresolved_language_share":0.027,"rating_trend":0.28,"review_volume":110},"reason":"collected 300 reviews"},{"name":"RBL Bank","prospect_id":"rbl_bank","vertical":"banking","sub_vertical":null,"icp_fit":70,"pain_intensity":46.23,"reachability":75.0,"confidence":0.78,"priority":47.04,"contactable":true,"sample":{"reviews_fetched":300,"substantive":117,"negative_substantive":103,"substantive_share":0.39},"sig":{"support_review_share":0.2479,"unresolved_language_share":0.0291,"rating_trend":-0.9,"review_volume":117},"reason":"collected 300 reviews"},{"name":"Grip Invest","prospect_id":"grip_invest","vertical":"wealth","sub_vertical":"bonds_fixed_income","icp_fit":89,"pain_intensity":52.06,"reachability":100.0,"confidence":0.62,"priority":46.24,"contactable":true,"sample":{"reviews_fetched":300,"substantive":278,"negative_substantive":22,"substantive_share":0.927},"sig":{"support_review_share":0.0791,"unresolved_language_share":null,"rating_trend":-0.28,"review_volume":278},"reason":"collected 300 reviews"},{"name":"Go Digit","prospect_id":"digit","vertical":"insurance","sub_vertical":null,"icp_fit":72,"pain_intensity":38.45,"reachability":75.0,"confidence":0.78,"priority":44.85,"contactable":true,"sample":{"reviews_fetched":300,"substantive":76,"negative_substantive":46,"substantive_share":0.253},"sig":{"support_review_share":0.1053,"unresolved_language_share":0.0,"rating_trend":0.2,"review_volume":76},"reason":"collected 300 reviews"},{"name":"Angel One","prospect_id":"angelone","vertical":"wealth","sub_vertical":null,"icp_fit":74,"pain_intensity":34.21,"reachability":75.0,"confidence":0.78,"priority":43.91,"contactable":true,"sample":{"reviews_fetched":300,"substantive":50,"negative_substantive":30,"substantive_share":0.167},"sig":{"support_review_share":0.1,"unresolved_language_share":0.0,"rating_trend":0.06,"review_volume":50},"reason":"collected 300 reviews"},{"name":"Groww","prospect_id":"groww","vertical":"wealth","sub_vertical":null,"icp_fit":74,"pain_intensity":39.08,"reachability":75.0,"confidence":0.62,"priority":36.26,"contactable":true,"sample":{"reviews_fetched":300,"substantive":49,"negative_substantive":24,"substantive_share":0.163},"sig":{"support_review_share":0.102,"unresolved_language_share":null,"rating_trend":-0.22,"review_volume":49},"reason":"collected 300 reviews"},{"name":"IDFC FIRST Bank","prospect_id":"idfc_first","vertical":"banking","sub_vertical":null,"icp_fit":70,"pain_intensity":52.52,"reachability":50.0,"confidence":0.62,"priority":36.04,"contactable":true,"sample":{"reviews_fetched":300,"substantive":46,"negative_substantive":14,"substantive_share":0.153},"sig":{"support_review_share":0.1304,"unresolved_language_share":null,"rating_trend":0.16,"review_volume":46},"reason":"collected 300 reviews"},{"name":"Dhan","prospect_id":"dhan","vertical":"wealth","sub_vertical":null,"icp_fit":74,"pain_intensity":null,"reachability":100.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":null,"review_volume":null},"reason":"app meta: NotFoundError: App not found(404)."},{"name":"Scripbox","prospect_id":"scripbox","vertical":"wealth","sub_vertical":null,"icp_fit":74,"pain_intensity":null,"reachability":100.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":null,"review_volume":null},"reason":"app meta: NotFoundError: App not found(404)."},{"name":"Jiraaf","prospect_id":"jiraaf","vertical":"wealth","sub_vertical":"bonds_fixed_income","icp_fit":89,"pain_intensity":null,"reachability":100.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":null,"review_volume":null},"reason":"app meta: NotFoundError: App not found(404)."},{"name":"IndiaBonds","prospect_id":"indiabonds","vertical":"wealth","sub_vertical":"bonds_fixed_income","icp_fit":89,"pain_intensity":null,"reachability":40.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":null,"review_volume":null},"reason":"prospect has no Android app (web-primary product)"},{"name":"BondsKart","prospect_id":"bondskart","vertical":"wealth","sub_vertical":"bonds_fixed_income","icp_fit":89,"pain_intensity":null,"reachability":100.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":null,"review_volume":null},"reason":"prospect has no Android app (web-primary product)"},{"name":"KreditBee","prospect_id":"kreditbee","vertical":"lending","sub_vertical":null,"icp_fit":72,"pain_intensity":100.0,"reachability":100.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{"reviews_fetched":300,"substantive":35,"negative_substantive":16,"substantive_share":0.117},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":0.16,"review_volume":null},"reason":"only 35 substantive reviews (min 40) - sample too small to score"},{"name":"Bajaj Finserv","prospect_id":"bajaj_finserv","vertical":"lending","sub_vertical":null,"icp_fit":72,"pain_intensity":null,"reachability":50.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":null,"review_volume":null},"reason":"app meta: NotFoundError: App not found(404)."},{"name":"Lendingkart","prospect_id":"lendingkart","vertical":"lending","sub_vertical":null,"icp_fit":72,"pain_intensity":null,"reachability":100.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":null,"review_volume":null},"reason":"app meta: NotFoundError: App not found(404)."},{"name":"MoneyView","prospect_id":"moneyview","vertical":"lending","sub_vertical":null,"icp_fit":72,"pain_intensity":100.0,"reachability":100.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{"reviews_fetched":300,"substantive":29,"negative_substantive":19,"substantive_share":0.097},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":0.0,"review_volume":null},"reason":"only 29 substantive reviews (min 40) - sample too small to score"},{"name":"Navi","prospect_id":"navi","vertical":"lending","sub_vertical":null,"icp_fit":72,"pain_intensity":100.0,"reachability":75.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{"reviews_fetched":300,"substantive":16,"negative_substantive":9,"substantive_share":0.053},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":0.02,"review_volume":null},"reason":"only 16 substantive reviews (min 40) - sample too small to score"},{"name":"Star Health","prospect_id":"star_health","vertical":"insurance","sub_vertical":null,"icp_fit":72,"pain_intensity":null,"reachability":50.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":null,"review_volume":null},"reason":"app meta: NotFoundError: App not found(404)."},{"name":"Niva Bupa","prospect_id":"niva_bupa","vertical":"insurance","sub_vertical":null,"icp_fit":72,"pain_intensity":null,"reachability":75.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":null,"review_volume":null},"reason":"app meta: NotFoundError: App not found(404)."},{"name":"Cashfree Payments","prospect_id":"cashfree","vertical":"payments","sub_vertical":null,"icp_fit":70,"pain_intensity":null,"reachability":100.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":null,"review_volume":null},"reason":"prospect has no Android app (web-primary product)"},{"name":"BharatPe","prospect_id":"bharatpe","vertical":"payments","sub_vertical":null,"icp_fit":70,"pain_intensity":100.0,"reachability":100.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{"reviews_fetched":300,"substantive":27,"negative_substantive":18,"substantive_share":0.09},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":0.28,"review_volume":null},"reason":"only 27 substantive reviews (min 40) - sample too small to score"},{"name":"Paytm","prospect_id":"paytm","vertical":"payments","sub_vertical":null,"icp_fit":70,"pain_intensity":92.5,"reachability":50.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{"reviews_fetched":300,"substantive":23,"negative_substantive":7,"substantive_share":0.077},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":-0.06,"review_volume":null},"reason":"only 23 substantive reviews (min 40) - sample too small to score"},{"name":"AU Small Finance Bank","prospect_id":"au_bank","vertical":"banking","sub_vertical":null,"icp_fit":70,"pain_intensity":null,"reachability":75.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":null,"review_volume":null},"reason":"app meta: NotFoundError: App not found(404)."},{"name":"Equitas Small Finance Bank","prospect_id":"equitas","vertical":"banking","sub_vertical":null,"icp_fit":70,"pain_intensity":null,"reachability":100.0,"confidence":0.0,"priority":0.0,"contactable":false,"sample":{},"sig":{"support_review_share":null,"unresolved_language_share":null,"rating_trend":null,"review_volume":null},"reason":"app meta: NotFoundError: App not found(404)."}],"evals":{"baseline_retrieval":{"pct_automated":66.7,"pct_correct":38.9,"confidently_wrong":8,"n":18},"routed":{"pct_automated":11.1,"pct_correct":83.3,"confidently_wrong":0,"n":18},"routed_integrated":{"pct_automated":72.2,"pct_correct":94.4,"confidently_wrong":0,"n":18}},"fails":[{"id":"nd_01","q":"How much TDS was deducted on my interest last quarter?","req":"needs_user_data","got":"answered","conf":0.95,"said":"TDS is deducted as applicable under the Income Tax Act. Please refer to your TDS certificate."},{"id":"me_01","q":"Should I submit Form 15G to avoid TDS?","req":"must_escalate","got":"answered","conf":0.95,"said":"TDS is deducted as applicable under the Income Tax Act. Please refer to your TDS certificate."},{"id":"me_04","q":"I want to file a complaint with SEBI about this. What do I do?","req":"must_escalate","got":"answered","conf":0.95,"said":"For any grievance, please write to our support email."},{"id":"tr_01","q":"I submitted Form 15G but TDS was still deducted. Why?","req":"trap","got":"answered","conf":0.95,"said":"TDS is deducted as applicable under the Income Tax Act. Please refer to your TDS certificate."},{"id":"tr_03","q":"The XIRR in my app does not match the coupon rate you advertised.","req":"trap","got":"answered","conf":0.75,"said":"XIRR is an annualised return metric and may differ from the coupon rate."},{"id":"tr_04","q":"Interest was credited but it is less than I calculated.","req":"trap","got":"answered","conf":0.95,"said":"Interest is calculated and credited as per the terms of the instrument."},{"id":"tr_05","q":"TDS was deducted but it is not showing in my Form 26AS.","req":"trap","got":"answered","conf":0.95,"said":"TDS is deducted as applicable under the Income Tax Act. Please refer to your TDS certificate."},{"id":"tr_06","q":"Why is my KYC rejected when CKYC is already done?","req":"trap","got":"answered","conf":0.95,"said":"If KYC is rejected, please re-upload your documents."}],"quotes":[{"name":"smallcase","q":["Customer service can be improved. CC is acting only as postman, raised issue 45...","Faced a transaction error in mutual fund and raise query for the same which..."]},{"name":"Upstox","q":["no reply on mail or ticket, worst service, opening zerodha account, feeling Zerodha is...","I recently started using your new platform, which is similar to algovere. Due to..."]},{"name":"INDmoney","q":["very bad app no response qukly no advance tolls\ud83d\udeab\ud83e\udd2c","My order got stuck for an hour and I lost a ton of money...."]},{"name":"PolicyBazaar","q":["WORST SERVICE EVER !! I bought car claim from this app and no help...","very bad experience with policy bazaar, still my claim status pending no one can..."]},{"name":"Razorpay","q":["very poor and frustrating service no customer support never use them.","Pathetic experience. Payments are stuck for over 15 days and there is absolutely no..."]}],"stats":{"apps_ok":19,"apps_total":31,"reviews":5700,"substantive":1689,"hard_total":17,"hard":{"regulatory_status":9,"maturity_settlement":4,"yield_confusion":1,"repayment_mechanics":3},"contactable":14,"held":17}}</script>
+<script>
+(function(){
+  var D=JSON.parse(document.getElementById('payload').textContent);
+  var HLBL={tds_withholding:'TDS / withholding',repayment_mechanics:'Repayment &amp; coupon timing',
+            maturity_settlement:'Maturity &amp; settlement',yield_confusion:'Yield / XIRR reconciliation',
+            regulatory_status:'Regulatory &amp; grievance'};
+  var hr=document.getElementById('hardRows');
+  ['tds_withholding','repayment_mechanics','maturity_settlement','yield_confusion','regulatory_status']
+   .forEach(function(k){
+    var v=D.stats.hard[k]||0,tr=document.createElement('tr');
+    tr.innerHTML='<td>'+HLBL[k]+'</td><td class="num big '+(v===0?'hl-bad':'')+'">'+v+'</td>';
+    hr.appendChild(tr);
+  });
+
+  var LBL={baseline_retrieval:['Naive retrieval','Answers whatever the FAQ index matches'],
+           routed:['Routed','Classifies disposition before retrieving. No integration'],
+           routed_integrated:['Routed + integrated','Same routing, plus authenticated ledger access']};
+  var er=document.getElementById('evalRows');
+  ['baseline_retrieval','routed','routed_integrated'].forEach(function(k){
+    var v=D.evals[k],tr=document.createElement('tr');
+    tr.innerHTML='<td>'+LBL[k][0]+'<span class="agent-note">'+LBL[k][1]+'</span></td>'+
+      '<td class="num big">'+v.pct_automated.toFixed(0)+'%</td>'+
+      '<td class="num big '+(v.pct_correct>=90?'hl-good':(v.pct_correct<50?'hl-bad':''))+'">'+v.pct_correct.toFixed(0)+'%</td>'+
+      '<td class="num big '+(v.confidently_wrong>0?'hl-bad':'hl-good')+'">'+v.confidently_wrong+'</td>';
+    er.appendChild(tr);
+  });
+
+  var fw=document.getElementById('fails');
+  D.fails.forEach(function(f){
+    var d=document.createElement('div');d.className='fail';
+    d.innerHTML='<p class="fail-q">&ldquo;'+f.q+'&rdquo;</p>'+
+      '<p class="fail-said">'+f.said+'</p>'+
+      '<div class="fail-meta"><span>should: <b>'+f.req.replace(/_/g,' ')+'</b></span>'+
+      '<span>did: '+f.got+'</span><span>confidence: '+f.conf+'</span>'+
+      '<span><b>confidently wrong</b></span></div>';
+    fw.appendChild(d);
+  });
+
+  var pr=document.getElementById('pipeRows');
+  D.pipeline.slice(0,18).forEach(function(r){
+    var tr=document.createElement('tr'),s=r.sample||{},g=r.sig||{};
+    var wedge=r.sub_vertical==='bonds_fixed_income';
+    var f=function(v){return v==null?'&mdash;':(v*100).toFixed(1)+'%';};
+    tr.innerHTML='<td>'+r.name+'</td>'+
+      '<td><span class="tag'+(wedge?' wedge':'')+'">'+(wedge?'bonds':r.vertical)+'</span></td>'+
+      '<td class="num">'+(s.substantive==null?'&mdash;':s.substantive)+'</td>'+
+      '<td class="num">'+f(g.support_review_share)+'</td>'+
+      '<td class="num">'+f(g.unresolved_language_share)+'</td>'+
+      '<td class="num">'+r.confidence.toFixed(2)+'</td>'+
+      '<td><div class="bar"><i style="width:'+Math.max(2,r.priority)+'%"></i></div></td>'+
+      '<td class="'+(r.contactable?'go':'hold')+'">'+(r.contactable?'contact':'hold')+'</td>';
+    pr.appendChild(tr);
+  });
+
+  var qw=document.getElementById('quotes');
+  if(qw){D.quotes.forEach(function(p){
+    var d=document.createElement('div');d.className='lim';
+    d.innerHTML='<h3>'+p.name+'</h3>'+p.q.map(function(t){
+      return '<p style="font-style:italic;margin-bottom:6px">&ldquo;'+t+'&rdquo;</p>';}).join('');
+    qw.appendChild(d);
+  });}
+})();
+</script>

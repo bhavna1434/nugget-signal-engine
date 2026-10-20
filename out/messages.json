@@ -1,0 +1,338 @@
+{
+  "synthetic": false,
+  "generated_for": 5,
+  "skipped_low_confidence": [
+    {
+      "name": "Dhan",
+      "confidence": 0.0,
+      "reason": "confidence 0.00 below threshold 0.6 (1 signals collected) - not enough evidence to justify a personalised claim about this company"
+    },
+    {
+      "name": "Scripbox",
+      "confidence": 0.0,
+      "reason": "confidence 0.00 below threshold 0.6 (1 signals collected) - not enough evidence to justify a personalised claim about this company"
+    },
+    {
+      "name": "Jiraaf",
+      "confidence": 0.0,
+      "reason": "confidence 0.00 below threshold 0.6 (1 signals collected) - not enough evidence to justify a personalised claim about this company"
+    },
+    {
+      "name": "IndiaBonds",
+      "confidence": 0.0,
+      "reason": "confidence 0.00 below threshold 0.6 (1 signals collected) - not enough evidence to justify a personalised claim about this company"
+    },
+    {
+      "name": "BondsKart",
+      "confidence": 0.0,
+      "reason": "confidence 0.00 below threshold 0.6 (1 signals collected) - not enough evidence to justify a personalised claim about this company"
+    },
+    {
+      "name": "KreditBee",
+      "confidence": 0.0,
+      "reason": "confidence 0.00 below threshold 0.6 (2 signals collected) - not enough evidence to justify a personalised claim about this company"
+    },
+    {
+      "name": "Bajaj Finserv",
+      "confidence": 0.0,
+      "reason": "confidence 0.00 below threshold 0.6 (1 signals collected) - not enough evidence to justify a personalised claim about this company"
+    },
+    {
+      "name": "Lendingkart",
+      "confidence": 0.0,
+      "reason": "confidence 0.00 below threshold 0.6 (1 signals collected) - not enough evidence to justify a personalised claim about this company"
+    },
+    {
+      "name": "MoneyView",
+      "confidence": 0.0,
+      "reason": "confidence 0.00 below threshold 0.6 (2 signals collected) - not enough evidence to justify a personalised claim about this company"
+    },
+    {
+      "name": "Navi",
+      "confidence": 0.0,
+      "reason": "confidence 0.00 below threshold 0.6 (2 signals collected) - not enough evidence to justify a personalised claim about this company"
+    },
+    {
+      "name": "Star Health",
+      "confidence": 0.0,
+      "reason": "confidence 0.00 below threshold 0.6 (1 signals collected) - not enough evidence to justify a personalised claim about this company"
+    },
+    {
+      "name": "Niva Bupa",
+      "confidence": 0.0,
+      "reason": "confidence 0.00 below threshold 0.6 (1 signals collected) - not enough evidence to justify a personalised claim about this company"
+    },
+    {
+      "name": "Cashfree Payments",
+      "confidence": 0.0,
+      "reason": "confidence 0.00 below threshold 0.6 (1 signals collected) - not enough evidence to justify a personalised claim about this company"
+    },
+    {
+      "name": "BharatPe",
+      "confidence": 0.0,
+      "reason": "confidence 0.00 below threshold 0.6 (2 signals collected) - not enough evidence to justify a personalised claim about this company"
+    },
+    {
+      "name": "Paytm",
+      "confidence": 0.0,
+      "reason": "confidence 0.00 below threshold 0.6 (2 signals collected) - not enough evidence to justify a personalised claim about this company"
+    },
+    {
+      "name": "AU Small Finance Bank",
+      "confidence": 0.0,
+      "reason": "confidence 0.00 below threshold 0.6 (1 signals collected) - not enough evidence to justify a personalised claim about this company"
+    },
+    {
+      "name": "Equitas Small Finance Bank",
+      "confidence": 0.0,
+      "reason": "confidence 0.00 below threshold 0.6 (1 signals collected) - not enough evidence to justify a personalised claim about this company"
+    }
+  ],
+  "sequences": [
+    {
+      "prospect_id": "smallcase",
+      "name": "smallcase",
+      "priority": 58.55,
+      "confidence": 0.78,
+      "evidence_basis": {
+        "sample": {
+          "reviews_fetched": 300,
+          "substantive": 121,
+          "negative_substantive": 66,
+          "substantive_share": 0.403
+        },
+        "support_review_share": 0.157,
+        "unresolved_language_share": 0.0758,
+        "quoted_reviews": [
+          "Customer service can be improved. CC is acting only as postman, raised issue 45...",
+          "Faced a transaction error in mutual fund and raise query for the same which..."
+        ]
+      },
+      "messages": [
+        {
+          "channel": "email",
+          "step": 1,
+          "subject": "smallcase: 8% of your negative reviews are about support, not product",
+          "body": "Hi {first_name},\n\nI pulled smallcase's recent public Play Store reviews and sorted the substantive ones by what the complaint is actually about. Of 66 negative reviews with real text in them, 8% are about the support channel itself rather than the product - no response, tickets left open, repeat follow-ups.\n\nTwo of them, verbatim: \"Customer service can be improved. CC is acting only as postman, raised issue 45...\"\nand \"Faced a transaction error in mutual fund and raise query for the same which...\"\n\nThe reason I find that split interesting rather than just bad: complaints about the channel behave differently from complaints about the product. They tend to be the ones where the customer already knew what they wanted and could not get an answer, which is the cheapest category to fix and the most expensive to leave alone.\n\nDoes that match what you see in your own contact mix, or do your store reviews skew differently from your ticket queue?\n\n{sender}"
+        },
+        {
+          "channel": "email",
+          "step": 2,
+          "wait_days": 4,
+          "subject": "Re: smallcase \u2014 the metric that hides this",
+          "body": "Following up with the part I think is actually useful, whether or not we ever speak.\n\nI built an eval harness over 18 real support queries from Indian wealth and fixed-income operations, and scored three agent configurations on whether they DISPOSED of each query correctly, rather than on how many they deflected:\n\nNaive retrieval:      67% automated, 39% correctly disposed, 8 confidently wrong\nRouted + integrated:  72% automated, 94% correctly disposed, 0 confidently wrong\n\nNear-identical deflection rates. The difference is entirely in whether the system answers from the customer's own record or from a help article.\n\nIf your current support tooling reports deflection rate but not disposition correctness, that gap doesn't appear anywhere in your reporting.\n\n{sender}"
+        },
+        {
+          "channel": "linkedin",
+          "step": 3,
+          "wait_days": 5,
+          "subject": null,
+          "body": "{first_name} \u2014 sent you a note on support complaint mix at smallcase. No reply needed if it isn't a live problem.\n\nOne thing I'd value your read on regardless: when a customer writes in saying the outcome contradicts what they expected - money not received, a form submitted but not applied - does that reach a human at smallcase, or does a bot take it? I have yet to find a platform where the honest answer is the second one."
+        },
+        {
+          "channel": "email",
+          "step": 4,
+          "wait_days": 7,
+          "subject": "Closing the loop \u2014 smallcase",
+          "body": "Last one from me.\n\nI'll leave the query taxonomy and the eval harness with you either way. They're useful independently of us, and you can run them against whatever you have in production today.\n\nIf support contact mix becomes a priority later in the year, I'm easy to find.\n\n{sender}"
+        }
+      ]
+    },
+    {
+      "prospect_id": "upstox",
+      "name": "Upstox",
+      "priority": 55.91,
+      "confidence": 0.78,
+      "evidence_basis": {
+        "sample": {
+          "reviews_fetched": 300,
+          "substantive": 102,
+          "negative_substantive": 46,
+          "substantive_share": 0.34
+        },
+        "support_review_share": 0.2059,
+        "unresolved_language_share": 0.0652,
+        "quoted_reviews": [
+          "no reply on mail or ticket, worst service, opening zerodha account, feeling Zerodha is...",
+          "I recently started using your new platform, which is similar to algovere. Due to..."
+        ]
+      },
+      "messages": [
+        {
+          "channel": "email",
+          "step": 1,
+          "subject": "Upstox: 7% of your negative reviews are about support, not product",
+          "body": "Hi {first_name},\n\nI pulled Upstox's recent public Play Store reviews and sorted the substantive ones by what the complaint is actually about. Of 46 negative reviews with real text in them, 7% are about the support channel itself rather than the product - no response, tickets left open, repeat follow-ups.\n\nTwo of them, verbatim: \"no reply on mail or ticket, worst service, opening zerodha account, feeling Zerodha is...\"\nand \"I recently started using your new platform, which is similar to algovere. Due to...\"\n\nThe reason I find that split interesting rather than just bad: complaints about the channel behave differently from complaints about the product. They tend to be the ones where the customer already knew what they wanted and could not get an answer, which is the cheapest category to fix and the most expensive to leave alone.\n\nDoes that match what you see in your own contact mix, or do your store reviews skew differently from your ticket queue?\n\n{sender}"
+        },
+        {
+          "channel": "email",
+          "step": 2,
+          "wait_days": 4,
+          "subject": "Re: Upstox \u2014 the metric that hides this",
+          "body": "Following up with the part I think is actually useful, whether or not we ever speak.\n\nI built an eval harness over 18 real support queries from Indian wealth and fixed-income operations, and scored three agent configurations on whether they DISPOSED of each query correctly, rather than on how many they deflected:\n\nNaive retrieval:      67% automated, 39% correctly disposed, 8 confidently wrong\nRouted + integrated:  72% automated, 94% correctly disposed, 0 confidently wrong\n\nNear-identical deflection rates. The difference is entirely in whether the system answers from the customer's own record or from a help article.\n\nIf your current support tooling reports deflection rate but not disposition correctness, that gap doesn't appear anywhere in your reporting.\n\n{sender}"
+        },
+        {
+          "channel": "linkedin",
+          "step": 3,
+          "wait_days": 5,
+          "subject": null,
+          "body": "{first_name} \u2014 sent you a note on support complaint mix at Upstox. No reply needed if it isn't a live problem.\n\nOne thing I'd value your read on regardless: when a customer writes in saying the outcome contradicts what they expected - money not received, a form submitted but not applied - does that reach a human at Upstox, or does a bot take it? I have yet to find a platform where the honest answer is the second one."
+        },
+        {
+          "channel": "email",
+          "step": 4,
+          "wait_days": 7,
+          "subject": "Closing the loop \u2014 Upstox",
+          "body": "Last one from me.\n\nI'll leave the query taxonomy and the eval harness with you either way. They're useful independently of us, and you can run them against whatever you have in production today.\n\nIf support contact mix becomes a priority later in the year, I'm easy to find.\n\n{sender}"
+        }
+      ]
+    },
+    {
+      "prospect_id": "indmoney",
+      "name": "INDmoney",
+      "priority": 55.76,
+      "confidence": 0.78,
+      "evidence_basis": {
+        "sample": {
+          "reviews_fetched": 300,
+          "substantive": 124,
+          "negative_substantive": 55,
+          "substantive_share": 0.413
+        },
+        "support_review_share": 0.1452,
+        "unresolved_language_share": 0.0545,
+        "quoted_reviews": [
+          "very bad app no response qukly no advance tolls\ud83d\udeab\ud83e\udd2c",
+          "My order got stuck for an hour and I lost a ton of money...."
+        ]
+      },
+      "messages": [
+        {
+          "channel": "email",
+          "step": 1,
+          "subject": "INDmoney: 5% of your negative reviews are about support, not product",
+          "body": "Hi {first_name},\n\nI pulled INDmoney's recent public Play Store reviews and sorted the substantive ones by what the complaint is actually about. Of 55 negative reviews with real text in them, 5% are about the support channel itself rather than the product - no response, tickets left open, repeat follow-ups.\n\nTwo of them, verbatim: \"very bad app no response qukly no advance tolls\ud83d\udeab\ud83e\udd2c\"\nand \"My order got stuck for an hour and I lost a ton of money....\"\n\nThe reason I find that split interesting rather than just bad: complaints about the channel behave differently from complaints about the product. They tend to be the ones where the customer already knew what they wanted and could not get an answer, which is the cheapest category to fix and the most expensive to leave alone.\n\nDoes that match what you see in your own contact mix, or do your store reviews skew differently from your ticket queue?\n\n{sender}"
+        },
+        {
+          "channel": "email",
+          "step": 2,
+          "wait_days": 4,
+          "subject": "Re: INDmoney \u2014 the metric that hides this",
+          "body": "Following up with the part I think is actually useful, whether or not we ever speak.\n\nI built an eval harness over 18 real support queries from Indian wealth and fixed-income operations, and scored three agent configurations on whether they DISPOSED of each query correctly, rather than on how many they deflected:\n\nNaive retrieval:      67% automated, 39% correctly disposed, 8 confidently wrong\nRouted + integrated:  72% automated, 94% correctly disposed, 0 confidently wrong\n\nNear-identical deflection rates. The difference is entirely in whether the system answers from the customer's own record or from a help article.\n\nIf your current support tooling reports deflection rate but not disposition correctness, that gap doesn't appear anywhere in your reporting.\n\n{sender}"
+        },
+        {
+          "channel": "linkedin",
+          "step": 3,
+          "wait_days": 5,
+          "subject": null,
+          "body": "{first_name} \u2014 sent you a note on support complaint mix at INDmoney. No reply needed if it isn't a live problem.\n\nOne thing I'd value your read on regardless: when a customer writes in saying the outcome contradicts what they expected - money not received, a form submitted but not applied - does that reach a human at INDmoney, or does a bot take it? I have yet to find a platform where the honest answer is the second one."
+        },
+        {
+          "channel": "email",
+          "step": 4,
+          "wait_days": 7,
+          "subject": "Closing the loop \u2014 INDmoney",
+          "body": "Last one from me.\n\nI'll leave the query taxonomy and the eval harness with you either way. They're useful independently of us, and you can run them against whatever you have in production today.\n\nIf support contact mix becomes a priority later in the year, I'm easy to find.\n\n{sender}"
+        }
+      ]
+    },
+    {
+      "prospect_id": "policybazaar",
+      "name": "PolicyBazaar",
+      "priority": 52.51,
+      "confidence": 0.78,
+      "evidence_basis": {
+        "sample": {
+          "reviews_fetched": 300,
+          "substantive": 111,
+          "negative_substantive": 91,
+          "substantive_share": 0.37
+        },
+        "support_review_share": 0.1441,
+        "unresolved_language_share": 0.0659,
+        "quoted_reviews": [
+          "WORST SERVICE EVER !! I bought car claim from this app and no help...",
+          "very bad experience with policy bazaar, still my claim status pending no one can..."
+        ]
+      },
+      "messages": [
+        {
+          "channel": "email",
+          "step": 1,
+          "subject": "PolicyBazaar: 7% of your negative reviews are about support, not product",
+          "body": "Hi {first_name},\n\nI pulled PolicyBazaar's recent public Play Store reviews and sorted the substantive ones by what the complaint is actually about. Of 91 negative reviews with real text in them, 7% are about the support channel itself rather than the product - no response, tickets left open, repeat follow-ups.\n\nTwo of them, verbatim: \"WORST SERVICE EVER !! I bought car claim from this app and no help...\"\nand \"very bad experience with policy bazaar, still my claim status pending no one can...\"\n\nThe reason I find that split interesting rather than just bad: complaints about the channel behave differently from complaints about the product. They tend to be the ones where the customer already knew what they wanted and could not get an answer, which is the cheapest category to fix and the most expensive to leave alone.\n\nDoes that match what you see in your own contact mix, or do your store reviews skew differently from your ticket queue?\n\n{sender}"
+        },
+        {
+          "channel": "email",
+          "step": 2,
+          "wait_days": 4,
+          "subject": "Re: PolicyBazaar \u2014 the metric that hides this",
+          "body": "Following up with the part I think is actually useful, whether or not we ever speak.\n\nI built an eval harness over 18 real support queries from Indian wealth and fixed-income operations, and scored three agent configurations on whether they DISPOSED of each query correctly, rather than on how many they deflected:\n\nNaive retrieval:      67% automated, 39% correctly disposed, 8 confidently wrong\nRouted + integrated:  72% automated, 94% correctly disposed, 0 confidently wrong\n\nNear-identical deflection rates. The difference is entirely in whether the system answers from the customer's own record or from a help article.\n\nIf your current support tooling reports deflection rate but not disposition correctness, that gap doesn't appear anywhere in your reporting.\n\n{sender}"
+        },
+        {
+          "channel": "linkedin",
+          "step": 3,
+          "wait_days": 5,
+          "subject": null,
+          "body": "{first_name} \u2014 sent you a note on support complaint mix at PolicyBazaar. No reply needed if it isn't a live problem.\n\nOne thing I'd value your read on regardless: when a customer writes in saying the outcome contradicts what they expected - money not received, a form submitted but not applied - does that reach a human at PolicyBazaar, or does a bot take it? I have yet to find a platform where the honest answer is the second one."
+        },
+        {
+          "channel": "email",
+          "step": 4,
+          "wait_days": 7,
+          "subject": "Closing the loop \u2014 PolicyBazaar",
+          "body": "Last one from me.\n\nI'll leave the query taxonomy and the eval harness with you either way. They're useful independently of us, and you can run them against whatever you have in production today.\n\nIf support contact mix becomes a priority later in the year, I'm easy to find.\n\n{sender}"
+        }
+      ]
+    },
+    {
+      "prospect_id": "razorpay",
+      "name": "Razorpay",
+      "priority": 51.96,
+      "confidence": 0.78,
+      "evidence_basis": {
+        "sample": {
+          "reviews_fetched": 300,
+          "substantive": 146,
+          "negative_substantive": 120,
+          "substantive_share": 0.487
+        },
+        "support_review_share": 0.2192,
+        "unresolved_language_share": 0.05,
+        "quoted_reviews": [
+          "very poor and frustrating service no customer support never use them.",
+          "Pathetic experience. Payments are stuck for over 15 days and there is absolutely no..."
+        ]
+      },
+      "messages": [
+        {
+          "channel": "email",
+          "step": 1,
+          "subject": "Razorpay: 5% of your negative reviews are about support, not product",
+          "body": "Hi {first_name},\n\nI pulled Razorpay's recent public Play Store reviews and sorted the substantive ones by what the complaint is actually about. Of 120 negative reviews with real text in them, 5% are about the support channel itself rather than the product - no response, tickets left open, repeat follow-ups.\n\nTwo of them, verbatim: \"very poor and frustrating service no customer support never use them.\"\nand \"Pathetic experience. Payments are stuck for over 15 days and there is absolutely no...\"\n\nThe reason I find that split interesting rather than just bad: complaints about the channel behave differently from complaints about the product. They tend to be the ones where the customer already knew what they wanted and could not get an answer, which is the cheapest category to fix and the most expensive to leave alone.\n\nDoes that match what you see in your own contact mix, or do your store reviews skew differently from your ticket queue?\n\n{sender}"
+        },
+        {
+          "channel": "email",
+          "step": 2,
+          "wait_days": 4,
+          "subject": "Re: Razorpay \u2014 the metric that hides this",
+          "body": "Following up with the part I think is actually useful, whether or not we ever speak.\n\nI built an eval harness over 18 real support queries from Indian wealth and fixed-income operations, and scored three agent configurations on whether they DISPOSED of each query correctly, rather than on how many they deflected:\n\nNaive retrieval:      67% automated, 39% correctly disposed, 8 confidently wrong\nRouted + integrated:  72% automated, 94% correctly disposed, 0 confidently wrong\n\nNear-identical deflection rates. The difference is entirely in whether the system answers from the customer's own record or from a help article.\n\nIf your current support tooling reports deflection rate but not disposition correctness, that gap doesn't appear anywhere in your reporting.\n\n{sender}"
+        },
+        {
+          "channel": "linkedin",
+          "step": 3,
+          "wait_days": 5,
+          "subject": null,
+          "body": "{first_name} \u2014 sent you a note on support complaint mix at Razorpay. No reply needed if it isn't a live problem.\n\nOne thing I'd value your read on regardless: when a customer writes in saying the outcome contradicts what they expected - money not received, a form submitted but not applied - does that reach a human at Razorpay, or does a bot take it? I have yet to find a platform where the honest answer is the second one."
+        },
+        {
+          "channel": "email",
+          "step": 4,
+          "wait_days": 7,
+          "subject": "Closing the loop \u2014 Razorpay",
+          "body": "Last one from me.\n\nI'll leave the query taxonomy and the eval harness with you either way. They're useful independently of us, and you can run them against whatever you have in production today.\n\nIf support contact mix becomes a priority later in the year, I'm easy to find.\n\n{sender}"
+        }
+      ]
+    }
+  ]
+}

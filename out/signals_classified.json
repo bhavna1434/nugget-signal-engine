@@ -1,0 +1,861 @@
+{
+  "source_file": "/Users/bhavnasharma/Documents/nugget-signal-engine/out/signals_playstore.json",
+  "source_reachable": true,
+  "synthetic": false,
+  "summaries": [
+    {
+      "prospect_id": "groww",
+      "name": "Groww",
+      "collector_status": "ok",
+      "collector_reason": "collected 300 reviews",
+      "signals": {
+        "support_review_share": 0.102,
+        "unresolved_language_share": null,
+        "rating_trend": -0.22,
+        "review_volume": 49
+      },
+      "sample": {
+        "reviews_fetched": 300,
+        "substantive": 49,
+        "negative_substantive": 24,
+        "substantive_share": 0.163
+      },
+      "hard_query_counts": {
+        "regulatory_status": 1
+      },
+      "evidence": [
+        {
+          "score": 1,
+          "at": "2026-10-19T12:28:50",
+          "text": "worst customer support and worst response don't go for groww app guys upstox or zerodha better please quit groww.... I tried for recover my 5000 unnecessary debited but still no response",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-10-18T21:02:51",
+          "text": "very bad experience I want to update my new mobile number with my pan in this app coz my old number is lost but no response",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-10-17T19:41:40",
+          "text": "Called their customer support team and waited more than 21 minutes even I was caller 1 in waiting list, but no response.",
+          "hard_queries": []
+        }
+      ],
+      "signals_collected": 3
+    },
+    {
+      "prospect_id": "zerodha",
+      "name": "Zerodha",
+      "collector_status": "ok",
+      "collector_reason": "collected 300 reviews",
+      "signals": {
+        "support_review_share": 0.0959,
+        "unresolved_language_share": 0.0137,
+        "rating_trend": 0.22,
+        "review_volume": 146
+      },
+      "sample": {
+        "reviews_fetched": 300,
+        "substantive": 146,
+        "negative_substantive": 73,
+        "substantive_share": 0.487
+      },
+      "hard_query_counts": {},
+      "evidence": [
+        {
+          "score": 1,
+          "at": "2026-10-09T19:04:24",
+          "text": "app is good untill you raise any complaint. customer support is worst.",
+          "hard_queries": []
+        }
+      ],
+      "signals_collected": 4
+    },
+    {
+      "prospect_id": "upstox",
+      "name": "Upstox",
+      "collector_status": "ok",
+      "collector_reason": "collected 300 reviews",
+      "signals": {
+        "support_review_share": 0.2059,
+        "unresolved_language_share": 0.0652,
+        "rating_trend": 0.62,
+        "review_volume": 102
+      },
+      "sample": {
+        "reviews_fetched": 300,
+        "substantive": 102,
+        "negative_substantive": 46,
+        "substantive_share": 0.34
+      },
+      "hard_query_counts": {
+        "maturity_settlement": 1,
+        "regulatory_status": 1
+      },
+      "evidence": [
+        {
+          "score": 1,
+          "at": "2026-10-17T08:57:04",
+          "text": "no reply on mail or ticket, worst service, opening zerodha account, feeling Zerodha is 100times better than u. no help to close account,",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-10-14T13:37:47",
+          "text": "I recently started using your new platform, which is similar to algovere. Due to some initial doubts, I contacted customer care, but the executive could not resolve my issue and directed me to email Upstox. I subsequently received a call stating that my issue was escalated to the relevant department. However, I have been left waiting for a week without any update. I am deeply disappointed by this ",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-10-08T14:16:29",
+          "text": "ekadam bakwas application hai mujhe Mera primary bank account change karna hai to kitne Mail upstox ko bhej chuka hun unhone Jo document mange voh bhi Main send kar chuka hun pata nahin fir bhi kyon Mera new bank account add nahin Ho Pa raha hai aur dusre bank account mein sirf name aur surname aage piche hai to name correction ke liye bhi kitne Mail kar chuka hun document De chuka hun sabhi docum",
+          "hard_queries": []
+        }
+      ],
+      "signals_collected": 4
+    },
+    {
+      "prospect_id": "angelone",
+      "name": "Angel One",
+      "collector_status": "ok",
+      "collector_reason": "collected 300 reviews",
+      "signals": {
+        "support_review_share": 0.1,
+        "unresolved_language_share": 0.0,
+        "rating_trend": 0.06,
+        "review_volume": 50
+      },
+      "sample": {
+        "reviews_fetched": 300,
+        "substantive": 50,
+        "negative_substantive": 30,
+        "substantive_share": 0.167
+      },
+      "hard_query_counts": {},
+      "evidence": [],
+      "signals_collected": 4
+    },
+    {
+      "prospect_id": "indmoney",
+      "name": "INDmoney",
+      "collector_status": "ok",
+      "collector_reason": "collected 300 reviews",
+      "signals": {
+        "support_review_share": 0.1452,
+        "unresolved_language_share": 0.0545,
+        "rating_trend": -0.08,
+        "review_volume": 124
+      },
+      "sample": {
+        "reviews_fetched": 300,
+        "substantive": 124,
+        "negative_substantive": 55,
+        "substantive_share": 0.413
+      },
+      "hard_query_counts": {
+        "regulatory_status": 1,
+        "yield_confusion": 1
+      },
+      "evidence": [
+        {
+          "score": 1,
+          "at": "2026-10-13T01:25:31",
+          "text": "My order got stuck for an hour and I lost a ton of money. Worst part? Customer care couldn\u2019t even get me a P1 escalation. So frustrating",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-10-06T08:02:59",
+          "text": "They may be good just for viewing or for some small amount investment but their non-existent human support system is useless. Security breach happened and it has been 6 days and no response at all. Better to avoid them, very useless support system.",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-09-29T15:34:03",
+          "text": "very bad app no response qukly no advance tolls\ud83d\udeab\ud83e\udd2c",
+          "hard_queries": []
+        }
+      ],
+      "signals_collected": 4
+    },
+    {
+      "prospect_id": "dhan",
+      "name": "Dhan",
+      "collector_status": "error",
+      "collector_reason": "app meta: NotFoundError: App not found(404).",
+      "signals": {
+        "support_review_share": null,
+        "unresolved_language_share": null,
+        "rating_trend": null,
+        "review_volume": null
+      },
+      "sample": {},
+      "hard_query_counts": {},
+      "evidence": [],
+      "signals_collected": 0
+    },
+    {
+      "prospect_id": "smallcase",
+      "name": "smallcase",
+      "collector_status": "ok",
+      "collector_reason": "collected 300 reviews",
+      "signals": {
+        "support_review_share": 0.157,
+        "unresolved_language_share": 0.0758,
+        "rating_trend": 0.64,
+        "review_volume": 121
+      },
+      "sample": {
+        "reviews_fetched": 300,
+        "substantive": 121,
+        "negative_substantive": 66,
+        "substantive_share": 0.403
+      },
+      "hard_query_counts": {
+        "maturity_settlement": 1
+      },
+      "evidence": [
+        {
+          "score": 1,
+          "at": "2026-09-04T17:56:07",
+          "text": "Faced a transaction error in mutual fund and raise query for the same which is still not resolved after a month of follow up. after google play review. i recieved call from team after a month.",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-07-09T15:03:38",
+          "text": "Customer service can be improved. CC is acting only as postman, raised issue 45 days back, TKT-143999, still no resolution.",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-06-17T12:29:57",
+          "text": "worst experience.. invested 25k on subscribed plan and it's been 1 month, funds are not reflecting in my account, also raised a ticket against this, and they only say we are processing it.....now i feel i lost my money....",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-05-31T08:51:46",
+          "text": "I have taken loan against MF facility, 25000 balance is available to withdraw, but from last 4 days not able to withdraw money, I have raised ticket for that but no reply, worst service and problem solving.",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-04-09T14:04:00",
+          "text": "poor and incorrect messaging across their offerings. Do not fall into their traps. You will end up being \"escalated to relevant teams\" for days. Update : Nobody replies to this support email. i escalated copying their CEO and even then nothing happened. reached out multiple times on their support number for resolution and only then was I able to get an update.",
+          "hard_queries": []
+        }
+      ],
+      "signals_collected": 4
+    },
+    {
+      "prospect_id": "scripbox",
+      "name": "Scripbox",
+      "collector_status": "error",
+      "collector_reason": "app meta: NotFoundError: App not found(404).",
+      "signals": {
+        "support_review_share": null,
+        "unresolved_language_share": null,
+        "rating_trend": null,
+        "review_volume": null
+      },
+      "sample": {},
+      "hard_query_counts": {},
+      "evidence": [],
+      "signals_collected": 0
+    },
+    {
+      "prospect_id": "grip_invest",
+      "name": "Grip Invest",
+      "collector_status": "ok",
+      "collector_reason": "collected 300 reviews",
+      "signals": {
+        "support_review_share": 0.0791,
+        "unresolved_language_share": null,
+        "rating_trend": -0.28,
+        "review_volume": 278
+      },
+      "sample": {
+        "reviews_fetched": 300,
+        "substantive": 278,
+        "negative_substantive": 22,
+        "substantive_share": 0.927
+      },
+      "hard_query_counts": {
+        "repayment_mechanics": 1
+      },
+      "evidence": [
+        {
+          "score": 1,
+          "at": "2026-09-29T21:58:38",
+          "text": "I am writing to report that my amount was deducted and shares are not showing in my portfolio. Kindly refund the amount or credit the shares at the earliest. I am extremely disappointed with the service. I have been following up since last month, yet the issue remains unresolved",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-09-22T10:36:09",
+          "text": "update. after a month's pause the app suddenly started the sip on iys own. this is an unauthorised hit on my bank. avoid getting lured by infinity. grip couldn't technically take the idea to its logical conclusion. though the support system is in place, pretty ineffective. clarifying.. i chose to invest in sdi infinity. the infinity bit does not happen. i reached out to your team. no resolution.",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-09-18T17:35:05",
+          "text": "worst experience, don't use grip platform, customer care is worst and cheaters...no response from them. I just asking to fill DIS but no response...",
+          "hard_queries": []
+        }
+      ],
+      "signals_collected": 3
+    },
+    {
+      "prospect_id": "jiraaf",
+      "name": "Jiraaf",
+      "collector_status": "error",
+      "collector_reason": "app meta: NotFoundError: App not found(404).",
+      "signals": {
+        "support_review_share": null,
+        "unresolved_language_share": null,
+        "rating_trend": null,
+        "review_volume": null
+      },
+      "sample": {},
+      "hard_query_counts": {},
+      "evidence": [],
+      "signals_collected": 0
+    },
+    {
+      "prospect_id": "indiabonds",
+      "name": "IndiaBonds",
+      "collector_status": "not_applicable",
+      "collector_reason": "prospect has no Android app (web-primary product)",
+      "signals": {
+        "support_review_share": null,
+        "unresolved_language_share": null,
+        "rating_trend": null,
+        "review_volume": null
+      },
+      "sample": {},
+      "hard_query_counts": {},
+      "evidence": [],
+      "signals_collected": 0
+    },
+    {
+      "prospect_id": "bondskart",
+      "name": "BondsKart",
+      "collector_status": "not_applicable",
+      "collector_reason": "prospect has no Android app (web-primary product)",
+      "signals": {
+        "support_review_share": null,
+        "unresolved_language_share": null,
+        "rating_trend": null,
+        "review_volume": null
+      },
+      "sample": {},
+      "hard_query_counts": {},
+      "evidence": [],
+      "signals_collected": 0
+    },
+    {
+      "prospect_id": "kreditbee",
+      "name": "KreditBee",
+      "collector_status": "ok",
+      "collector_reason": "only 35 substantive reviews (min 40) - sample too small to score",
+      "signals": {
+        "support_review_share": null,
+        "unresolved_language_share": null,
+        "rating_trend": 0.16,
+        "review_volume": null
+      },
+      "sample": {
+        "reviews_fetched": 300,
+        "substantive": 35,
+        "negative_substantive": 16,
+        "substantive_share": 0.117
+      },
+      "hard_query_counts": {
+        "repayment_mechanics": 1
+      },
+      "evidence": [],
+      "signals_collected": 1
+    },
+    {
+      "prospect_id": "bajaj_finserv",
+      "name": "Bajaj Finserv",
+      "collector_status": "error",
+      "collector_reason": "app meta: NotFoundError: App not found(404).",
+      "signals": {
+        "support_review_share": null,
+        "unresolved_language_share": null,
+        "rating_trend": null,
+        "review_volume": null
+      },
+      "sample": {},
+      "hard_query_counts": {},
+      "evidence": [],
+      "signals_collected": 0
+    },
+    {
+      "prospect_id": "lendingkart",
+      "name": "Lendingkart",
+      "collector_status": "error",
+      "collector_reason": "app meta: NotFoundError: App not found(404).",
+      "signals": {
+        "support_review_share": null,
+        "unresolved_language_share": null,
+        "rating_trend": null,
+        "review_volume": null
+      },
+      "sample": {},
+      "hard_query_counts": {},
+      "evidence": [],
+      "signals_collected": 0
+    },
+    {
+      "prospect_id": "moneyview",
+      "name": "MoneyView",
+      "collector_status": "ok",
+      "collector_reason": "only 29 substantive reviews (min 40) - sample too small to score",
+      "signals": {
+        "support_review_share": null,
+        "unresolved_language_share": null,
+        "rating_trend": 0.0,
+        "review_volume": null
+      },
+      "sample": {
+        "reviews_fetched": 300,
+        "substantive": 29,
+        "negative_substantive": 19,
+        "substantive_share": 0.097
+      },
+      "hard_query_counts": {
+        "regulatory_status": 1
+      },
+      "evidence": [
+        {
+          "score": 1,
+          "at": "2026-10-19T17:37:10",
+          "text": "No response from customer care help chat",
+          "hard_queries": []
+        }
+      ],
+      "signals_collected": 1
+    },
+    {
+      "prospect_id": "navi",
+      "name": "Navi",
+      "collector_status": "ok",
+      "collector_reason": "only 16 substantive reviews (min 40) - sample too small to score",
+      "signals": {
+        "support_review_share": null,
+        "unresolved_language_share": null,
+        "rating_trend": 0.02,
+        "review_volume": null
+      },
+      "sample": {
+        "reviews_fetched": 300,
+        "substantive": 16,
+        "negative_substantive": 9,
+        "substantive_share": 0.053
+      },
+      "hard_query_counts": {},
+      "evidence": [],
+      "signals_collected": 1
+    },
+    {
+      "prospect_id": "policybazaar",
+      "name": "PolicyBazaar",
+      "collector_status": "ok",
+      "collector_reason": "collected 300 reviews",
+      "signals": {
+        "support_review_share": 0.1441,
+        "unresolved_language_share": 0.0659,
+        "rating_trend": 0.38,
+        "review_volume": 111
+      },
+      "sample": {
+        "reviews_fetched": 300,
+        "substantive": 111,
+        "negative_substantive": 91,
+        "substantive_share": 0.37
+      },
+      "hard_query_counts": {
+        "regulatory_status": 1
+      },
+      "evidence": [
+        {
+          "score": 1,
+          "at": "2026-10-19T11:07:19",
+          "text": "I am very disappointed with policy bazar team my post hospitalisation claim was allready due for last 5 and half months from 5th July 2026 and till today 20th October 2026 claim was not clear coustomer support team has no answer coustomer support team say like a tep-recorder only one thing they say sir wait fo 2 -3 days from last 3 months full team is a waste and they waste my time",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-10-12T13:16:33",
+          "text": "felt cheated, I used the app for the first time to get a insurance for my motorbike, paid them for booking and followed their instructions and submitted my KYC for that policy and got a confirmation on their WhatsApp chat that my KYC was submitted to insurer, and after 46 hours I had to raise a ticket for refund because they said they need 53 hours, and got a mail after that saying that they have ",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-10-11T01:19:35",
+          "text": "I am sharing bad experience with Policy Bazaar I have 2 claims experience with Aditya Birla Health Insurance. in 1 claim Aditya Birla deducted my my amount and the 2nd claim has been rejected with unjustified reason. As a broker Policybazaar has not helped me and support me even their senior escalation person has clearly said me you should go to the next level of legal cell and raise your concern ",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-10-09T10:38:14",
+          "text": "very bad experience with policy bazaar, still my claim status pending no one can contact me or replying my mail so long time till yesterday, i don't know why these type treated with customer I want solution other wise Raised complaint",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-10-08T11:36:27",
+          "text": "WORST SERVICE EVER !! I bought car claim from this app and no help from policybazaar team, took 15 days and still rejected the claim even after providing all evidences",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-10-06T11:52:40",
+          "text": "I did my insurance of my car on 2 oct and my policy is still pending as per today 6 oct. They took the insurance money and now I got to know there is no way you can talk to customer care. Only thing you can do is wait for a call back. I raised a request twice and now I am still waiting. My policy expired on 4th October and now as I am not insured and I use my car on daily commute I am forced to bu",
+          "hard_queries": []
+        }
+      ],
+      "signals_collected": 4
+    },
+    {
+      "prospect_id": "acko",
+      "name": "ACKO",
+      "collector_status": "ok",
+      "collector_reason": "collected 300 reviews",
+      "signals": {
+        "support_review_share": 0.1446,
+        "unresolved_language_share": 0.0,
+        "rating_trend": 0.2,
+        "review_volume": 83
+      },
+      "sample": {
+        "reviews_fetched": 300,
+        "substantive": 83,
+        "negative_substantive": 64,
+        "substantive_share": 0.277
+      },
+      "hard_query_counts": {},
+      "evidence": [],
+      "signals_collected": 4
+    },
+    {
+      "prospect_id": "digit",
+      "name": "Go Digit",
+      "collector_status": "ok",
+      "collector_reason": "collected 300 reviews",
+      "signals": {
+        "support_review_share": 0.1053,
+        "unresolved_language_share": 0.0,
+        "rating_trend": 0.2,
+        "review_volume": 76
+      },
+      "sample": {
+        "reviews_fetched": 300,
+        "substantive": 76,
+        "negative_substantive": 46,
+        "substantive_share": 0.253
+      },
+      "hard_query_counts": {},
+      "evidence": [],
+      "signals_collected": 4
+    },
+    {
+      "prospect_id": "star_health",
+      "name": "Star Health",
+      "collector_status": "error",
+      "collector_reason": "app meta: NotFoundError: App not found(404).",
+      "signals": {
+        "support_review_share": null,
+        "unresolved_language_share": null,
+        "rating_trend": null,
+        "review_volume": null
+      },
+      "sample": {},
+      "hard_query_counts": {},
+      "evidence": [],
+      "signals_collected": 0
+    },
+    {
+      "prospect_id": "niva_bupa",
+      "name": "Niva Bupa",
+      "collector_status": "error",
+      "collector_reason": "app meta: NotFoundError: App not found(404).",
+      "signals": {
+        "support_review_share": null,
+        "unresolved_language_share": null,
+        "rating_trend": null,
+        "review_volume": null
+      },
+      "sample": {},
+      "hard_query_counts": {},
+      "evidence": [],
+      "signals_collected": 0
+    },
+    {
+      "prospect_id": "razorpay",
+      "name": "Razorpay",
+      "collector_status": "ok",
+      "collector_reason": "collected 300 reviews",
+      "signals": {
+        "support_review_share": 0.2192,
+        "unresolved_language_share": 0.05,
+        "rating_trend": -0.36,
+        "review_volume": 146
+      },
+      "sample": {
+        "reviews_fetched": 300,
+        "substantive": 146,
+        "negative_substantive": 120,
+        "substantive_share": 0.487
+      },
+      "hard_query_counts": {
+        "regulatory_status": 2,
+        "maturity_settlement": 1
+      },
+      "evidence": [
+        {
+          "score": 1,
+          "at": "2026-06-10T21:02:15",
+          "text": "worst managment after 8+ years journey suddenly they disabled account with 25k+ transaction s and said parmanant disable not release the funds without propr reason and prior notices and 25k+ rupees blocked and not responding to release they said not possible to realease due to internal and our banking partner policies that are not revealed. so becare full before chose this platform just people awe",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-05-14T17:09:16",
+          "text": "Please Do not use this app, they are using your data and circulating to random people. happened to me and I have escalated to them but there is no active response, plus they hoard data. they even do not have a decent calling customer care and an even more difficult portal to share grievances. please be aware all unless u want to be scammed all thanks to them",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-04-06T09:32:31",
+          "text": "very poor and frustrating service no customer support never use them.",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-04-01T15:49:57",
+          "text": "Pathetic experience. Payments are stuck for over 15 days and there is absolutely no update from Razorpay. No replies on emails, tickets, or calls. Feels like there is no support team at all.",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-04-01T14:39:14",
+          "text": "Razorpay should rename itself to \u201cHoldYourMoneyPay\u201d. Payments get stuck, and support disappears. No replies on email, tickets, or calls. It feels like once your money is with them, you\u2019re on your own. Completely unreliable for any business that depends on timely settlements.",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-03-07T18:02:31",
+          "text": "For more than 45 days I have raised a support ticket ID 2077774 with shiprocket and with razorpay ticket ID 18235429. Its a simple integration issue between razorpay and shiprocket but no resolution has been achieved yet. Shiprocket and razorpay technical support team has been lingering this issue for more than 45 days but till then orders from 2 integration partners are not syncing. Poor support ",
+          "hard_queries": []
+        }
+      ],
+      "signals_collected": 4
+    },
+    {
+      "prospect_id": "cashfree",
+      "name": "Cashfree Payments",
+      "collector_status": "not_applicable",
+      "collector_reason": "prospect has no Android app (web-primary product)",
+      "signals": {
+        "support_review_share": null,
+        "unresolved_language_share": null,
+        "rating_trend": null,
+        "review_volume": null
+      },
+      "sample": {},
+      "hard_query_counts": {},
+      "evidence": [],
+      "signals_collected": 0
+    },
+    {
+      "prospect_id": "bharatpe",
+      "name": "BharatPe",
+      "collector_status": "ok",
+      "collector_reason": "only 27 substantive reviews (min 40) - sample too small to score",
+      "signals": {
+        "support_review_share": null,
+        "unresolved_language_share": null,
+        "rating_trend": 0.28,
+        "review_volume": null
+      },
+      "sample": {
+        "reviews_fetched": 300,
+        "substantive": 27,
+        "negative_substantive": 18,
+        "substantive_share": 0.09
+      },
+      "hard_query_counts": {},
+      "evidence": [],
+      "signals_collected": 1
+    },
+    {
+      "prospect_id": "paytm",
+      "name": "Paytm",
+      "collector_status": "ok",
+      "collector_reason": "only 23 substantive reviews (min 40) - sample too small to score",
+      "signals": {
+        "support_review_share": null,
+        "unresolved_language_share": null,
+        "rating_trend": -0.06,
+        "review_volume": null
+      },
+      "sample": {
+        "reviews_fetched": 300,
+        "substantive": 23,
+        "negative_substantive": 7,
+        "substantive_share": 0.077
+      },
+      "hard_query_counts": {},
+      "evidence": [],
+      "signals_collected": 1
+    },
+    {
+      "prospect_id": "idfc_first",
+      "name": "IDFC FIRST Bank",
+      "collector_status": "ok",
+      "collector_reason": "collected 300 reviews",
+      "signals": {
+        "support_review_share": 0.1304,
+        "unresolved_language_share": null,
+        "rating_trend": 0.16,
+        "review_volume": 46
+      },
+      "sample": {
+        "reviews_fetched": 300,
+        "substantive": 46,
+        "negative_substantive": 14,
+        "substantive_share": 0.153
+      },
+      "hard_query_counts": {},
+      "evidence": [
+        {
+          "score": 1,
+          "at": "2026-10-17T18:24:01",
+          "text": "Worst Experience IDFC BANK I had a 3 Year Personal Loan with EMI \u20b924111 in IDFC FIRST Bank. Paid 36 out of 36 EMIs on time. they reject my loan . i Visited branch but staff had no answer. Customer care also useless. This is harassment of genuine customers. Do NOT take loan or EMI Card from IDFC FIRST Bank. There are so many hidden charges are in there idfc first bank dont trust",
+          "hard_queries": []
+        }
+      ],
+      "signals_collected": 3
+    },
+    {
+      "prospect_id": "au_bank",
+      "name": "AU Small Finance Bank",
+      "collector_status": "error",
+      "collector_reason": "app meta: NotFoundError: App not found(404).",
+      "signals": {
+        "support_review_share": null,
+        "unresolved_language_share": null,
+        "rating_trend": null,
+        "review_volume": null
+      },
+      "sample": {},
+      "hard_query_counts": {},
+      "evidence": [],
+      "signals_collected": 0
+    },
+    {
+      "prospect_id": "rbl_bank",
+      "name": "RBL Bank",
+      "collector_status": "ok",
+      "collector_reason": "collected 300 reviews",
+      "signals": {
+        "support_review_share": 0.2479,
+        "unresolved_language_share": 0.0291,
+        "rating_trend": -0.9,
+        "review_volume": 117
+      },
+      "sample": {
+        "reviews_fetched": 300,
+        "substantive": 117,
+        "negative_substantive": 103,
+        "substantive_share": 0.39
+      },
+      "hard_query_counts": {
+        "maturity_settlement": 1,
+        "regulatory_status": 1,
+        "repayment_mechanics": 1
+      },
+      "evidence": [
+        {
+          "score": 1,
+          "at": "2026-10-13T21:13:55",
+          "text": "worst application ,I have paid the bill this,but the payment was debited to my account,but card payment was not received,wrost application, I have mailed so many times no one response wrist service rbl team given",
+          "hard_queries": []
+        },
+        {
+          "score": 2,
+          "at": "2026-10-04T09:00:15",
+          "text": "no customer care executive available on the credit card helpline number. Also, no option available to in ivr to talk any executive verbally. It is an automated helpline. In the app we can't raise request or complaint because it is just loading and no executive connects to chat.",
+          "hard_queries": []
+        },
+        {
+          "score": 1,
+          "at": "2026-09-24T18:19:45",
+          "text": "BSF Personnel Disrespected & NOC Delayed 8432) I am an Indian Army personnel. I have cleared the full deposit/dues for my RBL credit card 8432 but the bank is continuously delaying my NOC. To make matters worse, their customer care executive used abusive language and misbehaved with me over the phone. There is absolutely no response to my emails, and they are only delaying the matter by asking for",
+          "hard_queries": []
+        }
+      ],
+      "signals_collected": 4
+    },
+    {
+      "prospect_id": "equitas",
+      "name": "Equitas Small Finance Bank",
+      "collector_status": "error",
+      "collector_reason": "app meta: NotFoundError: App not found(404).",
+      "signals": {
+        "support_review_share": null,
+        "unresolved_language_share": null,
+        "rating_trend": null,
+        "review_volume": null
+      },
+      "sample": {},
+      "hard_query_counts": {},
+      "evidence": [],
+      "signals_collected": 0
+    },
+    {
+      "prospect_id": "federal_bank",
+      "name": "Federal Bank",
+      "collector_status": "ok",
+      "collector_reason": "collected 300 reviews",
+      "signals": {
+        "support_review_share": 0.1091,
+        "unresolved_language_share": 0.027,
+        "rating_trend": 0.28,
+        "review_volume": 110
+      },
+      "sample": {
+        "reviews_fetched": 300,
+        "substantive": 110,
+        "negative_substantive": 74,
+        "substantive_share": 0.367
+      },
+      "hard_query_counts": {
+        "regulatory_status": 1
+      },
+      "evidence": [
+        {
+          "score": 1,
+          "at": "2026-10-12T21:39:13",
+          "text": "I requested a replacement debit card after blocking my first card, which I never received. I received the replacement and am using it. Now Federal Bank is charging me for both cards, including the one I never received! Instead of investigating the issue, your team keeps repeating the fee policy.Resolve this issue and refund the disputed charges, or I will escalate the matter to the appropriate gri",
+          "hard_queries": [
+            "regulatory_status"
+          ]
+        },
+        {
+          "score": 1,
+          "at": "2026-10-07T01:46:30",
+          "text": "I am not able to login, it's asking FOR android 12, mine is android 11 my Samsung says software upto date, and no update available",
+          "hard_queries": []
+        }
+      ],
+      "signals_collected": 4
+    }
+  ]
+}

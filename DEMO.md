@@ -1,0 +1,170 @@
+# Demo script — 5 minutes
+
+Read this once tonight and once in the morning. Do not read it during.
+
+Everything below is backed by a number in `out/` that you collected yourself.
+Nothing in it is estimated, simulated or assumed.
+
+---
+
+## Before you walk in
+
+```bash
+cd ~/Documents/nugget-signal-engine && source .venv/bin/activate
+python -m src.classify && python -m src.score && python -m src.run_evals && python -m src.generate_messages --top 5
+```
+
+Have open: the terminal, the dashboard, `evals/wealth_taxonomy.yaml`.
+
+---
+
+## The structure
+
+You are not presenting a prospecting tool. You are presenting **an
+investigation that disconfirmed its own hypothesis, and the engine that did
+it.** That is a stronger thing to walk in with, and almost nobody does.
+
+Lead with the disconfirmation. It is disarming, it is true, and it buys you
+credibility for everything after it.
+
+---
+
+## The five minutes
+
+**0:00 — Frame (30 sec)**
+
+> "You're hiring someone to build an outbound engine, so I built one and
+> pointed it at 5,700 real Play Store reviews across 19 BFSI apps. I want to
+> start with the part that didn't work, because it's the more useful half."
+
+**0:30 — The thesis that failed (90 sec)**
+
+> "My hypothesis was that Indian fixed-income platforms are drowning in tax and
+> settlement queries — TDS, Form 15G, maturity timing — that generic support
+> bots answer confidently and wrongly. I do investor relations at a bond
+> platform, so that's the query class I handle daily. I built the engine to
+> find the prospects where it was most visible."
+
+Then:
+
+> "Zero TDS complaints in 5,700 reviews. Seventeen hard-query mentions total.
+> And my first version of the counter was matching five-star reviews — Grip
+> Invest praising their own repayment dashboard was being scored as repayment
+> pain. The bond platforms I built the thesis around came out tenth and
+> unscored, not first and second."
+
+The honest conclusion, which is the line that matters:
+
+> "Two readings fit and my data can't separate them. Either app reviews are the
+> wrong instrument — nobody writes a Play Store review about Form 15G, they
+> raise a ticket — or the class is rarer than I assumed. I think it's the
+> first, but I can't prove it from this, so the hypothesis is untested rather
+> than confirmed. SEBI SCORES categorises complaints by type and is where it
+> would actually be visible. That's the next build."
+
+**2:00 — What the data did support (60 sec)** — dashboard, pipeline section
+
+> "What is measurable is the support-channel signal: among customers unhappy
+> enough to write a paragraph, what share are unhappy about the channel rather
+> than the product. That runs 0 to 7.6% across the set and it's checkable — any
+> one of these companies can verify it on their own listing in ten minutes."
+
+Point at the pipeline: smallcase, Upstox, INDmoney, PolicyBazaar, Razorpay.
+
+> "14 contactable, 17 held back. Anything with fewer than 40 substantive
+> reviews scores a dash, not a number. Navi returned 16 — a percentage off 16
+> reviews is two reviews and a rounding error."
+
+**3:00 — The eval (90 sec)** — the table that held
+
+> "Separately, I built an eval harness over 18 real queries from this domain,
+> and scored three agent configurations on whether they *disposed* of each
+> query correctly rather than how many they deflected."
+
+67% automated / 39% correct / 8 confidently wrong — versus 72% / 94% / 0.
+
+> "Near-identical deflection. Two and a half times the accuracy. Eight
+> compliance exposures versus zero. If a vendor reports deflection rate but not
+> disposition correctness, that entire gap is invisible in your QBRs."
+
+And the honest half:
+
+> "Routing alone automates 11%, which is safe and commercially useless. The
+> argument isn't 'escalate more' — it's route correctly, then integrate so the
+> correct route is usually an answer. That second half is what your live
+> integration actually sells."
+
+**4:30 — Close (30 sec)**
+
+> "Four bugs are documented in the README, including a confidence layer that
+> reported perfect confidence in evidence that didn't exist and looked
+> completely normal doing it. The engine's main value tonight was catching my
+> own errors — three of the four were things I'd have shipped."
+
+---
+
+## Questions you will get
+
+**"So your project failed?"**
+> "The hypothesis didn't survive. The engine worked — it's what killed it. I'd
+> rather bring you a disconfirmed thesis I can evidence than a confirmed one I
+> can't."
+
+**"Why should I trust the numbers that are left?"**
+> "Don't, entirely. Nine prospects have no data because I got their package IDs
+> wrong. Reachability is one field out of three. It's one snapshot with no
+> trend. Everything I'd want you to check is in the limitations section."
+
+**"Why not use an LLM to classify?"**
+> "Auditability. When a prospect asks how I concluded something about their
+> support operation, I need a rule I can point at. And three of my four bugs
+> were caught by reading what a rule matched — I'd never have spotted the
+> five-star reviews inside a model's output."
+
+**"Your agent escalates too much."**
+> "The routed one does — 11% is useless commercially. That's why there's a
+> third configuration. Integration turns a correct escalation into a correct
+> answer, and that's the product argument."
+
+**"How would you actually get a meeting with a CX head at a bank?"**
+> "Not with this alone. The engine ranks and drafts; it doesn't get me in the
+> room. The hook earns a reply because it contains a checkable fact about their
+> own operation. After that it's the consultative conversation, which is the
+> 60% of this job that nothing here automates."
+
+**"You don't have 2–4 years."**
+> "I don't. What I have is a year on the other side of this exact query class,
+> and whatever you've just watched me build in an evening. I'd rather be judged
+> on the second."
+
+---
+
+## Hard rules
+
+- **Do not claim the TDS thesis is validated.** It isn't. Saying so is the one
+  thing that could lose you the room, because it's checkable in your own repo.
+- **Do not present the tax mechanics as settled law.** Say "as I understand it,
+  and I'd verify before putting it in front of a client."
+- **Volunteer the Wint Wealth exclusion** before anyone asks. No employer data
+  is in this project; say so.
+- **Lead with the bugs, don't wait to be asked.** They are the most senior
+  thing in the repo.
+- Don't oversell. It's a prototype built in an evening and saying so is
+  stronger than pretending otherwise.
+
+---
+
+## Still to do before you present
+
+1. Read the six cases in `evals/wealth_taxonomy.yaml` flagged
+   `verify_before_demo: true` and correct my tax mechanics. **This is the one
+   thing only you can do**, and it's the part most likely to get probed.
+2. Optional: fix the nine wrong package IDs and re-collect. Adds data, doesn't
+   change the argument.
+
+---
+
+## If you only remember one line
+
+> "I built this to prove something, pointed it at real data, and it told me I
+> was wrong. The engine's first useful output was catching its own author."
